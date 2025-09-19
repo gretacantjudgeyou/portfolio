@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Un fast-food al sapore di Dao e Blockchain | Greta Iovene</title>
+    <meta content="Un fast-food al sapore di Dao e Blockchain - Saranno così i fastfood nel futuro?" property="og:title">
+    <meta content="Un fast-food al sapore di Dao e Blockchain - Saranno così i fastfood nel futuro?" property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- CSS Files -->
+    <link href="css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Article Page Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important;
+            font-weight: 700 !important;
+        }
+        
+        p, .article-content {
+            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important;
+            font-weight: 400 !important;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        .nav-link--final {
+            font-family: 'ITC Avant Garde Gothic Pro Medium', sans-serif !important;
+            font-weight: 500 !important;
+            transition: none !important;
+        }
+        
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            color: #572C57;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .article-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-content h3 {
+            color: #572C57;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .article-content a {
+            color: #572C57;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .article-content a:hover {
+            color: #4a2449;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #FDF5E6 0%, #FDF5E6 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+            transition: background-size 0.25s ease-in;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #572C57;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #FDF5E6 0%, #F4E6B8 100%);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(87, 44, 87, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #572C57 0%, #4a2449 100%);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-8px) translateY(-2px);
+            color: white;
+            border-color: #572C57;
+            box-shadow: 0 8px 24px rgba(87, 44, 87, 0.25);
+        }
+        
+        .back-link:hover::before {
+            left: 0;
+        }
+        
+        .back-link::after {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover::after {
+            transform: translateX(-3px);
+        }
+        
+        /* Image styling with proper dimensions and margins */
+        .article-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-container {
+                margin: 2rem auto 0;
+                padding: 1rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .article-image {
+                margin: 1.5rem auto;
+            }
+}
+</style>
+</head>
+
+<body class="body-3">
+    <div class="blog-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="small" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand">
+                        <img src="images/greta-logo-main.png" loading="lazy" alt="Greta Logo" class="image-236">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-12 w-icon-nav-menu"></div>
+                        <div class="c-nav-items">
+                            <a href="#" class="link-block-10 menu w-inline-block">
+                                <h1 class="link-menu-2">menu</h1>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="greta-logo-wraper">
+                        <img src="images/greta-logo-secondary.png" loading="lazy" width="Auto" alt="Greta Logo" class="image-237">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Content -->
+        <main class="article-container">
+            <a href="blog.html" class="back-link">Torna al Blog</a>
+            
+            <header class="article-header">
+                <h1 class="article-title">Un fast-food al sapore di Dao e Blockchain</h1>
+                <p class="article-subtitle">Saranno così i fastfood nel futuro?</p>
+                <div class="article-meta">
+                    <span>April 29, 2025</span>
+                </div>
+            </header>
+
+            <article class="article-content">
+                <p>La trasparenza e la partecipazione attiva del cliente non sono concetti che interessano solo il mercato del lusso. Al contrario, l'innovazione e lo sviluppo tecnologico-digitale che dilagano nella nostra società liquida permettono la nascita di nuovi paradigmi e modelli di business anche in settori come quello del fast-food.</p>
+
+                <p>È ciò che ha fatto <a href="https://www.eatwellys.com/" target="_blank"><strong>Welly</strong></a>, fast-food nato a Napoli che, dopo l'apertura del primo store nel 2021, ha lanciato una collezione di NFT di successo, notata dal colosso crypto Shiba Inu (offerta attuale di 589,3 mila miliardi di token e un prezzo di 0,000007 dollari ciascuno, <a href="https://www.coinbase.com/it/price/shiba-inu" target="_blank"><strong>fonte</strong></a>). La Community Welly ha già raggiunto 5mila membri su Discord e 50mila followers su twitter e, grazie alla collaborazione di Shiba Inu, il fast-food accetterà la criptovaluta <a href="https://coinmarketcap.com/it/currencies/shiba-inu/" target="_blank"><strong>$SHIB</strong></a> come metodo di pagamento (che figata).</p>
+
+                <img src="images/welly-nft-in-progress.png" alt="Il nuovo NFT in lavorazione" class="article-image">
+                <p class="image-caption">Il nuovo NFT in lavorazione</p>
+
+                <p>Purtroppo non se ne sta parlando abbastanza, nonostante Forbes li aveva già notati all'inizio dell'anno scorso, quando il rebranding (uno vero, non come quello di Twitter) era ormai iniziato e l'immagine dello Shiba diventava pian piano il nuovo tratto identitario dello store. Nuovo logo, nuovo packaging, nuova mascotte.</p>
+
+                <img src="images/welly-old-logo.jpeg" alt="Vecchio Logo" class="article-image">
+                <p class="image-caption">Vecchio Logo</p>
+
+                <img src="images/welly-rebranding.png" alt="Rebranding" class="article-image">
+                <p class="image-caption">Rebranding</p>
+
+                <img src="images/welly-true-rebranding.png" alt="Appunto, uno vero rebranding" class="article-image">
+                <p class="image-caption">Appunto, uno vero rebranding</p>
+
+                <p>Basando il loro lavoro su un sistema <span class="highlight"><strong>DAO</strong></span> (Decentralized autonomous organization) il progetto Welly promette di essere il primo fast-food al mondo guidato dalla propria community. In passato, i colossi Burger King e Mc Donald's si erano già avvicinati al mondo cripto. <a href="https://forbes.it/2021/11/04/un-panino-con-contorno-di-criptovalute-negli-usa-burger-king-mette-in-palio-bitcoin-ether-e-dogecoin/" target="_blank"><strong>Burger King</strong></a> collaborando con Robinhood ha dato l'opportunità ai propri clienti di vincere bitcoin, ethereum e dogecoin; Mc Donald's lanciando un concorso dove, condividendo il <a href="https://twitter.com/mcdonalds/status/1455174998264586243" target="_blank"><strong>tweet</strong></a>, si aveva la possibilità di vincere NFT dedicati al McRib.</p>
+
+                <p>Tutto questo, come sempre, solo in America.</p>
+
+                <p>Ma Welly è un progetto italiano, e più che italiano <span class="highlight"><strong>Napoletano</strong></span>. I founder infatti, nonostante i grandi sviluppi del brand e più di 400 richieste per l'apertura in franchising da diversi Paesi, hanno continuato a voler aprire il primo store a Napoli (e non a Milano) che verrà inaugurato l'ultima settimana di Settembre.</p>
+
+                <p>Ciò che però mi gasa particolarmente è la trasparenza. I folli founder di Welly hanno infatti deciso di introdurre una supply chain completamente tracciabile tramite <span class="highlight"><strong>blockchain</strong></span>, offrendo ai clienti tutte le informazioni necessarie sulla provenienza dei prodotti, partendo dalla provenienza del cibo della <em>loro</em> fattoria fino alla vendita in store. Ad oggi, sono presenti su ERC20, ma presto i gestionali saranno collegati alla blockchain di Shibarium.</p>
+
+                <p>Il progetto Welly si amplierà poi con Welly Fresh, una linea di prodotti healty preparati in laboratori e ghost kitchen dedicate, distribuiti poi sugli scaffali dei supermercati e vending machine. Il 2024 porterà la nascita del franchising in diversi punti mondiali e l'aumento della presenza nella grande distribuzione. Insomma, non finisce qui.</p>
+
+                <p>Ho mangiato il primo menù firmato Welly a Maggio 2021 - quando il progetto era <em>solo</em> Welly Burger senza influenze del mondo Web3 - ed ancora oggi lo ricordo come uno delle mie migliori cene fast-food.</p>
+
+                <p>Troverete il nuovo store - che invito fortemente a visitare anche solo per godere del design e dell'architettura - in <span class="highlight"><strong>Piazza Sannazzaro 4, Napoli</strong></span>. La seconda tappa italiana sarà Reggio Emilia, entro fine 2023.</p>
+
+                <p>I meravigliosi progetti degli store sono stati realizzati da <a href="https://www.linkedin.com/in/christophe-penasse-65538931/" target="_blank"><strong>Christophe Penasse</strong></a> e <a href="https://www.linkedin.com/in/ana-hern%C3%A1ndez-a0077b31/" target="_blank"><strong>Ana Hernández</strong></a> di <a href="https://www.linkedin.com/company/masquespacio/" target="_blank"><strong>MASQUESPACIO Interior Design Studio</strong></a>.</p>
+
+                <img src="images/welly-store-napoli.jpeg" alt="Napoli" class="article-image">
+                <p class="image-caption">Napoli</p>
+
+                <img src="images/welly-store-reggio-emilia-1.jpeg" alt="Reggio Emilia" class="article-image">
+                <p class="image-caption">Reggio Emilia</p>
+
+                <img src="images/welly-store-reggio-emilia-2.jpeg" alt="Reggio Emilia" class="article-image">
+                <p class="image-caption">Reggio Emilia</p>
+
+                <p><em>Grazie a Vincenzo Maietta, parte del Core Team, ideatore del (primo) Welly Burger e amico stimato per la condivisione di informazioni e immagini esclusive.</em></p>
+
+                <p><em>Come si dice in questi casi: "</em><strong><em>support your local artist</em></strong><em>". Anche quando smettono di essere così tanto </em><strong><em>local</em></strong><em>.</em></p>
+
+                <p>È proprio per progetti come questi che bisogna investire nell'innovazione.</p>
+
+                <p><strong>Grazie per la lettura! G.</strong></p>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand">
+                                <img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo">
+                            </a>
+                            <div>
+                                <a href="mailto:info@gretaiovene.com" class="link-9">info@gretaiovene.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-newsletter w-form">
+                            <form id="email-form" name="email-form" data-name="Email Form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="form-newsletter-footer">
+                                <input class="input newsletter-footer w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required="">
+                                <input type="submit" data-wait="Please wait..." class="button-primary-2 back w-button" value="Subscribe">
+                            </form>
+                            <div class="success-message-2 small w-form-done">
+                                <div>Thank you! You are now subscribed!</div>
+                            </div>
+                            <div class="error-message-2 w-form-fail">
+                                <div>Oops! Something went wrong.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links-block">
+                        <div class="footer-mobile-content2">
+                            <div class="div-block-228">
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Company</div>
+                                    <div class="div-block-229">
+                                        <a href="index.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Home</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Home</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="services.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit style-my-class-color-red-style">Services</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Services</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="blog.html" aria-current="page" class="link-f1 w-inline-block w--current">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Blogs</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Blogs</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="about.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">About</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">About</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="spacer links-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper">
+                    <div class="text-block-116">Copyright © gretaiovene.com 2025</div>
+                    <div class="social-icons-3">
+                        <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img loading="lazy" src="images/linkedin-icon.svg" alt="LinkedIn" class="image-110">
+                        </a>
+                        <a href="https://twitter.com/gretaiovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Twitter" src="images/twitter-icon.svg" loading="lazy">
+                        </a>
+                        <a href="https://www.instagram.com/gretacantjudgeyou/" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Instagram" src="images/instagram-icon.svg" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/webflow.js" type="text/javascript"></script>
+</body>
+</html>
