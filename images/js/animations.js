@@ -3,6 +3,35 @@
  * Comprehensive animation system using GSAP and ScrollTrigger
  */
 
+// Defensive guard: if GSAP or ScrollTrigger are unavailable, reveal content and bail out
+(function(){
+  var revealSafely = function(){
+    try {
+      var sels = [
+        '.animate-text-reveal',
+        '.animate-element-reveal',
+        '.animate-button-reveal',
+        '.animate-card-reveal',
+        '.animate-chakra-reveal'
+      ];
+      document.querySelectorAll(sels.join(',')).forEach(function(el){
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      document.querySelectorAll('section').forEach(function(sec){ sec.style.opacity = '1'; });
+    } catch(e) { /* no-op */ }
+  };
+  if (!window.gsap || !window.ScrollTrigger) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', revealSafely);
+    } else {
+      revealSafely();
+    }
+    // Stop executing the rest of this file
+    return;
+  }
+})();
+
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
