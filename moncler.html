@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Moncler - Case Study | Greta Iovene</title>
+    <meta content="Moncler - Case study showcasing our work with the luxury fashion brand." property="og:title">
+    <meta content="Moncler - Case study showcasing our work with the luxury fashion brand." property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- CSS Files -->
+    <link href="css/fonts.css?v=1758885340" rel="stylesheet" type="text/css">
+    <link href="css/style.css?v=1758885340" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Case Study Page Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important;
+            font-weight: 700 !important;
+        }
+        
+        p, .case-study-content {
+            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important;
+            font-weight: 400 !important;
+            line-height: 1.35; /* tighter */
+            letter-spacing: -0.01em; /* tighter */
+            color: #333;
+        }
+        
+        .nav-link--final {
+            font-family: 'ITC Avant Garde Gothic Pro Medium', sans-serif !important;
+            font-weight: 500 !important;
+            transition: none !important;
+        }
+        
+        /* Match navbar typography with inner pages */
+        .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        /* Force identical navbar sizing on homepage */
+        .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
+        .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
+        .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
+        
+        /* Case Study Layout */
+        .case-study-container {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+        }
+        
+        .case-study-header {
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+        
+        .case-study-title {
+            font-size: 3rem;
+            color: #572C57;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-dash {
+            width: 40px;
+            height: 2px;
+            background-color: #572C57;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study-content {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+        
+        .case-study-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .case-study-content h2 {
+            color: #572C57;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .case-study-content h3 {
+            color: #572C57;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .case-study-content a {
+            color: #572C57;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .case-study-content a:hover {
+            color: #4a2449;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #572C57;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #FDF5E6 0%, #F4E6B8 100%);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(87, 44, 87, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .back-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #572C57 0%, #4a2449 100%);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-8px) translateY(-2px);
+            color: white;
+            border-color: #572C57;
+            box-shadow: 0 8px 24px rgba(87, 44, 87, 0.25);
+        }
+        
+        .back-link:hover::before {
+            left: 0;
+        }
+        
+        .back-link::after {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover::after {
+            transform: translateX(-3px);
+        }
+        
+        /* Main Image */
+        .case-study-main-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 3rem auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: #FDF5E6;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #572C57;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-study-title {
+                font-size: 2.5rem;
+            }
+            
+            .case-study-container {
+                margin: 2rem auto 0;
+                padding: 1rem;
+            }
+            
+            .case-study-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* New layout to match reference */
+        .case-hero { background: #572C57; padding: 3.5rem 0 2rem 0; }
+        .case-hero .case-study-title { color: #FDF5E6; font-size: 4.4rem; line-height: 1.05; font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -0.01em; }
+        .case-hero .case-study-dash { background: #FDF5E6; }
+        .case-hero .case-study-meta { color: #FDF5E6; opacity: 0.8; }
+        .case-hero .case-study-subtitle { color: #FDF5E6; font-size: 0.95rem; line-height: 1.3; max-width: 420px; margin-bottom: 1.25rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
+        .hero-divider { height: 1px; width: 100%; max-width: 900px; background: rgba(255,255,255,0.85); margin: 1.25rem 0 1.5rem 0; }
+        .top-text-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; color: #FDF5E6; margin-top: 1rem; }
+        .top-text-grid p, .paragraph-64 { color: #FDF5E6; margin: 0.15rem 0; font-family: var(--font-xlt) !important; font-weight: 200 !important; line-height: 1.25; font-size: 0.9rem; max-width: 220px; letter-spacing: -0.005em; }
+        /* Extra Light variant approximation */
+        .font-xlt { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
+        .top-text-grid p.bold { font-weight: 700; }
+        .case-study-main-image { width: 100%; max-width: 840px; height: auto; margin: 2rem auto 3rem; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .purple-block { background: #572C57; padding: 2rem 0; }
+        .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .purple-2col h2 { color: #FDF5E6; font-size: 1.8rem; margin: 0; }
+        .purple-2col p { color: #FDF5E6; line-height: 1.7; margin: 0; }
+        .white-section { background: #ffffff; padding: 3rem 0; }
+        .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; }
+        .white-card h3 { margin: 0 0 0.5rem 0; }
+        .white-2col { background: #ffffff; padding: 3rem 0; }
+        .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
+        .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
+        .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        
+        /* Partners logos */
+        .partners { background: #FDF5E6; padding: 4rem 0 6rem 0; }
+        .partners-title { font-family: var(--font-subtitle) !important; font-weight: 700 !important; font-size: 2.2rem; color: #572C57; text-align: center; margin: 0 0 4rem 0; letter-spacing: 0.4px; }
+        .partners-card { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.08); padding: 1.5rem; display: flex; align-items: center; justify-content: center; }
+        .partners-card img { max-width: 100%; height: auto; display: block; }
+        
+        /* Bottom slider */
+        /* VERTICAL slider for Instagram formats */
+        .cma-slider { position: relative; width: 100%; max-width: 840px; margin: 0 auto; }
+        .cma-slider .viewport { overflow: hidden; border-radius: 20px; box-shadow: none; background: transparent; aspect-ratio: 9 / 16; height: min(98vh, 1100px); margin: 0 auto; width: 100%; }
+        .cma-slider .track { display: flex; height: 100%; transition: transform 0.5s ease; will-change: transform; gap: 0; backface-visibility: hidden; }
+        .cma-slider .slide { flex: 0 0 100%; height: 100%; margin: 0; border: 0; box-sizing: border-box; overflow: hidden; }
+        .cma-slider .slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); outline: none; }
+        .cma-slider .slide video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); }
+        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(87,44,87,0.9); color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .cma-slider .arrow.left { left: 8px; }
+        .cma-slider .arrow.right { right: 8px; }
+        .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
+        .cma-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
+        .cma-slider .dot.active { background: #572C57; }
+        @media (max-width: 768px) {
+            .cma-slider .arrow.left { left: 6px; }
+            .cma-slider .arrow.right { right: 6px; }
+        }
+        @media (max-width: 768px) {
+            .top-text-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .purple-2col { grid-template-columns: 1fr; }
+            .white-2col .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="home-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand">
+                        <img src="images/greta-logo-main.png" loading="lazy" alt="Greta Logo" class="image-236">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-12 w-icon-nav-menu"></div>
+                        <div class="c-nav-items">
+                            <button class="link-block-10 menu w-inline-block" onclick="toggleMobileMenu()">
+                                <h1 class="link-menu-2">menu</h1>
+                            </button>
+                            <div class="cloneable-area">
+                                <div class="c-nav-menu-btn-3">
+                                    <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f159" class="_w-nav-menu-btn">
+                                        <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15a" class="b-nav-menu-btn default">
+                                            <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15b" class="c-nav-menu-btn-icon">
+                                                <div class="_w-nav-menu-btn-icon">
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                    <div class="nav-menu-btn-line short"></div>
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="greta-logo-wraper">
+                        <img src="images/greta-logo-secondary.png" loading="lazy" width="Auto" alt="Greta Logo" class="image-237">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study Content -->
+        <section class="case-hero">
+            <div class="case-study-container">
+                <header class="case-study-header">
+                    <div class="case-study-dash"></div>
+                    <div class="case-study-meta"><span>2025</span></div>
+                    <h1 class="case-study-title">Moncler</h1>
+                    <p class="case-study-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                    <div class="hero-divider"></div>
+                    <div class="top-text-grid">
+                        <div>
+                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                        </div>
+                    </div>
+                </header>
+                <img src="images/moncler1.jpg?v=20250927-1" alt="Moncler" class="case-study-main-image">
+            </div>
+        </section>
+
+        <section class="purple-block">
+            <div class="case-study-container">
+                <div class="purple-2col">
+                    <h2>Heading</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="case-study-container">
+                <div class="white-card">
+                    <h3>Heading</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-2col">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div>
+                        <h3>Heading</h3>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                <div class="cma-slider" id="cmaSlider">
+                    <div class="viewport">
+                        <div class="track">
+                            <!-- Slide 1: unchanged -->
+                            <div class="slide"><img src="images/moncler2.jpeg?v=20250927-1" alt="Moncler"></div>
+                            
+                            <!-- Slide 2: autoplay video with provided filename -->
+                            <div class="slide">
+                                <video autoplay playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="images/testimonial-video-poster.jpg?v=20250927-1" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/monclervideo.mp4?v=20250927-1" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Slide 3: new image (added, not replacing) -->
+                            <div class="slide"><img src="images/moncler3.jpeg?v=20250927-1" alt="Moncler"></div>
+
+                            <!-- Slide 4..: original slides remain in same order as before -->
+                            <div class="slide"><img src="images/moncler4.jpeg?v=20250927-1" alt="Moncler"></div>
+                            <div class="slide"><img src="images/moncler5.JPG?v=20250927-1" alt="Moncler"></div>
+                            <div class="slide"><img src="images/moncler6.JPG?v=20250927-1" alt="Moncler"></div>
+                            <div class="slide"><img src="images/moncler7.jpg?v=20250927-1" alt="Moncler"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
+                    <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
+                    <div class="dots" id="cmaDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners logos -->
+        <section class="partners">
+            <div class="case-study-container">
+                <div class="partners-title">Official partners</div>
+                <div class="partners-card">
+                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand">
+                                <img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo">
+                            </a>
+                            <div>
+                                <a href="mailto:info@gretaiovene.com" class="link-9">info@gretaiovene.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-newsletter w-form">
+                            <form id="email-form" name="email-form" data-name="Email Form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="form-newsletter-footer">
+                                <input class="input newsletter-footer w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required="">
+                                <input type="submit" data-wait="Please wait..." class="button-primary-2 back w-button" value="Subscribe">
+                            </form>
+                            <div class="success-message-2 small w-form-done">
+                                <div>Thank you! You are now subscribed!</div>
+                            </div>
+                            <div class="error-message-2 w-form-fail">
+                                <div>Oops! Something went wrong.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links-block">
+                        <div class="footer-mobile-content2">
+                            <div class="div-block-228">
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Company</div>
+                                    <div class="div-block-229">
+                                        <a href="index.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Home</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Home</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="services.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit style-my-class-color-red-style">Services</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Services</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="blog.html" aria-current="page" class="link-f1 w-inline-block w--current">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Blogs</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Blogs</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="about.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">About</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">About</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="spacer links-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper">
+                    <div class="text-block-116">Copyright © gretaiovene.com 2025</div>
+                    <div class="social-icons-3">
+                        <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img loading="lazy" src="images/linkedin-icon.svg" alt="LinkedIn" class="image-110">
+                        </a>
+                        <a href="https://twitter.com/gretaiovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Twitter" src="images/twitter-icon.svg" loading="lazy">
+                        </a>
+                        <a href="https://www.instagram.com/gretacantjudgeyou/" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Instagram" src="images/instagram-icon.svg" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    
+    <script>
+        // Simple bottom slider logic
+        (function(){
+            const slider = document.getElementById('cmaSlider');
+            if (!slider) return;
+            const track = slider.querySelector('.track');
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+            const dotsWrap = document.getElementById('cmaDots');
+            let index = 0;
+            function update(){
+                // Ensure exact centering without subpixel offsets and round to 3 decimals
+                const x = Math.round((-index * 100) * 1000) / 1000;
+                track.style.transform = 'translate3d(' + x + '%,0,0)';
+                Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index));
+                // Pause all videos except the active one; play the active if it's a video
+                slides.forEach((s,i)=>{
+                    const vid = s.querySelector('video');
+                    if (!vid) return;
+                    if (i === index) { try { vid.play(); } catch(e){} }
+                    else { try { vid.pause(); vid.currentTime = 0; } catch(e){} }
+                });
+            }
+            // Build dots
+            slides.forEach((_,i)=>{
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i===0 ? ' active' : '');
+                dot.addEventListener('click', ()=>{ index = i; update(); });
+                dotsWrap.appendChild(dot);
+            });
+            window.cmaNext = function(){ index = (index + 1) % slides.length; update(); };
+            window.cmaPrev = function(){ index = (index - 1 + slides.length) % slides.length; update(); };
+            // Autoplay advance every 6s; longer if video duration is longer
+            let timer = setInterval(()=>window.cmaNext(), 6000);
+            slider.addEventListener('mouseenter', ()=>clearInterval(timer));
+            slider.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.cmaNext(), 6000); });
+            // Start: ensure first slide state and play if video
+            update();
+        })();
+    </script>
+</body>
+</html>

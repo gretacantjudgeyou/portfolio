@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Limitless Innovation - Case Study | Greta Iovene</title>
+    <meta content="Limitless Innovation - Case study showcasing our work." property="og:title">
+    <meta content="Limitless Innovation - Case study showcasing our work." property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- CSS Files -->
+    <link href="css/fonts.css?v=1758885340" rel="stylesheet" type="text/css">
+    <link href="css/style.css?v=1758885340" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 { font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important; font-weight: 700 !important; }
+        p, .case-study-content { font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important; font-weight: 400 !important; line-height: 1.35; letter-spacing: -0.01em; color: #333; }
+
+        /* Navbar consistency */
+        .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
+        .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
+        .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
+
+        /* Disable navbar animations */
+        .navbar-5, .w-nav, .w-nav-menu, .w-nav-overlay, .w-nav-button, .nav-menu-3 {
+            transition: none !important; transform: none !important; opacity: 1 !important; visibility: visible !important;
+        }
+        .w-nav-menu, .nav-menu-3 { display: flex !important; position: static !important; height: auto !important; pointer-events: auto !important; }
+        .w-nav-overlay { display: none !important; }
+        body.w--nav-open .w-nav-overlay { display: none !important; }
+        body.w--nav-open .w-nav-menu { display: flex !important; }
+
+        /* Case Study Layout */
+        .case-study-container { max-width: 1200px; margin: 4rem auto 0; padding: 2rem; }
+        .case-study-header { margin-bottom: 4rem; opacity: 0; animation: fadeInUp 1s ease-out 0.2s forwards; }
+        .case-study-title { font-size: 3rem; color: #572C57; margin-bottom: 1rem; line-height: 1.2; }
+        .case-study-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; }
+        .case-study-meta { display: flex; gap: 2rem; font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
+        .case-study-dash { width: 40px; height: 2px; background-color: #572C57; margin-bottom: 1rem; }
+        .case-study-main-image { width: 100%; max-width: 840px; height: auto; margin: 2rem auto 3rem; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .purple-block { background: #572C57; padding: 2rem 0; }
+        .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .purple-2col h2 { color: #FDF5E6; font-size: 1.8rem; margin: 0; }
+        .purple-2col p { color: #FDF5E6; line-height: 1.7; margin: 0; }
+        .white-section { background: #ffffff; padding: 3rem 0; }
+        .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; }
+        .white-2col { background: #ffffff; padding: 3rem 0; }
+        .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
+        .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
+        .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+        /* Bottom slider vertical format */
+        .cma-slider { position: relative; width: 100%; max-width: 840px; margin: 0 auto; }
+        .cma-slider .viewport { overflow: hidden; border-radius: 20px; box-shadow: none; background: transparent; aspect-ratio: 9 / 16; height: min(98vh, 1100px); margin: 0 auto; width: 100%; }
+        .cma-slider .track { display: flex; height: 100%; transition: transform 0.5s ease; will-change: transform; gap: 0; backface-visibility: hidden; }
+        .cma-slider .slide { flex: 0 0 100%; height: 100%; margin: 0; border: 0; box-sizing: border-box; overflow: hidden; }
+        .cma-slider .slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); outline: none; }
+        .cma-slider .slide video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); }
+        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(87,44,87,0.9); color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .cma-slider .arrow.left { left: 8px; }
+        .cma-slider .arrow.right { right: 8px; }
+        .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
+        .cma-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
+        .cma-slider .dot.active { background: #572C57; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
+        @media (max-width: 768px) { .purple-2col { grid-template-columns: 1fr; } .white-2col .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+
+<body class="body">
+    <div class="home-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand">
+                        <img src="images/greta-logo-main.png" loading="lazy" alt="Greta Logo" class="image-236">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-12 w-icon-nav-menu"></div>
+                        <div class="c-nav-items">
+                            <button class="link-block-10 menu w-inline-block" onclick="toggleMobileMenu()">
+                                <h1 class="link-menu-2">menu</h1>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="greta-logo-wraper">
+                        <img src="images/greta-logo-secondary.png" loading="lazy" width="Auto" alt="Greta Logo" class="image-237">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study Content -->
+        <section class="case-hero">
+            <div class="case-study-container">
+                <header class="case-study-header">
+                    <div class="case-study-dash"></div>
+                    <div class="case-study-meta"><span>2025</span></div>
+                    <h1 class="case-study-title">Limitless Innovation</h1>
+                    <p class="case-study-subtitle">TODO: breve descrizione del progetto Limitless Innovation.</p>
+                    <div class="hero-divider"></div>
+                </header>
+                <img src="images/limitlesscover.jpeg" alt="Limitless Innovation" class="case-study-main-image">
+            </div>
+        </section>
+
+        <section class="purple-block">
+            <div class="case-study-container">
+                <div class="purple-2col">
+                    <h2>Heading</h2>
+                    <p>TODO: testo introduttivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="case-study-container">
+                <div class="white-card">
+                    <h3>Heading</h3>
+                    <p>TODO: contenuto della case study.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-2col">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div>
+                        <h3>Heading</h3>
+                    </div>
+                    <div>
+                        <p>TODO: testo descrittivo.</p>
+                    </div>
+                </div>
+                <div class="cma-slider" id="cmaSlider">
+                    <div class="viewport">
+                        <div class="track">
+                            <!-- Slide 1: image -->
+                            <div class="slide"><img src="images/placeholder-vertical-1.jpg" alt="Limitless Innovation"></div>
+                            <!-- Slide 2: video -->
+                            <div class="slide">
+                                <video autoplay playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="images/placeholder-video-poster.jpg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/placeholder-vertical.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <!-- Slide 3: image -->
+                            <div class="slide"><img src="images/placeholder-vertical-2.jpg" alt="Limitless Innovation"></div>
+                            <!-- Slide 4: image -->
+                            <div class="slide"><img src="images/placeholder-vertical-3.jpg" alt="Limitless Innovation"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
+                    <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
+                    <div class="dots" id="cmaDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners logos (optional) -->
+        <section class="partners">
+            <div class="case-study-container">
+                <div class="partners-title">Official partners</div>
+                <div class="partners-card">
+                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand">
+                                <img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo">
+                            </a>
+                            <div>
+                                <a href="mailto:info@gretaiovene.com" class="link-9">info@gretaiovene.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-newsletter w-form">
+                            <form id="email-form" name="email-form" data-name="Email Form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="form-newsletter-footer">
+                                <input class="input newsletter-footer w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required>
+                                <input type="submit" data-wait="Please wait..." class="button-primary-2 back w-button" value="Subscribe">
+                            </form>
+                            <div class="success-message-2 small w-form-done">
+                                <div>Thank you! You are now subscribed!</div>
+                            </div>
+                            <div class="error-message-2 w-form-fail">
+                                <div>Oops! Something went wrong.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links-block">
+                        <div class="footer-mobile-content2">
+                            <div class="div-block-228">
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Company</div>
+                                    <div class="div-block-229">
+                                        <a href="index.html" class="link-f1 w-inline-block"><div class="div-hover"><div class="div-magnetico"><div class="div-mascara"><div class="caja-de-texto"><div class="inicio-whit menu-white">Home</div></div><div class="caja-de-texto"><div class="inicio-white menu-white">Home</div></div></div></div></div></a>
+                                        <a href="services.html" class="link-f1 w-inline-block"><div class="div-hover"><div class="div-magnetico"><div class="div-mascara"><div class="caja-de-texto"><div class="inicio-whit style-my-class-color-red-style">Services</div></div><div class="caja-de-texto"><div class="inicio-white menu-white">Services</div></div></div></div></div></a>
+                                        <a href="blog.html" class="link-f1 w-inline-block"><div class="div-hover"><div class="div-magnetico"><div class="div-mascara"><div class="caja-de-texto"><div class="inicio-whit menu-white">Blogs</div></div><div class="caja-de-texto"><div class="inicio-white menu-white">Blogs</div></div></div></div></div></a>
+                                        <a href="about.html" class="link-f1 w-inline-block"><div class="div-hover"><div class="div-magnetico"><div class="div-mascara"><div class="caja-de-texto"><div class="inicio-whit menu-white">About</div></div><div class="caja-de-texto"><div class="inicio-white menu-white">About</div></div></div></div></div></a>
+                                    </div>
+                                </div>
+                                <div class="spacer links-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper">
+                    <div class="text-block-116">Copyright © gretaiovene.com 2025</div>
+                    <div class="social-icons-3">
+                        <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="social-media-icon-2 w-inline-block"><img loading="lazy" src="images/linkedin-icon.svg" alt="LinkedIn" class="image-110"></a>
+                        <a href="https://twitter.com/gretaiovene" target="_blank" class="social-media-icon-2 w-inline-block"><img width="45" height="45" alt="Twitter" src="images/twitter-icon.svg" loading="lazy"></a>
+                        <a href="https://www.instagram.com/gretacantjudgeyou/" target="_blank" class="social-media-icon-2 w-inline-block"><img width="45" height="45" alt="Instagram" src="images/instagram-icon.svg" loading="lazy"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript (no Webflow runtime) -->
+    <script>
+        // Simple bottom slider logic (same pattern as other case studies)
+        (function(){
+            const slider = document.getElementById('cmaSlider');
+            if (!slider) return;
+            const track = slider.querySelector('.track');
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+            const dotsWrap = document.getElementById('cmaDots');
+            let index = 0;
+            function update(){
+                const x = Math.round((-index * 100) * 1000) / 1000;
+                track.style.transform = 'translate3d(' + x + '%,0,0)';
+                Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index));
+                slides.forEach((s,i)=>{
+                    const vid = s.querySelector('video');
+                    if (!vid) return;
+                    if (i === index) { try { vid.play(); } catch(e){} }
+                    else { try { vid.pause(); vid.currentTime = 0; } catch(e){} }
+                });
+            }
+            slides.forEach((_,i)=>{
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i===0 ? ' active' : '');
+                dot.addEventListener('click', ()=>{ index = i; update(); });
+                dotsWrap.appendChild(dot);
+            });
+            window.cmaNext = function(){ index = (index + 1) % slides.length; update(); };
+            window.cmaPrev = function(){ index = (index - 1 + slides.length) % slides.length; update(); };
+            let timer = setInterval(()=>window.cmaNext(), 6000);
+            slider.addEventListener('mouseenter', ()=>clearInterval(timer));
+            slider.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.cmaNext(), 6000); });
+            update();
+        })();
+    </script>
+</body>
+</html>

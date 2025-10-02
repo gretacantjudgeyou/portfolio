@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Test Navbar - Greta Iovene | Portfolio & Network</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- CSS Files -->
+    <link href="css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Font Loading Script -->
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic",
+                          "Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic",
+                          "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic",
+                          "Varela Round:400"]
+            }
+        });
+    </script>
+    
+    <style>
+        .icon {
+            inset: 105.8% 0 auto 47% !important;
+        }
+        .icon-2 {
+            top: 105.5%;
+            left: 400px;
+            right: 0;
+        }
+        
+        /* Custom Slider Styles */
+        .custom-slider .w-slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .custom-slider .w-slide.active-slide {
+            display: block;
+            opacity: 1;
+        }
+        
+        .slider-dot, .testimonial-dot, .horizontal-dot {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active, .testimonial-dot.active, .horizontal-dot.active {
+            background-color: #FDF5E6;
+        }
+        
+        /* Match navbar typography with inner pages */
+        .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        /* Force identical navbar sizing on homepage */
+        .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
+        .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
+        .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
+        
+        body {
+            background: #613262;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .test-content {
+            padding: 200px 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="home-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="small" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand">
+                        <img src="images/greta-logo-main.png" loading="lazy" alt="Greta Logo" class="image-236">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-12 w-icon-nav-menu"></div>
+                        <div class="c-nav-items">
+                            <button class="link-block-10 menu w-inline-block" onclick="toggleMobileMenu()">
+                                <h1 class="link-menu-2">menu</h1>
+                            </button>
+                            <div class="cloneable-area">
+                                <div class="c-nav-menu-btn-3">
+                                    <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f159" class="_w-nav-menu-btn">
+                                        <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15a" class="b-nav-menu-btn default">
+                                            <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15b" class="c-nav-menu-btn-icon">
+                                                <div class="_w-nav-menu-btn-icon">
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                    <div class="nav-menu-btn-line short"></div>
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="greta-logo-wraper">
+                        <img src="images/greta-logo-secondary.png" loading="lazy" width="Auto" alt="Greta Logo" class="image-237">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-content">
+            <h1>TEST NAVBAR PAGE</h1>
+            <p>This page has the EXACT same navbar structure and CSS as the homepage.</p>
+            <p>If the navbar appears different here than on the homepage, there's an external CSS conflict.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            console.log('Mobile menu toggle clicked');
+        }
+    </script>
+</body>
+</html>

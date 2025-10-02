@@ -31,6 +31,13 @@
             transition: none !important;
         }
         
+        /* Match navbar typography with inner pages */
+        .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        /* Force identical navbar sizing on homepage */
+        .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
+        .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
+        .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
+        
         /* Article Layout */
         .article-container {
             max-width: 800px;
@@ -207,10 +214,10 @@
     </style>
 </head>
 
-<body class="body-3">
-    <div class="blog-page-wraper">
+<body class="body">
+    <div class="home-page-wraper">
         <!-- Navigation -->
-        <div data-animation="default" data-collapse="small" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+        <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
             <div class="container-26 w-container">
                 <div class="div-block-630">
                     <a href="index.html" class="brand w-nav-brand">
@@ -225,9 +232,24 @@
                     <div class="menu-button-4 w-nav-button">
                         <div class="icon-12 w-icon-nav-menu"></div>
                         <div class="c-nav-items">
-                            <a href="#" class="link-block-10 menu w-inline-block">
+                            <button class="link-block-10 menu w-inline-block" onclick="toggleMobileMenu()">
                                 <h1 class="link-menu-2">menu</h1>
-                            </a>
+                            </button>
+                            <div class="cloneable-area">
+                                <div class="c-nav-menu-btn-3">
+                                    <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f159" class="_w-nav-menu-btn">
+                                        <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15a" class="b-nav-menu-btn default">
+                                            <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15b" class="c-nav-menu-btn-icon">
+                                                <div class="_w-nav-menu-btn-icon">
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                    <div class="nav-menu-btn-line short"></div>
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="greta-logo-wraper">

@@ -12492,9 +12492,11 @@ blockquote {
   align-self: baseline;
   align-items: center;
   height: 100%;
-  font-size: calc(.25vw + 1rem);
-  font-weight: 400;
-  line-height: 1.5em;
+  font-size: 20px !important;
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  line-height: 1.2 !important;
+  padding: 32px 0 !important;
   text-decoration: none;
   transition-property: color;
   transition-duration: .3s;
@@ -15821,7 +15823,9 @@ blockquote {
   }
 
   .nav-link--final.w--current {
-    font-size: calc(.25vw + 1rem);
+    font-size: 20px !important;
+    padding: 32px 0 !important;
+    line-height: 1.2 !important;
   }
 
   .uui-container-large {
@@ -16162,6 +16166,24 @@ blockquote {
   .nav-logo {
     z-index: 2;
     position: relative;
+  }
+
+  .nav-link--final {
+    border-top: 1px none var(--grey-line);
+    border-bottom: 1px solid var(--grey-line);
+    flex: 0 auto;
+    color: var(--text--pure-black);
+    text-align: center;
+    letter-spacing: .05em;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 32px 0 !important;
+    font-family: Itc Avant Garde Gothic, Arial, sans-serif;
+    font-size: 20px !important;
+    font-weight: 500;
+    line-height: 1.2 !important;
+    text-decoration: none;
+    display: flex;
   }
 
   .nav-link {
@@ -17634,9 +17656,11 @@ blockquote {
     height: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding: 32px 0;
-    font-family: Itc Avant Garde Gothic Book, Arial, sans-serif;
-    font-size: 17px;
+    padding: 32px 0 !important;
+    font-family: var(--font-subtitle);
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
     display: flex;
   }
 
@@ -17648,7 +17672,9 @@ blockquote {
     border-bottom-style: none;
     margin-left: 0;
     margin-right: 0;
-    padding: 15px 0;
+    padding: 32px 0 !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
   }
 
   .nav-link--final.nav-item-dropdown {
@@ -19367,7 +19393,9 @@ blockquote {
   .nav-link--final {
     color: var(--text--pure-black);
     border-bottom-style: none;
-    padding: 20px 0;
+    padding: 32px 0 !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
   }
 
   .nav-link--final:active {
@@ -21769,34 +21797,36 @@ blockquote {
   }
 
   .div-block-630 {
-    align-items: center;
-    padding-left: 0;
-    padding-right: 0;
+  align-items: center;
+  padding-left: .5rem;
+  padding-right: .5rem;
   }
 
   .nav-menu-3 {
-    margin: 5% 5% 0%;
-    padding: 15px;
+  margin: 0;
+  padding: 0;
   }
 
   .nav-link--final {
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    text-align: center;
-    border: 1px #000;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 0 0%;
-    font-family: Itc Avant Garde Gothic Book, Arial, sans-serif;
-    font-size: 20px;
-    display: flex;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  border: 1px #000;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0 !important;
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  display: flex;
   }
 
   .nav-link--final.w--current {
-    padding-top: 10px;
-    padding-bottom: 0;
-    font-size: 20px;
+  padding: 32px 0 !important;
+  font-size: 20px !important;
+  line-height: 1.2 !important;
   }
 
   .div-block-5--final {
@@ -21813,7 +21843,7 @@ blockquote {
   }
 
   .greta-logo-wraper {
-    width: 80px;
+  width: 150px;
   }
 
   .image-237 {

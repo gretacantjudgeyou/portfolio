@@ -13,26 +13,77 @@
   --color-dark: #3B3E49;
   --color-mid: #60667A;
 
-  --font-title: "ITC Avant Garde Gothic Pro Bold", "AvantGarde Bold", "Avant Garde", Montserrat, Arial, sans-serif;
-  --font-subtitle: "ITC Avant Garde Gothic Pro Medium", "AvantGarde Medium", "Avant Garde", Montserrat, Arial, sans-serif;
-  --font-copy: "ITC Avant Garde Gothic Pro Book", "AvantGarde Book", "Avant Garde", Montserrat, Arial, sans-serif;
+  /* Use a single family name and control via weights */
+  --font-title: "ITC Avant Garde Gothic Pro", Arial, sans-serif;
+  --font-subtitle: "ITC Avant Garde Gothic Pro", Arial, sans-serif;
+  --font-copy: "ITC Avant Garde Gothic Pro", Arial, sans-serif;
+  --font-xlt: "ITC Avant Garde Gothic Pro", Arial, sans-serif;
+}
+
+/* ITC Avant Garde Gothic Pro - unify weights under one family name */
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Pro';
+  src: url('../fonts/ITCAvantGardeGothicPro-XLt.woff2') format('woff2'),
+       url('../fonts/ITCAvantGardeGothicPro-XLt.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Pro';
+  src: url('../fonts/ITCAvantGardeGothicPro-Book.woff2') format('woff2'),
+       url('../fonts/ITCAvantGardeGothicPro-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Pro';
+  src: url('../fonts/ITCAvantGardeGothicPro-Md.woff2') format('woff2'),
+       url('../fonts/ITCAvantGardeGothicPro-Md.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ITC Avant Garde Gothic Pro';
+  src: url('../fonts/ITCAvantGardeGothicPro-Bold.woff2') format('woff2'),
+       url('../fonts/ITCAvantGardeGothicPro-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Site-wide defaults */
 html, body {
   font-family: var(--font-copy);
+  font-weight: 400;
   color: var(--color-cream);
+  letter-spacing: -0.005em;
+  line-height: 1.35;
 }
 
 h1, h2, h3 {
   font-family: var(--font-title);
   font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
 }
 
 .subtitle, .subheading, .hero-subtitle p, .page-intro-title-small, .page-intro-title-small--second {
   font-family: var(--font-subtitle);
   font-weight: 500;
+  letter-spacing: -0.005em;
 }
+
+/* Font utilities (apply across pages) */
+.font-xlt { font-family: var(--font-xlt); font-weight: 200 !important; }
+.font-book { font-family: var(--font-copy); font-weight: 400 !important; }
+.font-medium { font-family: var(--font-subtitle); font-weight: 500 !important; }
+.font-bold { font-family: var(--font-title); font-weight: 700 !important; }
+
+/* Tight defaults for paragraphs/lists across pages */
+p, li { letter-spacing: -0.005em; line-height: 1.35; }
 /* latin */
 @font-face {
   font-family: 'Lato';
