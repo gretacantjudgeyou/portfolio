@@ -180,11 +180,9 @@ class ChakraInteractions {
                 const neighbor = this.chakras[neighborIndex];
                 if (neighbor) {
                     neighbor.style.transform += ' scale(1.1)';
-                    neighbor.style.filter += ' brightness(1.3)';
                     
                     setTimeout(() => {
                         neighbor.style.transform = neighbor.style.transform.replace(' scale(1.1)', '');
-                        neighbor.style.filter = neighbor.style.filter.replace(' brightness(1.3)', '');
                     }, 300);
                 }
             }, delay * 100);
@@ -223,10 +221,8 @@ class ChakraInteractions {
             const neighbor = this.chakras[neighborIndex];
             if (neighbor) {
                 if (highlight) {
-                    neighbor.style.filter += ' brightness(1.2) saturate(1.3)';
                     neighbor.style.transform += ' scale(1.05)';
                 } else {
-                    neighbor.style.filter = neighbor.style.filter.replace(' brightness(1.2) saturate(1.3)', '');
                     neighbor.style.transform = neighbor.style.transform.replace(' scale(1.05)', '');
                 }
             }
@@ -260,12 +256,10 @@ class ChakraInteractions {
                 const offsetY = Math.sin(angle) * attraction * 15;
                 
                 chakra.style.transform += ` translate(${offsetX}px, ${offsetY}px)`;
-                chakra.style.filter += ` brightness(${1 + attraction * 0.3})`;
                 
                 // Reset after a short delay
                 setTimeout(() => {
                     chakra.style.transform = chakra.style.transform.replace(` translate(${offsetX}px, ${offsetY}px)`, '');
-                    chakra.style.filter = chakra.style.filter.replace(` brightness(${1 + attraction * 0.3})`, '');
                 }, 100);
             }
         });
@@ -307,7 +301,6 @@ const additionalStyles = `
     .chakra-activated {
         animation-play-state: paused !important;
         transform: scale(1.3) !important;
-        filter: brightness(1.5) saturate(1.8) !important;
     }
     
     .chakra-activated::before {

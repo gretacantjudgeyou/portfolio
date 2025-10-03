@@ -267,25 +267,30 @@
         .case-hero .case-study-title { color: #FDF5E6; font-size: 4.4rem; line-height: 1.05; font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -0.01em; }
         .case-hero .case-study-dash { background: #FDF5E6; }
         .case-hero .case-study-meta { color: #FDF5E6; opacity: 0.8; }
-        .case-hero .case-study-subtitle { color: #FDF5E6; font-size: 0.95rem; line-height: 1.3; max-width: 420px; margin-bottom: 1.25rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
+        .case-hero .case-study-subtitle { color: #FDF5E6; font-size: 0.85rem; line-height: 1.28; max-width: 420px; margin-bottom: 1.1rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
         .hero-divider { height: 1px; width: 100%; max-width: 900px; background: rgba(255,255,255,0.85); margin: 1.25rem 0 1.5rem 0; }
         .top-text-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; color: #FDF5E6; margin-top: 1rem; }
-        .top-text-grid p, .paragraph-64 { color: #FDF5E6; margin: 0.15rem 0; font-family: var(--font-xlt) !important; font-weight: 200 !important; line-height: 1.25; font-size: 0.9rem; max-width: 220px; letter-spacing: -0.005em; }
+        .top-text-grid p, .paragraph-64 { color: #FDF5E6; margin: 0.1rem 0; line-height: 1.25; font-size: 0.8rem; max-width: 220px; letter-spacing: -0.005em; }
+        /* Titles already set to subtitle+500 via .top-text-grid .paragraph-64.bold rule below */
+        /* Use Extra Light for the 4 body paragraphs under the small titles */
+        .top-text-grid p:not(.bold) { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
         /* Extra Light variant approximation */
         .font-xlt { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
         .top-text-grid p.bold { font-weight: 700; }
         .case-study-main-image { width: 100%; max-width: 840px; height: auto; margin: 2rem auto 3rem; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
         .purple-block { background: #572C57; padding: 2rem 0; }
         .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-        .purple-2col h2 { color: #FDF5E6; font-size: 1.8rem; margin: 0; }
-        .purple-2col p { color: #FDF5E6; line-height: 1.7; margin: 0; }
+        .purple-2col h2 { color: #FDF5E6; font-size: 2.1rem; margin: 0; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .purple-2col p { color: #FDF5E6; line-height: 1.6; margin: 0; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
         .white-section { background: #ffffff; padding: 3rem 0; }
         .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; }
         .white-card h3 { margin: 0 0 0.5rem 0; }
+        .white-card p { font-size: 0.9rem; }
         .white-2col { background: #ffffff; padding: 3rem 0; }
         .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
         .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
         .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
+        .white-2col .grid p { font-size: 0.9rem; }
         .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         
         /* Partners logos */
@@ -317,6 +322,43 @@
             .purple-2col { grid-template-columns: 1fr; }
             .white-2col .grid { grid-template-columns: 1fr; }
         }
+        
+        /* Requested tweaks */
+        /* Medium weight for the 4 small subtitles in top-text-grid */
+        .top-text-grid .paragraph-64.bold { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        
+        /* Bigger Connections h2 + correct font */
+        .purple-2col h2 { font-size: 2.2rem !important; letter-spacing: -0.01em; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        /* Correct paragraph font in purple block */
+        .purple-2col p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        
+        /* h3 headings: larger, no special effects */
+        .white-section .white-card h3,
+        .white-2col .grid h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; font-size: 2.1rem !important; text-shadow: none !important; animation: none !important; position: static; }
+
+        /* Base fade-in animations for main blocks */
+        .purple-2col, .white-section .white-card, .white-2col .grid { opacity: 0; animation: fadeInUp 0.8s ease-out 0.15s forwards; }
+        .white-2col .grid > div:nth-child(1) { animation-delay: 0.12s; }
+        .white-2col .grid > div:nth-child(2) { animation-delay: 0.22s; }
+        
+        /* Bigger Impact h3 (heading left in two-column block) + correct fonts */
+        .white-2col .grid h3 { font-size: 2rem !important; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-2col .grid p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+
+        /* Global section font normalization for headings/paragraphs in this page */
+        .white-section h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-section p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        .purple-block h2 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .purple-block p { font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
+
+        /* Back to services link inside meta */
+        .case-study-meta { display: flex; align-items: center; gap: 1rem; }
+        .cs-back { color: #FDF5E6; font-family: var(--font-subtitle); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; opacity: .9; }
+        .cs-back:hover { opacity: 1; text-decoration: underline; }
+        .cs-back .arr { font-size: 1.1rem; line-height: 1; transform: translateY(-1px); }
+        
+        /* Author image: force perfect circle */
+        .author-image { width: 120px !important; height: 120px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; display: block; }
     </style>
 </head>
 
@@ -370,26 +412,26 @@
             <div class="case-study-container">
                 <header class="case-study-header">
                     <div class="case-study-dash"></div>
-                    <div class="case-study-meta"><span>2025</span></div>
+                    <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
                     <h1 class="case-study-title">Capri Music Awards</h1>
-                    <p class="case-study-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                    <p class="case-study-subtitle">A debut under the stars, inside the timeless walls of the Certosa di San Giacomo. The Capri Music Awards turned the island into a stage where renowned voices and new talents met. As producer, I helped bring this very first edition to life, shaping the experience behind the scenes.</p>
                     <div class="hero-divider"></div>
                     <div class="top-text-grid">
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Vision</p>
+                            <p class="paragraph-64 font-xlt">The idea was simple yet bold: transform Capri into a cultural stage, blending its historic beauty with contemporary music. The first edition of the Capri Music Awards brought together audiences and artists in a moment that celebrated the island as more than a destination - it became a living stage.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Emerging Voices</p>
+                            <p class="paragraph-64 font-xlt">Alongside celebrated names, space was carved out for those at the beginning of their journey. With the Capri Young Awards, new talents had the chance to step into the spotlight, perform on a prestigious stage, and open a door to future opportunities. It made the festival about more than spectacle - it became about discovery.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Production</p>
+                            <p class="paragraph-64 font-xlt">My role was to connect the dots and make the complex look seamless. From coordinating technical teams to supporting the artists and aligning stakeholders, I worked to keep everything flowing. Behind every performance there was a quiet balance of planning, problem-solving, and trust.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Challenge</p>
+                            <p class="paragraph-64 font-xlt">A first edition always means stepping into the unknown. On Capri, it also meant working within the limits of a historic venue, with its own rules and restrictions. It was a challenge of precision and creativity combined - met with care, adaptability, and the conviction that the magic of that night would be worth it.</p>
                         </div>
                     </div>
                 </header>
@@ -400,8 +442,8 @@
         <section class="purple-block">
             <div class="case-study-container">
                 <div class="purple-2col">
-                    <h2>Heading</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2>Connections</h2>
+                    <p>What stayed with me most was the power of collaboration: between generations of artists, between institutions and production, between the rigor of logistics and the spontaneity of live music. Every thread pulled together made the fabric of the event stronger, leaving a legacy beyond a single night.</p>
                 </div>
             </div>
         </section>
@@ -409,8 +451,8 @@
         <section class="white-section">
             <div class="case-study-container">
                 <div class="white-card">
-                    <h3>Heading</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h3>A New Chapter for Capri</h3>
+                    <p>The Certosa transformed into a stage.<br>Rising artists standing beside established names.<br>Production and creativity in constant dialogue.<br>A debut that marked the start of a tradition.</p>
                 </div>
             </div>
         </section>
@@ -419,10 +461,10 @@
             <div class="case-study-container">
                 <div class="grid">
                     <div>
-                        <h3>Heading</h3>
+                        <h3>Impact</h3>
                     </div>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>The evening gave Capri a new kind of energy. Artists, institutions, and audiences shared a space where music, history, and landscape merged into one. For the island, it was a chance to be seen differently - not only as a place of beauty, but as a stage for contemporary culture.</p>
                     </div>
                 </div>
                 <div class="cma-slider" id="cmaSlider">

@@ -317,6 +317,61 @@
             .purple-2col { grid-template-columns: 1fr; }
             .white-2col .grid { grid-template-columns: 1fr; }
         }
+        
+        /* Font normalization (match site tokens) */
+        .top-text-grid .paragraph-64.bold { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        .purple-2col h2 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .purple-2col p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        .white-section .white-card h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-section .white-card p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        .white-2col .grid h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-2col .grid p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+
+        /* Mirror Capri sizing/weights */
+        .case-hero .case-study-subtitle { font-size: 0.85rem; line-height: 1.28; letter-spacing: -0.005em; }
+        .top-text-grid p, .paragraph-64 { margin: 0.1rem 0; line-height: 1.25; font-size: 0.8rem; letter-spacing: -0.005em; }
+        .top-text-grid p:not(.bold) { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
+        .purple-2col h2 { font-size: 2.1rem; }
+        .purple-2col p { font-size: 0.9rem; }
+        .white-section .white-card p { font-size: 0.9rem; }
+        .white-2col .grid p { font-size: 0.9rem; }
+        .white-section .white-card h3, .white-2col .grid h3 { font-size: 2.1rem !important; text-shadow: none !important; animation: none !important; position: static; }
+
+        /* Center the Key Projects card text */
+        .white-section .white-card { text-align: center; }
+
+        /* Base fade-in animations like homepage */
+        .purple-2col, .white-section .white-card, .white-2col .grid { opacity: 0; animation: fadeInUp 0.8s ease-out 0.15s forwards; }
+        .white-2col .grid > div:nth-child(1) { animation-delay: 0.12s; }
+        .white-2col .grid > div:nth-child(2) { animation-delay: 0.22s; }
+
+        /* Book emphasis span */
+        .book-span { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+
+        /* Back to services link inside meta */
+        .case-study-meta { display: flex; align-items: center; gap: 1rem; }
+        .cs-back { color: #FDF5E6; font-family: var(--font-subtitle); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; opacity: .9; }
+        .cs-back:hover { opacity: 1; text-decoration: underline; }
+        .cs-back .arr { font-size: 1.1rem; line-height: 1; transform: translateY(-1px); }
+
+        /* Key Projects: clean logo background + subtle fog between PNG and text */
+        .white-section .white-card.logo-frame { background: transparent; box-shadow: none; position: relative; }
+        /* PNG logo as background (clean, no borders/shadows) */
+        .white-section .white-card.logo-frame::before { content: ''; position: absolute; inset: 0; background: url('images/logosfondomoncler.png') center / 115% auto no-repeat; opacity: 1; filter: none; pointer-events: none; z-index: 0; }
+        /* Fog layer between PNG and text (more opacity variation) */
+        .white-section .white-card.logo-frame::after { content: ''; position: absolute; inset: 10% 6% 8% 6%; background:
+            radial-gradient(42% 36% at 28% 32%, rgba(255,255,255,0.26), rgba(255,255,255,0)),
+            radial-gradient(36% 36% at 72% 58%, rgba(255,255,255,0.22), rgba(255,255,255,0));
+            filter: blur(12px); opacity: 0.88; pointer-events: none; z-index: 1; animation: fogPulse 7.5s ease-in-out infinite alternate; }
+        .white-section .white-card.logo-frame h3,
+        .white-section .white-card.logo-frame p { position: relative; z-index: 2; text-shadow: none; }
+        @keyframes fogPulse {
+            0% { transform: translateY(0) scale(1); opacity: 0.62; filter: blur(10px); }
+            100% { transform: translateY(-3px) scale(1.02); opacity: 0.95; filter: blur(13px); }
+        }
+        
+        /* Author image: force perfect circle */
+        .author-image { width: 120px !important; height: 120px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; display: block; }
     </style>
 </head>
 
@@ -370,26 +425,26 @@
             <div class="case-study-container">
                 <header class="case-study-header">
                     <div class="case-study-dash"></div>
-                    <div class="case-study-meta"><span>2025</span></div>
+                    <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
                     <h1 class="case-study-title">Moncler</h1>
-                    <p class="case-study-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                    <p class="case-study-subtitle">Working within Moncler’s Digital Studio, I supported the creation of campaigns and special projects that defined the brand’s online presence. From technical shootings to large-scale digital productions, I coordinated teams, vendors, and logistics—ensuring that every launch carried the same precision and impact as the brand itself.</p>
                     <div class="hero-divider"></div>
                     <div class="top-text-grid">
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Digital Craft</p>
+                            <p class="paragraph-64 font-xlt">At the heart of my role was the orchestration of Moncler’s digital production process. From campaign photography to product launches, I helped align creative and operational teams to deliver high-quality content on schedule. Every asset—whether a product shot or a lookbook—was treated with the same meticulous attention that defines the brand.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Collaboration</p>
+                            <p class="paragraph-64 font-xlt">Working alongside visionary stylists such as <span class="book-span">Karl Templer and Imruh Asha</span>, I supported productions that blended strong creative direction with flawless execution. These collaborations were an opportunity to see Moncler’s aesthetic come to life through different lenses, reinforcing the brand’s reputation for both innovation and style.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">On Set & Beyond</p>
+                            <p class="paragraph-64 font-xlt">My responsibilities extended from managing on-set productions to handling budgets and coordinating with agents and vendors. Whether it was a high-pressure campaign shoot or a technical e-commerce session, I ensured smooth operations, clear communication, and efficient problem-solving.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p class="paragraph-64 font-xlt">Suspendisse varius enim in eros elementum tristique.</p>
+                            <p class="paragraph-64 font-xlt bold">Flow</p>
+                            <p class="paragraph-64 font-xlt">Beyond campaigns, I optimized product flow for e-commerce: updating inventory, monitoring suppliers, and ensuring accuracy across platforms. It was about making the digital experience seamless—from back-end logistics to the final customer journey.</p>
                         </div>
                     </div>
                 </header>
@@ -400,17 +455,17 @@
         <section class="purple-block">
             <div class="case-study-container">
                 <div class="purple-2col">
-                    <h2>Heading</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2>Connections</h2>
+                    <p>What stood out most was the intersection of creativity and precision: collaborating with top stylists, managing production details, and ensuring delivery across multiple platforms. It was an environment where high fashion met high functionality—and where every detail mattered.</p>
                 </div>
             </div>
         </section>
 
         <section class="white-section">
             <div class="case-study-container">
-                <div class="white-card">
-                    <h3>Heading</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <div class="white-card logo-frame">
+                    <h3>Key Projects</h3>
+                    <p>Lookbook FW24<br>Product Campaign FW24<br>Re/Icon Campaign<br>Product Campaign SS25</p>
                 </div>
             </div>
         </section>
@@ -419,26 +474,26 @@
             <div class="case-study-container">
                 <div class="grid">
                     <div>
-                        <h3>Heading</h3>
+                        <h3>Impact</h3>
                     </div>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>These projects strengthened Moncler’s digital presence, ensuring that every campaign resonated online with the same strength it had on set. By balancing creativity with structure, we built a digital ecosystem where content, product, and storytelling worked hand in hand.</p>
                     </div>
                 </div>
                 <div class="cma-slider" id="cmaSlider">
                     <div class="viewport">
                         <div class="track">
-                            <!-- Slide 1: unchanged -->
-                            <div class="slide"><img src="images/moncler2.jpeg?v=20250927-1" alt="Moncler"></div>
-                            
-                            <!-- Slide 2: autoplay video with provided filename -->
+                            <!-- Slide 1: autoplay video first -->
                             <div class="slide">
                                 <video autoplay playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="images/testimonial-video-poster.jpg?v=20250927-1" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
                                     <source src="videos/monclervideo.mp4?v=20250927-1" type="video/mp4">
                                 </video>
                             </div>
                             
-                            <!-- Slide 3: new image (added, not replacing) -->
+                            <!-- Slide 2: image -->
+                            <div class="slide"><img src="images/moncler2.jpeg?v=20250927-1" alt="Moncler"></div>
+                            
+                            <!-- Slide 3: image -->
                             <div class="slide"><img src="images/moncler3.jpeg?v=20250927-1" alt="Moncler"></div>
 
                             <!-- Slide 4..: original slides remain in same order as before -->
@@ -455,15 +510,7 @@
             </div>
         </section>
 
-        <!-- Partners logos -->
-        <section class="partners">
-            <div class="case-study-container">
-                <div class="partners-title">Official partners</div>
-                <div class="partners-card">
-                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Footer -->
         <section class="footer-dark">
