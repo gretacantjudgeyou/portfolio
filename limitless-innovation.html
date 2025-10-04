@@ -12,9 +12,9 @@
     <link href="css/style.css?v=1758885340" rel="stylesheet" type="text/css">
     
     <style>
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 { font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important; font-weight: 700 !important; }
-        p, .case-study-content { font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important; font-weight: 400 !important; line-height: 1.35; letter-spacing: -0.01em; color: #333; }
+        /* Typography (Capri variables) */
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-title) !important; font-weight: 700 !important; }
+        p, .case-study-content, .paragraph-copy { font-family: var(--font-copy) !important; font-weight: 400 !important; line-height: 1.35; letter-spacing: -0.01em; color: #333; }
 
         /* Navbar consistency */
         .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
@@ -34,18 +34,27 @@
         /* Case Study Layout */
         .case-study-container { max-width: 1200px; margin: 4rem auto 0; padding: 2rem; }
         .case-study-header { margin-bottom: 4rem; opacity: 0; animation: fadeInUp 1s ease-out 0.2s forwards; }
-        .case-study-title { font-size: 3rem; color: #572C57; margin-bottom: 1rem; line-height: 1.2; }
-        .case-study-subtitle { font-size: 1.25rem; color: #666; margin-bottom: 2rem; }
+        .case-study-title { font-size: 4.4rem; color: #FDF5E6; margin-bottom: 1rem; line-height: 1.05; letter-spacing: -0.01em; }
+        .case-study-subtitle { font-size: 0.85rem; color: #FDF5E6; margin-bottom: 1.1rem; line-height: 1.28; max-width: 520px; font-family: var(--font-copy) !important; }
         .case-study-meta { display: flex; gap: 2rem; font-size: 0.9rem; color: #888; margin-bottom: 2rem; }
         .case-study-dash { width: 40px; height: 2px; background-color: #572C57; margin-bottom: 1rem; }
+        .hero-divider { height: 1px; width: 100%; max-width: 900px; background: rgba(255,255,255,0.85); margin: 1.25rem 0 1.5rem 0; }
         .case-study-main-image { width: 100%; max-width: 840px; height: auto; margin: 2rem auto 3rem; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .case-hero { background: #572C57; padding: 3.5rem 0 2rem 0; }
+        .case-hero .case-study-dash { background: #FDF5E6; }
+        .case-hero .case-study-meta { color: #FDF5E6; opacity: 0.85; }
+        .top-text-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; color: #FDF5E6; margin-top: 1rem; }
+        .top-text-grid p { color: #FDF5E6; margin: 0.1rem 0; line-height: 1.25; font-size: 0.8rem; max-width: 220px; letter-spacing: -0.005em; }
+        .font-xlt { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
+        .case-hero .case-study-title { font-family: var(--font-title) !important; }
+        .top-text-grid .bold { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
         .purple-block { background: #572C57; padding: 2rem 0; }
         .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-        .purple-2col h2 { color: #FDF5E6; font-size: 1.8rem; margin: 0; }
-        .purple-2col p { color: #FDF5E6; line-height: 1.7; margin: 0; }
+        .purple-2col h2 { color: #FDF5E6; font-size: 2.1rem; margin: 0; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .purple-2col p { color: #FDF5E6; line-height: 1.6; margin: 0; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
         .white-section { background: #ffffff; padding: 3rem 0; }
         .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; }
-        .white-2col { background: #ffffff; padding: 3rem 0; }
+        .white-2col { background: #ffffff; padding: 2.5rem 0; }
         .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
         .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
         .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
@@ -67,6 +76,16 @@
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
         @media (max-width: 768px) { .purple-2col { grid-template-columns: 1fr; } .white-2col .grid { grid-template-columns: 1fr; } }
+
+        /* Event block heading spacing */
+        .event-block { padding: 2rem 0 2.5rem; }
+        .event-block .event-title { font-size: 2rem; margin: 0 0 .75rem 0; }
+
+        /* Back to services link inside meta */
+        .case-study-meta { display: flex; align-items: center; gap: 1rem; }
+        .cs-back { color: #FDF5E6; font-family: var(--font-subtitle); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; opacity: .9; }
+        .cs-back:hover { opacity: 1; text-decoration: underline; }
+        .cs-back .arr { font-size: 1.1rem; line-height: 1; transform: translateY(-1px); }
     </style>
 </head>
 
@@ -105,10 +124,28 @@
             <div class="case-study-container">
                 <header class="case-study-header">
                     <div class="case-study-dash"></div>
-                    <div class="case-study-meta"><span>2025</span></div>
+                    <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
                     <h1 class="case-study-title">Limitless Innovation</h1>
-                    <p class="case-study-subtitle">TODO: breve descrizione del progetto Limitless Innovation.</p>
+                    <p class="case-study-subtitle">Coordinamento creativo e produzione tra Milano e Parigi. Formati 9:16, ritmo, riconoscibilità: organizzazione snella e consegne rapide senza perdere pulizia visiva.</p>
                     <div class="hero-divider"></div>
+                    <div class="top-text-grid">
+                        <div>
+                            <p class="paragraph-64 font-xlt bold">Vision</p>
+                            <p class="paragraph-64 font-xlt">Rendere i contenuti immediati e riconoscibili. Verticale come linguaggio, ma con la cura di uno shooting editoriale.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt bold">Team</p>
+                            <p class="paragraph-64 font-xlt">Piccolo core, competenze chiare. Dalla regia di produzione al montaggio in loco per accorciare i tempi.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt bold">Processo</p>
+                            <p class="paragraph-64 font-xlt">Pre-produzione essenziale, scouting rapido, scaletta micro. Passaggio fluido da still a motion e consegna giornaliera.</p>
+                        </div>
+                        <div>
+                            <p class="paragraph-64 font-xlt bold">Output</p>
+                            <p class="paragraph-64 font-xlt">Cut verticali per IG/TikTok, clip con hook iniziale, caption essenziali, collage dinamici e loop puliti.</p>
+                        </div>
+                    </div>
                 </header>
                 <img src="images/limitlesscover.jpeg" alt="Limitless Innovation" class="case-study-main-image">
             </div>
@@ -117,8 +154,8 @@
         <section class="purple-block">
             <div class="case-study-container">
                 <div class="purple-2col">
-                    <h2>Heading</h2>
-                    <p>TODO: testo introduttivo.</p>
+                    <h2>Connections</h2>
+                    <p>Tra produzione e creatività, il flusso resta lineare: briefing breve, ruoli chiari, scouting essenziale, tempi stretti. Ogni consegna mantiene pulizia e coerenza di brand pur restando agile, pensata per piattaforme social e formati verticali.</p>
                 </div>
             </div>
         </section>
@@ -126,52 +163,108 @@
         <section class="white-section">
             <div class="case-study-container">
                 <div class="white-card">
-                    <h3>Heading</h3>
-                    <p>TODO: contenuto della case study.</p>
+                    <h3>Key Points</h3>
+                    <p>Setup leggero.<br>Tempi rapidi di montaggio.<br>Ritmo e hook visivo.<br>Output verticali puliti.</p>
                 </div>
             </div>
         </section>
 
-        <section class="white-2col">
+        <!-- Event 1: Paris Activation -->
+        <section class="white-2col event-block">
             <div class="case-study-container">
                 <div class="grid">
                     <div>
-                        <h3>Heading</h3>
+                        <h3 class="event-title">Paris Activation</h3>
                     </div>
                     <div>
-                        <p>TODO: testo descrittivo.</p>
+                        <p class="paragraph-copy">Shooting on-the-go tra strade e backstage. Formati verticali pensati per velocità, ritmo e riconoscibilità visiva.</p>
                     </div>
                 </div>
-                <div class="cma-slider" id="cmaSlider">
+                <div class="cma-slider">
                     <div class="viewport">
                         <div class="track">
-                            <!-- Slide 1: image -->
-                            <div class="slide"><img src="images/placeholder-vertical-1.jpg" alt="Limitless Innovation"></div>
-                            <!-- Slide 2: video -->
-                            <div class="slide">
-                                <video autoplay playsinline webkit-playsinline x5-playsinline muted preload="auto" poster="images/placeholder-video-poster.jpg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
-                                    <source src="videos/placeholder-vertical.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <!-- Slide 3: image -->
-                            <div class="slide"><img src="images/placeholder-vertical-2.jpg" alt="Limitless Innovation"></div>
-                            <!-- Slide 4: image -->
-                            <div class="slide"><img src="images/placeholder-vertical-3.jpg" alt="Limitless Innovation"></div>
+                            <div class="slide"><img src="images/limitlessparis1.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis2.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis3.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis4.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis5.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis6.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide"><img src="images/limitlessparis7.jpeg" alt="Limitless Paris"></div>
                         </div>
                     </div>
-                    <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
-                    <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
-                    <div class="dots" id="cmaDots"></div>
+                    <button class="arrow left" aria-label="Previous">‹</button>
+                    <button class="arrow right" aria-label="Next">›</button>
+                    <div class="dots"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Partners logos (optional) -->
-        <section class="partners">
+        <!-- Event 2: Milano Lab -->
+        <section class="white-2col event-block">
             <div class="case-study-container">
-                <div class="partners-title">Official partners</div>
-                <div class="partners-card">
-                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
+                <div class="grid">
+                    <div>
+                        <h3 class="event-title">Milano Lab</h3>
+                    </div>
+                    <div>
+                        <p class="paragraph-copy">Studio, cut rapidi e passaggi da still a motion. Dal set alle stories con consegna in giornata.</p>
+                    </div>
+                </div>
+                <div class="cma-slider">
+                    <div class="viewport">
+                        <div class="track">
+                            <div class="slide">
+                                <video playsinline muted preload="metadata" poster="images/limitlesscover.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide"><img src="images/limitless1.jpg" alt="Limitless"></div>
+                            <div class="slide">
+                                <video playsinline muted preload="metadata" poster="images/limitlesscover.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide"><img src="images/limitlesscover.jpeg" alt="Limitless"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous">‹</button>
+                    <button class="arrow right" aria-label="Next">›</button>
+                    <div class="dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event 3: Social Rollout -->
+        <section class="white-2col event-block">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div>
+                        <h3 class="event-title">Social Rollout</h3>
+                    </div>
+                    <div>
+                        <p class="paragraph-copy">Editing agile per formati 9:16. Sequenze brevi con hook iniziale, ritmo centrale e chiusura chiara.</p>
+                    </div>
+                </div>
+                <div class="cma-slider">
+                    <div class="viewport">
+                        <div class="track">
+                            <div class="slide">
+                                <video playsinline muted preload="metadata" poster="images/limitlessparis3.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide"><img src="images/limitlessparis6.jpeg" alt="Limitless Paris"></div>
+                            <div class="slide">
+                                <video playsinline muted preload="metadata" poster="images/limitlessparis5.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless4.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="slide"><img src="images/limitlessparis7.jpeg" alt="Limitless Paris"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous">‹</button>
+                    <button class="arrow right" aria-label="Next">›</button>
+                    <div class="dots"></div>
                 </div>
             </div>
         </section>
@@ -232,39 +325,56 @@
         </section>
     </div>
 
-    <!-- JavaScript (no Webflow runtime) -->
+    <!-- JavaScript (multi-slider initializer, no Webflow runtime) -->
     <script>
-        // Simple bottom slider logic (same pattern as other case studies)
         (function(){
-            const slider = document.getElementById('cmaSlider');
-            if (!slider) return;
-            const track = slider.querySelector('.track');
-            const slides = Array.from(slider.querySelectorAll('.slide'));
-            const dotsWrap = document.getElementById('cmaDots');
-            let index = 0;
-            function update(){
-                const x = Math.round((-index * 100) * 1000) / 1000;
-                track.style.transform = 'translate3d(' + x + '%,0,0)';
-                Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index));
-                slides.forEach((s,i)=>{
-                    const vid = s.querySelector('video');
-                    if (!vid) return;
-                    if (i === index) { try { vid.play(); } catch(e){} }
-                    else { try { vid.pause(); vid.currentTime = 0; } catch(e){} }
+            const sliders = Array.from(document.querySelectorAll('.cma-slider'));
+            sliders.forEach((slider)=>{
+                const track = slider.querySelector('.track');
+                const slides = Array.from(slider.querySelectorAll('.slide'));
+                const dotsWrap = slider.querySelector('.dots');
+                const btnPrev = slider.querySelector('.arrow.left');
+                const btnNext = slider.querySelector('.arrow.right');
+                let index = 0;
+
+                // dots
+                slides.forEach((_,i)=>{
+                    const dot = document.createElement('div');
+                    dot.className = 'dot' + (i===0 ? ' active' : '');
+                    dot.addEventListener('click', ()=>{ index = i; update(); });
+                    dotsWrap.appendChild(dot);
                 });
-            }
-            slides.forEach((_,i)=>{
-                const dot = document.createElement('div');
-                dot.className = 'dot' + (i===0 ? ' active' : '');
-                dot.addEventListener('click', ()=>{ index = i; update(); });
-                dotsWrap.appendChild(dot);
+
+                function setVideoState(){
+                    slides.forEach((s,i)=>{
+                        const vid = s.querySelector('video');
+                        if (!vid) return;
+                        try {
+                            if (i === index) { vid.play(); }
+                            else { vid.pause(); vid.currentTime = 0; }
+                        } catch(e){}
+                    });
+                }
+
+                function update(){
+                    const x = Math.round((-index * 100) * 1000) / 1000;
+                    track.style.transform = 'translate3d(' + x + '%,0,0)';
+                    Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index));
+                    setVideoState();
+                }
+
+                const next = ()=>{ index = (index + 1) % slides.length; update(); };
+                const prev = ()=>{ index = (index - 1 + slides.length) % slides.length; update(); };
+
+                btnNext && btnNext.addEventListener('click', next);
+                btnPrev && btnPrev.addEventListener('click', prev);
+
+                let timer = setInterval(next, 6000);
+                slider.addEventListener('mouseenter', ()=>clearInterval(timer));
+                slider.addEventListener('mouseleave', ()=>{ timer = setInterval(next, 6000); });
+
+                update();
             });
-            window.cmaNext = function(){ index = (index + 1) % slides.length; update(); };
-            window.cmaPrev = function(){ index = (index - 1 + slides.length) % slides.length; update(); };
-            let timer = setInterval(()=>window.cmaNext(), 6000);
-            slider.addEventListener('mouseenter', ()=>clearInterval(timer));
-            slider.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.cmaNext(), 6000); });
-            update();
         })();
     </script>
 </body>

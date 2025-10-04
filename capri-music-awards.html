@@ -114,56 +114,17 @@
             color: #4a2449;
         }
         
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: #572C57;
-            text-decoration: none;
-            margin-bottom: 3rem;
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg, #FDF5E6 0%, #F4E6B8 100%);
-            border: 2px solid transparent;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(87, 44, 87, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .back-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #572C57 0%, #4a2449 100%);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-        
-        .back-link:hover {
-            transform: translateX(-8px) translateY(-2px);
-            color: white;
-            border-color: #572C57;
-            box-shadow: 0 8px 24px rgba(87, 44, 87, 0.25);
-        }
-        
-        .back-link:hover::before {
-            left: 0;
-        }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #572C57; text-decoration: none; margin-bottom: 2rem; padding: .6rem 1rem; border: 2px solid #572C57; border-radius: 10px; font-weight: 600; font-size: .95rem; transition: transform .25s ease, color .25s ease, border-color .25s ease; background: transparent; box-shadow: none; position: relative; overflow: visible; }
+        .back-link:hover { transform: translateX(-4px); color: #572C57; border-color: #572C57; }
         
         .back-link::after {
             content: '←';
             font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s ease;
         }
         
         .back-link:hover::after {
-            transform: translateX(-3px);
+            transform: translateX(-2px);
         }
         
         /* Main Image */
@@ -283,7 +244,7 @@
         .purple-2col h2 { color: #FDF5E6; font-size: 2.1rem; margin: 0; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
         .purple-2col p { color: #FDF5E6; line-height: 1.6; margin: 0; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
         .white-section { background: #ffffff; padding: 3rem 0; }
-        .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; }
+        .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; text-align: center; }
         .white-card h3 { margin: 0 0 0.5rem 0; }
         .white-card p { font-size: 0.9rem; }
         .white-2col { background: #ffffff; padding: 3rem 0; }
@@ -470,17 +431,17 @@
                 <div class="cma-slider" id="cmaSlider">
                     <div class="viewport">
                         <div class="track">
-                            <!-- Slide 1: unchanged -->
-                            <div class="slide"><img src="images/capri-music-awards-1.jpg" alt="Capri Music Awards"></div>
-                            
-                            <!-- Slide 2: autoplay video with provided filename -->
+                            <!-- Slide 1: autoplay video first -->
                             <div class="slide">
                                 <video autoplay playsinline muted preload="metadata" poster="images/testimonial-video-poster.jpg">
                                     <source src="videos/Un%20assaggio%20dei%20Capri%20Young%20Awards-passione,%20sorrisi%20e%20tanta%20musica%20per%20questa%20prima%20edizione.%23C.mp4" type="video/mp4">
                                 </video>
                             </div>
                             
-                            <!-- Slide 3: new image (added, not replacing) -->
+                            <!-- Slide 2: image -->
+                            <div class="slide"><img src="images/capri-music-awards-1.jpg" alt="Capri Music Awards"></div>
+                            
+                            <!-- Slide 3: image -->
                             <div class="slide"><img src="images/imgi_23_515504884_122129438162806111_1586130414609348070_n.jpg" alt="Capri Music Awards"></div>
 
                             <!-- Slide 4..: original slides remain in same order as before -->

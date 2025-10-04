@@ -8,7 +8,92 @@ class ChakraInteractions {
         this.chakras = [];
         this.isInitialized = false;
         this.mousePosition = { x: 0, y: 0 };
+        // Explicit mapping: filename (without path) -> target id
+        this.chakraMap = {
+            'chakra-innovation.svg': 'chakra-innovation',
+            'chakra-sustainability.svg': 'chakra-sustainability',
+            'chakra-transparency.svg': 'chakra-transparency',
+            'chakra-synergy.svg': 'chakra-synergy',
+            'chakra-authenticity.svg': 'chakra-authenticity',
+            'chakra-humanity.svg': 'chakra-humanity',
+            'chakra-neo-primordial.svg': 'chakra-neo-primordial'
+        };
+        // Order-based fallback mapping (by icon index around the circle)
+        this.orderMap = [
+            'chakra-innovation',
+            'chakra-sustainability',
+            'chakra-transparency',
+            'chakra-synergy',
+            'chakra-authenticity',
+            'chakra-humanity',
+            'chakra-neo-primordial'
+        ];
         this.init();
+    }
+
+    scrollToChakraSection(chakra, index) {
+        try {
+            // Prefer explicit filename mapping
+            let targetId = null;
+            const img = chakra.querySelector('img');
+            if (img && img.src) {
+                const file = img.src.split('/').pop();
+                if (this.chakraMap[file]) {
+                    targetId = this.chakraMap[file];
+                }
+            }
+
+            // Fallback: use nearby label heuristic if mapping not found
+            if (!targetId) {
+                let label = null;
+                const container = chakra.closest('.div-block-636');
+                if (container) {
+                    const labelEl = container.querySelector('.chakra--text');
+                    if (labelEl && labelEl.textContent) {
+                        label = labelEl.textContent.trim();
+                    }
+                }
+                if (label) {
+                    const slug = label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+                    targetId = `chakra-${slug}`;
+                }
+            }
+
+            // Fallback 2: infer from alt text keywords
+            if (!targetId && img && img.alt) {
+                const alt = img.alt.toLowerCase();
+                const mapByAlt = {
+                    'innovation': 'chakra-innovation',
+                    'sustainability': 'chakra-sustainability',
+                    'transparency': 'chakra-transparency',
+                    'synergy': 'chakra-synergy',
+                    'authenticity': 'chakra-authenticity',
+                    'humanity': 'chakra-humanity',
+                    'neo-primordial': 'chakra-neo-primordial'
+                };
+                for (const key in mapByAlt) {
+                    if (alt.includes(key)) { targetId = mapByAlt[key]; break; }
+                }
+            }
+
+            if (!targetId) {
+                // Final fallback: map by index position
+                targetId = this.orderMap[index] || null;
+            }
+            if (!targetId) return;
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            // Smooth scroll with small offset for navbar
+            const rect = target.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const offset = 80; // adjust if navbar changes
+            const top = rect.top + scrollTop - offset;
+            // Delay start so interaction feels more intentional (slower start)
+            setTimeout(() => {
+                window.scrollTo({ top, behavior: 'smooth' });
+            }, 900);
+        } catch (_) { /* no-op */ }
     }
 
     init() {
@@ -51,6 +136,7 @@ class ChakraInteractions {
             chakra.addEventListener('click', (e) => {
                 this.createRippleEffect(e, chakra, index);
                 this.triggerChakraActivation(chakra, index);
+                this.scrollToChakraSection(chakra, index);
             });
 
             // Enhanced hover effects
