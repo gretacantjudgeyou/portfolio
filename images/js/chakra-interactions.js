@@ -36,7 +36,13 @@ class ChakraInteractions {
             // Prefer explicit filename mapping
             let targetId = null;
             const img = chakra.querySelector('img');
-            if (img && img.src) {
+            // Highest priority: data-target on the container
+            const containerEl = chakra.closest('.div-block-636');
+            if (containerEl && containerEl.dataset && containerEl.dataset.target) {
+                targetId = containerEl.dataset.target;
+            }
+            // If data-target found, skip heuristics and scroll directly
+            if (!targetId && img && img.src) {
                 const file = img.src.split('/').pop();
                 if (this.chakraMap[file]) {
                     targetId = this.chakraMap[file];
@@ -84,15 +90,12 @@ class ChakraInteractions {
             const target = document.getElementById(targetId);
             if (!target) return;
 
-            // Smooth scroll with small offset for navbar
-            const rect = target.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const offset = 80; // adjust if navbar changes
-            const top = rect.top + scrollTop - offset;
-            // Delay start so interaction feels more intentional (slower start)
+            // Optional: minimal debug (disabled)
+
+            // Smooth scroll using native API; offset handled via CSS scroll-margin
             setTimeout(() => {
-                window.scrollTo({ top, behavior: 'smooth' });
-            }, 900);
+                target.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }, 150);
         } catch (_) { /* no-op */ }
     }
 
@@ -110,12 +113,28 @@ class ChakraInteractions {
         const chakraElements = document.querySelectorAll('.philosophy-section .div-block-635');
         
         if (chakraElements.length === 0) {
-            // Retry after a short delay if elements aren't found
             setTimeout(() => this.setup(), 500);
             return;
         }
 
         this.chakras = Array.from(chakraElements);
+
+        // Build orderMap dynamically from visible DOM labels to ensure correct mapping order
+        try {
+            const containers = Array.from(document.querySelectorAll('.philosophy-section .div-block-636'));
+            const ids = containers.map(c => {
+                const labelEl = c.querySelector('.chakra--text');
+                const label = labelEl && labelEl.textContent ? labelEl.textContent.trim() : '';
+                if (!label) return null;
+                const slug = label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+                return `chakra-${slug}`;
+            }).filter(Boolean);
+            if (ids.length === this.chakras.length) {
+                this.orderMap = ids;
+            }
+        } catch(_) { /* no-op */ }
+        // If anchors exist, prefer native navigation and skip JS handlers
+        this.hasAnchorLinks = !!document.querySelector('.chakra-link');
         this.bindEvents();
         this.createRippleElements();
         this.startMagneticField();
@@ -123,6 +142,10 @@ class ChakraInteractions {
     }
 
     bindEvents() {
+        if (this.hasAnchorLinks) {
+            // Do not attach any click/touch/capture listeners; anchors will navigate
+            return;
+        }
         // Mouse tracking for magnetic field effect
         document.addEventListener('mousemove', (e) => {
             this.mousePosition.x = e.clientX;
@@ -155,6 +178,32 @@ class ChakraInteractions {
                 this.triggerChakraActivation(chakra, index);
             });
         });
+
+        // Also bind on the parent container to capture clicks on labels/around the icon
+        const containers = document.querySelectorAll('.philosophy-section .div-block-636');
+        Array.from(containers).forEach((container, index) => {
+            const inner = container.querySelector('.div-block-635');
+            container.style.cursor = 'pointer';
+            container.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (inner) {
+                    this.createRippleEffect(e, inner, index);
+                    this.triggerChakraActivation(inner, index);
+                }
+                this.scrollToChakraSection(inner || container, index);
+            }, { passive: false });
+            container.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (inner) {
+                    this.createRippleEffect(e, inner, index);
+                    this.triggerChakraActivation(inner, index);
+                }
+            }, { passive: false });
+        });
+
+        // Removed global capture navigation to avoid side effects
     }
 
     createRippleElements() {

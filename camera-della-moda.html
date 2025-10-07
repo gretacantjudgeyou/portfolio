@@ -85,9 +85,9 @@
         .mini-slider .dot { width: 7px; height: 7px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
         .mini-slider .dot.active { background: #572C57; }
         .mini-title { text-align: left; color: #60667A; font-family: var(--font-subtitle); font-weight: 700; margin: 0 0 .5rem; }
-        .mini-row { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 1rem; }
+        .mini-row { display: block; }
         .mini-copy { font-family: var(--font-copy); font-size: .92rem; color: #333; line-height: 1.5; opacity: 0; transform: translateY(8px); animation: fadeInUp .6s ease forwards; animation-delay: .15s; }
-        @media (max-width: 980px){ .mini-grid { grid-template-columns: 1fr 1fr; } .mini-row { grid-template-columns: 1fr; } }
+        @media (max-width: 980px){ .mini-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 640px){ .mini-grid { grid-template-columns: 1fr; } .mini-slider { max-width: 360px; } }
         @media (max-width: 980px){ .mini-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 640px){ .mini-grid { grid-template-columns: 1fr; } .mini-slider { max-width: 360px; } }
@@ -275,17 +275,7 @@
                         <p>Dal brief alla consegna, ogni passaggio tiene insieme qualità, timing e tono del brand. La visione di insieme guida scelte rapide e pulite: dal backstage al feed, senza frizioni.</p>
                     </div>
                 </div>
-                <div class="cma-slider" id="cmaSlider">
-                    <div class="viewport">
-                        <div class="track">
-                            <div class="slide"><img src="images/moncler1.jpg" alt="Slide"></div>
-                            <div class="slide"><img src="images/moncler3.jpeg" alt="Slide"></div>
-                        </div>
-                    </div>
-                    <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
-                    <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
-                    <div class="dots" id="cmaDots"></div>
-                </div>
+                
             </div>
         </section>
 
