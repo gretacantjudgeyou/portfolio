@@ -8,84 +8,15 @@ class ChakraInteractions {
         this.chakras = [];
         this.isInitialized = false;
         this.mousePosition = { x: 0, y: 0 };
-        // Explicit mapping: filename (without path) -> target id
-        this.chakraMap = {
-            'chakra-innovation.svg': 'chakra-innovation',
-            'chakra-sustainability.svg': 'chakra-sustainability',
-            'chakra-transparency.svg': 'chakra-transparency',
-            'chakra-synergy.svg': 'chakra-synergy',
-            'chakra-authenticity.svg': 'chakra-authenticity',
-            'chakra-humanity.svg': 'chakra-humanity',
-            'chakra-neo-primordial.svg': 'chakra-neo-primordial'
-        };
-        // Order-based fallback mapping (by icon index around the circle)
-        this.orderMap = [
-            'chakra-innovation',
-            'chakra-sustainability',
-            'chakra-transparency',
-            'chakra-synergy',
-            'chakra-authenticity',
-            'chakra-humanity',
-            'chakra-neo-primordial'
-        ];
+        // Mapping is driven exclusively by data-target attributes in the DOM
         this.init();
     }
 
     scrollToChakraSection(chakra, index) {
         try {
-            // Prefer explicit filename mapping
-            let targetId = null;
-            const img = chakra.querySelector('img');
-            // Highest priority: data-target on the container
+            // Use ONLY data-target on the nearest container to avoid mismatches
             const containerEl = chakra.closest('.div-block-636');
-            if (containerEl && containerEl.dataset && containerEl.dataset.target) {
-                targetId = containerEl.dataset.target;
-            }
-            // If data-target found, skip heuristics and scroll directly
-            if (!targetId && img && img.src) {
-                const file = img.src.split('/').pop();
-                if (this.chakraMap[file]) {
-                    targetId = this.chakraMap[file];
-                }
-            }
-
-            // Fallback: use nearby label heuristic if mapping not found
-            if (!targetId) {
-                let label = null;
-                const container = chakra.closest('.div-block-636');
-                if (container) {
-                    const labelEl = container.querySelector('.chakra--text');
-                    if (labelEl && labelEl.textContent) {
-                        label = labelEl.textContent.trim();
-                    }
-                }
-                if (label) {
-                    const slug = label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-                    targetId = `chakra-${slug}`;
-                }
-            }
-
-            // Fallback 2: infer from alt text keywords
-            if (!targetId && img && img.alt) {
-                const alt = img.alt.toLowerCase();
-                const mapByAlt = {
-                    'innovation': 'chakra-innovation',
-                    'sustainability': 'chakra-sustainability',
-                    'transparency': 'chakra-transparency',
-                    'synergy': 'chakra-synergy',
-                    'authenticity': 'chakra-authenticity',
-                    'humanity': 'chakra-humanity',
-                    'neo-primordial': 'chakra-neo-primordial'
-                };
-                for (const key in mapByAlt) {
-                    if (alt.includes(key)) { targetId = mapByAlt[key]; break; }
-                }
-            }
-
-            if (!targetId) {
-                // Final fallback: map by index position
-                targetId = this.orderMap[index] || null;
-            }
+            const targetId = (containerEl && containerEl.dataset) ? containerEl.dataset.target : null;
             if (!targetId) return;
             const target = document.getElementById(targetId);
             if (!target) return;
@@ -119,20 +50,7 @@ class ChakraInteractions {
 
         this.chakras = Array.from(chakraElements);
 
-        // Build orderMap dynamically from visible DOM labels to ensure correct mapping order
-        try {
-            const containers = Array.from(document.querySelectorAll('.philosophy-section .div-block-636'));
-            const ids = containers.map(c => {
-                const labelEl = c.querySelector('.chakra--text');
-                const label = labelEl && labelEl.textContent ? labelEl.textContent.trim() : '';
-                if (!label) return null;
-                const slug = label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
-                return `chakra-${slug}`;
-            }).filter(Boolean);
-            if (ids.length === this.chakras.length) {
-                this.orderMap = ids;
-            }
-        } catch(_) { /* no-op */ }
+        // Mapping comes solely from data-target attributes; no dynamic remap
         // If anchors exist, prefer native navigation and skip JS handlers
         this.hasAnchorLinks = !!document.querySelector('.chakra-link');
         this.bindEvents();
@@ -142,10 +60,7 @@ class ChakraInteractions {
     }
 
     bindEvents() {
-        if (this.hasAnchorLinks) {
-            // Do not attach any click/touch/capture listeners; anchors will navigate
-            return;
-        }
+        if (this.hasAnchorLinks) { return; }
         // Mouse tracking for magnetic field effect
         document.addEventListener('mousemove', (e) => {
             this.mousePosition.x = e.clientX;

@@ -177,9 +177,7 @@
             padding: 0 2rem !important;
         }
         
-        .section-5.services {
-            padding: 3rem 0 !important;
-        }
+        .section-5.services { padding: 1rem 0 0rem 0 !important; }
         
         .div-block-287 {
             margin-bottom: 2.5rem !important;
@@ -191,7 +189,7 @@
         
         /* Case Studies Spacing */
         .div-block-288 {
-            margin-bottom: 2rem !important;
+            margin-bottom: 0.75rem !important; /* tighter space below section title */
         }
         
         .case-study-card {
@@ -205,9 +203,8 @@
         }
         
         /* CTA Section Spacing */
-        .section-6.cta {
-            padding: 4rem 0 !important;
-        }
+        .section-6.cta { padding: 0.75rem 0 1.75rem 0 !important; margin-top: 0 !important; }
+        .section-6.cta .container-small-540px { margin-top: 0 !important; }
         
         .container-small-540px {
             margin-bottom: 3rem !important;
@@ -301,21 +298,18 @@
             bottom: 0 !important;
             left: 0 !important;
             right: 0 !important;
-            background: transparent !important;
-            padding: 2rem !important;
-            transform: translateY(100%) !important;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            opacity: 0 !important;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%) !important;
+            padding: 1.25rem 1.5rem !important;
+            transform: translateY(0) !important;
+            transition: none !important;
+            opacity: 1 !important;
             display: block !important;
             z-index: 2 !important;
             box-shadow: none !important;
             filter: none !important;
         }
         
-        .case-study-card:hover .div-block-289 {
-            transform: translateY(0) !important;
-            opacity: 1 !important;
-        }
+        .case-study-card:hover .div-block-289 { transform: none !important; opacity: 1 !important; }
         
         .case-study-card .div-block-289 h4,
         .case-study-card .div-block-289 .heading-93 {
@@ -325,12 +319,9 @@
         }
         
         .case-study-card .div-block-289 p,
-        .case-study-card .div-block-289 .paragraph-55 {
-            color: #FDF5E6 !important;
-            opacity: 0.9 !important;
-            margin-bottom: 1.5rem !important;
-            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important;
-        }
+        .case-study-card .div-block-289 .paragraph-55 { display: none !important; }
+        /* Subtitle only for specific cards */
+        .case-study-card .div-block-289 .cs-sub { display: block !important; color: #FDF5E6 !important; opacity: 0.95 !important; margin-top: .1rem !important; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem !important; }
         
         .case-study-card .div-block-291 {
             text-align: center !important;
@@ -370,15 +361,10 @@
             display: none !important;
         }
         
-        .services-page-wraper .case-study-card .div-block-291 .text-block-136:hover,
-        .services-page-wraper .text-block-136:hover,
-        .case-study-card .div-block-291 .text-block-136:hover,
-        .text-block-136:hover {
-            background-color: #572C57 !important;
-            color: #FDF5E6 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: none !important;
-        }
+        .services-page-wraper .case-study-card .div-block-291,
+        .services-page-wraper .text-block-136,
+        .case-study-card .div-block-291,
+        .text-block-136 { display: none !important; }
         
         /* Services Page Slider Container */
         .slider-container {
@@ -648,6 +634,46 @@
             </div>
         </section>
 
+        <script>
+        // Featured Projects slider: make dots control the slides
+        (function(){
+            var slider = document.querySelector('.blog66_group.w-slider');
+            if(!slider) return;
+            var mask = slider.querySelector('.blog66_mask');
+            var slides = Array.from(slider.querySelectorAll('.blog66_slide'));
+            var left = slider.querySelector('.w-slider-arrow-left');
+            var right = slider.querySelector('.w-slider-arrow-right');
+            var dotsWrap = slider.querySelector('.blog66_slide-nav');
+            if(!mask || slides.length===0 || !dotsWrap) return;
+
+            // 3-up layout
+            var slidesToShow = 3;
+            var pages = Math.max(1, slides.length - slidesToShow + 1);
+            var index = 0;
+
+            function update(){
+                var pct = (100/3) * index; // each step shifts one card width (33.333%)
+                mask.style.transform = 'translate3d(' + (-pct) + '%,0,0)';
+                // update dots
+                Array.from(dotsWrap.children).forEach(function(d,i){ d.classList.toggle('w-active', i===index); });
+            }
+
+            // build dots
+            dotsWrap.innerHTML = '';
+            for(var i=0;i<pages;i++){
+                var dot = document.createElement('div');
+                dot.className = 'w-slider-dot' + (i===0?' w-active':'');
+                (function(i){ dot.addEventListener('click', function(){ index = i; update(); }); })(i);
+                dotsWrap.appendChild(dot);
+            }
+
+            if(left) left.addEventListener('click', function(e){ e.preventDefault(); index = Math.max(0, index-1); update(); });
+            if(right) right.addEventListener('click', function(e){ e.preventDefault(); index = Math.min(pages-1, index+1); update(); });
+
+            update();
+        })();
+        </script>
+
         <!-- Featured Projects Section -->
         <section class="section-5 services">
             <div class="container-default-2 w-container">
@@ -730,7 +756,7 @@
                                         </div>
                                         <div role="listitem" class="w-dyn-item">
                                             <a href="camera-della-moda.html" class="case-study-card w-inline-block" style="box-shadow: none !important; filter: none !important;">
-                                                <img loading="lazy" src="images/rectangle-1035.png" alt="Camera della Moda" class="blog66_image">
+                                                <img loading="lazy" src="images/mementozemotion.jpg" alt="Camera della Moda" class="blog66_image">
                                                 <div style="display:none; box-shadow: none !important;" class="div-block-289">
                                                     <h4 class="heading-93">Camera della Moda</h4>
                                                     <p class="paragraph-55">Case study in progress.</p>
@@ -767,13 +793,7 @@
                                     </div>
                             </div>
                         </div>
-                        <div class="div-block-638">
-                            <div data-poster-url="images/68ac4ecdf03cccc6638b44e8_6494e949edf428d0fe1628fd_DBC 8mb-Cutend-transcode-poster-00001.jpg" data-video-urls="videos/68ac4ecdf03cccc6638b44e8_6494e949edf428d0fe1628fd_DBC 8mb-Cutend-transcode-transcode.mp4" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="w-background-video w-background-video-atom">
-                                <video autoplay="" loop="" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
-                                    <source src="videos/68ac4ecdf03cccc6638b44e8_6494e949edf428d0fe1628fd_DBC 8mb-Cutend-transcode-transcode.mp4" type="video/mp4" data-wf-ignore="true">
-                                </video>
-                            </div>
-                        </div>
+                        <div class="div-block-638" style="display:none !important;"></div>
                     </div>
                 </div>
             </div>

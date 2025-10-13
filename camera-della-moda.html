@@ -13,8 +13,8 @@
     
     <style>
         /* Typography */
-        h1, h2, h3, h4, h5, h6 { font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important; font-weight: 700 !important; }
-        p, .case-study-content { font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important; font-weight: 400 !important; line-height: 1.35; letter-spacing: -0.01em; color: #333; }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -0.01em; }
+        p, .case-study-content { font-family: var(--font-copy) !important; font-weight: 400 !important; line-height: 1.35; letter-spacing: -0.01em; color: #333; }
 
         /* Navbar */
         .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
@@ -34,10 +34,14 @@
         .case-study-dash { width: 40px; height: 2px; background-color: #572C57; margin-bottom: 1rem; }
         .hero-divider { height: 1px; width: 100%; max-width: 900px; background: rgba(0,0,0,0.15); margin: 1.25rem 0 1.5rem 0; }
         .case-hero { background: #572C57; padding: 3.5rem 0 2rem 0; }
-        .case-hero .case-study-title { color: #FDF5E6; font-size: 4.2rem; line-height: 1.05; font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -0.01em; }
+        .case-hero .case-study-title { color: #FDF5E6; font-size: 4.4rem; line-height: 1.05; font-family: var(--font-title) !important; font-weight: 700 !important; letter-spacing: -0.01em; }
         .case-hero .case-study-dash { background: #FDF5E6; }
-        .case-hero .case-study-meta { color: #FDF5E6; opacity: .9; }
-        .case-hero .case-study-subtitle { color: #FDF5E6; font-size: 0.9rem; line-height: 1.3; max-width: 520px; margin-bottom: 1.2rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
+        .case-hero .case-study-meta { color: #FDF5E6; opacity: .85; }
+        .case-hero .hero-divider { background: rgba(255,255,255,0.85); }
+        .case-hero .case-study-subtitle { color: #FDF5E6; font-size: 0.85rem; line-height: 1.28; max-width: 520px; margin-bottom: 1.1rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
+        .top-text-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; color: #FDF5E6; margin-top: 1rem; }
+        .top-text-grid .paragraph-64.bold { font-family: var(--font-subtitle) !important; font-weight: 500 !important; color: #FDF5E6; margin-bottom: .25rem; }
+        .top-text-grid .paragraph-64 { color: #FDF5E6; font-family: var(--font-copy) !important; margin: .1rem 0; line-height: 1.25; font-size: .8rem; max-width: 220px; letter-spacing: -0.005em; }
 
         .purple-block { background: #572C57; padding: 2rem 0; }
         .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
@@ -56,6 +60,11 @@
 
         .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
 
+        /* Key Points bullets (reuse Moncler styles) */
+        .kp-list { margin: 0.5rem auto 0; padding-left: 0; color: #333; font-size: 1rem; line-height: 1.55; font-family: var(--font-copy) !important; font-weight: 400 !important; list-style: none; max-width: 780px; text-align: left; }
+        .kp-list li { position: relative; margin: 0.4rem 0; padding-left: 1.25rem; }
+        .kp-list li::before { content: ''; position: absolute; left: 0; top: 0.7em; width: 10px; height: 10px; border-radius: 50%; background: #572C57; transform: translateY(-50%); }
+
         /* Slider vertical 9:16 */
         .cma-slider { position: relative; width: 100%; max-width: 840px; margin: 0 auto; }
         .cma-slider .viewport { overflow: hidden; border-radius: 20px; box-shadow: none; background: transparent; aspect-ratio: 9 / 16; height: min(98vh, 1100px); margin: 0 auto; width: 100%; }
@@ -67,13 +76,31 @@
         .cma-slider .arrow.left { left: 8px; }
         .cma-slider .arrow.right { right: 8px; }
         .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
-        .cma-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
-        .cma-slider .dot.active { background: #572C57; }
+        .cma-slider .dot { width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #FDF5E6; cursor: pointer; opacity: .9; }
+        .cma-slider .dot.active { background: #FDF5E6; border-color: #FDF5E6; }
 
-        /* Three smaller sliders */
+        /* Alternating slider rows */
         .mini-sliders { padding: 2.5rem 0; }
-        .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
-        .mini-slider { position: relative; width: 100%; max-width: 320px; margin: 0 auto; }
+        /* Widen container for the first sliders section to allow a much wider media column */
+        .mini-sliders .case-study-container { max-width: 1400px; }
+        .alt-rows { display: grid; grid-auto-rows: auto; gap: 2.25rem; }
+        .alt-row { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.5rem; align-items: center; }
+        /* Make the first row give more space to the slider */
+        .alt-row.alt-lg-left { grid-template-columns: 2fr .6fr; }
+        .alt-row.alt-lg-left .mini-slider { justify-self: center; width: 100%; }
+        .alt-row.right { grid-template-columns: .9fr 1.1fr; }
+        /* Slightly enlarge the media column on the second row (slider right) */
+        .alt-row.alt-md-right { grid-template-columns: .7fr 1.3fr; }
+        /* Match slider 3 to slider 2 (media left) */
+        .alt-row.alt-md-left { grid-template-columns: 1.3fr .7fr; }
+        .alt-row.mt-large { margin-top: 3.5rem; }
+        #miniDuomo { max-width: none; justify-self: center; width: fit-content; }
+        #miniDuomo .viewport { height: 560px; margin: 0 auto; border-radius: 20px; }
+        #miniDuomo .track { will-change: transform; }
+        /* Slider 3 match sizes */
+        #miniGuys { max-width: none; justify-self: center; width: fit-content; }
+        #miniGuys .viewport { height: 560px; margin: 0 auto; border-radius: 20px; }
+        .mini-slider { position: relative; width: 100%; max-width: 520px; margin: 0 auto; }
         .mini-slider .viewport { overflow: hidden; border-radius: 14px; background: transparent; aspect-ratio: 9 / 16; height: 420px; }
         .mini-slider .track { display: flex; height: 100%; transition: transform 0.5s ease; }
         .mini-slider .slide { flex: 0 0 100%; height: 100%; overflow: hidden; }
@@ -82,15 +109,19 @@
         .mini-slider .arrow.left { left: 6px; }
         .mini-slider .arrow.right { right: 6px; }
         .mini-slider .dots { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
-        .mini-slider .dot { width: 7px; height: 7px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
-        .mini-slider .dot.active { background: #572C57; }
-        .mini-title { text-align: left; color: #60667A; font-family: var(--font-subtitle); font-weight: 700; margin: 0 0 .5rem; }
-        .mini-row { display: block; }
-        .mini-copy { font-family: var(--font-copy); font-size: .92rem; color: #333; line-height: 1.5; opacity: 0; transform: translateY(8px); animation: fadeInUp .6s ease forwards; animation-delay: .15s; }
-        @media (max-width: 980px){ .mini-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 640px){ .mini-grid { grid-template-columns: 1fr; } .mini-slider { max-width: 360px; } }
-        @media (max-width: 980px){ .mini-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 640px){ .mini-grid { grid-template-columns: 1fr; } .mini-slider { max-width: 360px; } }
+        .mini-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: transparent; border: 2px solid #FDF5E6; cursor: pointer; opacity: .9; }
+        .mini-slider .dot.active { background: #FDF5E6; border-color: #FDF5E6; }
+        .mini-slider .restart-btn { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(253,245,230,0.98); color: #572C57; border: none; border-radius: 16px; padding: 6px 10px; font-size: 12px; font-family: var(--font-subtitle); cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 50; }
+        .mini-controls { text-align: center; margin-top: 10px; }
+        .mini-controls .restart-btn-plain { background: #FDF5E6; color: #572C57; border: none; border-radius: 16px; padding: 6px 12px; font-size: 12px; font-family: var(--font-subtitle); cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .mini-title { text-align: left; color: #60667A; font-family: var(--font-subtitle) !important; font-weight: 700 !important; margin: 0 0 .5rem; }
+        .mini-small-title { font-family: var(--font-subtitle) !important; font-weight: 700 !important; color: #60667A; margin: 0 0 .25rem; font-size: .95rem; letter-spacing: .2px; }
+        .mini-copy { font-family: var(--font-copy) !important; font-size: .95rem; color: #333; line-height: 1.55; opacity: 0; transform: translateY(8px); animation: fadeInUp .6s ease forwards; animation-delay: .15s; }
+        @media (max-width: 980px){ .alt-row, .alt-row.right { grid-template-columns: 1fr; } .mini-slider { max-width: 360px; } }
+        /* Enlarge first mini slider (Zemotion) */
+        #miniZemotion { width: 100%; max-width: none; }
+        #miniZemotion { justify-self: center; }
+        #miniZemotion .viewport { width: 820px; height: 660px; border-radius: 20px; margin: 0 auto; }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
         @media (max-width: 768px) { .purple-2col { grid-template-columns: 1fr; } .white-2col .grid { grid-template-columns: 1fr; } }
@@ -139,49 +170,40 @@
                     <div class="case-study-dash"></div>
                     <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
                     <h1 class="case-study-title">Camera della Moda</h1>
-                    <p class="case-study-subtitle">Tra sfilate, backstage e contenuti editoriali, supporto alla produzione e coordinamento creativo per raccontare il calendario moda con tempi serrati e standard elevati.</p>
+                    <h2 class="case-study-title" style="font-size: 1.6rem; color: #FDF5E6; margin-top: .25rem;">Dassuyamoroso with Z-Emotion x Memento</h2>
+                    <p class="case-study-subtitle">For the first time, Camera della Moda welcomed a brand that chose to step away from a traditional presentation format, embracing a more digital and innovative approach. To mark the launch of Dassuyamoroso, guests were invited to an immersive experience featuring Z-Emotion inside the historic building at Piazza del Duomo 31, and Memento, which brought an NFT AR treasure hunt to life across the globe.</p>
                     <div class="hero-divider"></div>
                     <div class="top-text-grid">
                         <div>
-                            <p class="paragraph-64 font-xlt bold">Visione</p>
-                            <p class="paragraph-64 font-xlt">Contenuti verticali contemporanei con pulizia e ordine formale. Ritmo senza perdere dettaglio e cura del brand.</p>
+                            <p class="paragraph-64 font-xlt bold">Vision</p>
+                            <p class="paragraph-64 font-xlt">A new way of telling stories through fashion - where design meets innovation and experiences live both in the room and beyond.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt bold">Produzione</p>
-                            <p class="paragraph-64 font-xlt">Coordinamento snello: talent, stylist, PR e tecnici. Scouting e set con passaggio immediato da still a motion.</p>
+                            <p class="paragraph-64 font-xlt bold">Production</p>
+                            <p class="paragraph-64 font-xlt">The project involves coordinating multiple teams and companies across different parts of the world, ensuring that every detail is aligned and ready for the big launch. Managing complex logistics and timelines is key to delivering a seamless, immersive experience.</p>
                         </div>
                         <div>
-                            <p class="paragraph-64 font-xlt bold">Processo</p>
-                            <p class="paragraph-64 font-xlt">Scaletta breve, slot ristretti, consegne rapide. Montaggi in giornata e output multipiattaforma.</p>
+                            <p class="paragraph-64 font-xlt bold">Process</p>
+                            <p class="paragraph-64 font-xlt">Together with Z-Emotion, we understood the need to elevate both the creative concept and the communication strategy. In close collaboration with the brand founders, a partnership with Memento - a tech company specializing in app development - was established, adding a unique digital layer to the experience.</p>
                         </div>
                         <div>
                             <p class="paragraph-64 font-xlt bold">Output</p>
-                            <p class="paragraph-64 font-xlt">Reel, stories, clip backstage, carousel editoriali e recap evento per canali ufficiali.</p>
+                            <p class="paragraph-64 font-xlt">The result is an immersive, multi-layered experience where fashion, technology, and storytelling converge. Guests explore physical displays, interact with digital twins, and participate in a global NFT AR treasure hunt - a presentation that bridges the real and virtual worlds.</p>
                         </div>
                     </div>
                 </header>
-                <img src="images/rectangle-1035.png" alt="Camera della Moda" class="case-study-main-image">
+                <img src="images/mementozemotion.jpg" alt="Camera della Moda" class="case-study-main-image">
             </div>
         </section>
 
-        <section class="purple-block">
-            <div class="case-study-container">
-                <div class="purple-2col">
-                    <h2>Connections</h2>
-                    <p>Collaborazioni con maison, agenzie, PR e team digitali. Obiettivo: allineare creatività ed esecuzione con tempi e standard del brand, mantenendo riconoscibilità e ordine visivo.
-                    </p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Mini Sliders: three focus areas -->
-        <section class="mini-sliders">
+        <!-- Mini Sliders: alternating rows -->
+        <section class="mini-sliders" style="background:#572C57;">
             <div class="case-study-container">
-                <div class="mini-grid">
-                    <!-- Zemotion -->
-                    <div>
-                        <h4 class="mini-title">Zemotion</h4>
-                        <div class="mini-row">
+                <div class="alt-rows">
+                    <!-- Row 1: slider left, text right -->
+                    <div class="alt-row alt-lg-left">
+                        <div>
                             <div class="mini-slider" id="miniZemotion">
                                 <div class="viewport">
                                     <div class="track">
@@ -197,25 +219,31 @@
                                 <button class="arrow right" aria-label="Next">›</button>
                                 <div class="dots"></div>
                             </div>
-                            <div class="mini-copy">Zemotion: motion-led storytelling focused on rhythm, texture, and a clean vertical composition for socials.</div>
+                        </div>
+                        <div>
+                            <h4 class="mini-title" style="font-size:1.6rem;color:#FDF5E6;">Z-Emotion Brings<br>Dassuyamoroso’s Metaverse<br>to Life</h4>
+                            <div class="mini-copy" style="color:#FDF5E6;">With Z-Emotion, the brand brought to life an immersive metaverse inspired by its collection.<br>In this virtual space, visitors could not only explore the digital twins of the looks but also walk through the key elements and inspirations behind a collection designed to merge fashion and technology.</div>
                         </div>
                     </div>
 
-                    <!-- Duomo -->
-                    <div>
-                        <h4 class="mini-title">Duomo</h4>
-                        <div class="mini-row">
+                    <!-- Row 2: slider right, text left -->
+                    <div class="alt-row right alt-md-right mt-large">
+                        <div>
+                            <h4 class="mini-title" style="font-size:1.6rem;color:#FDF5E6;">A Collectible Collection</h4>
+                            <div class="mini-copy" style="color:#FDF5E6;">Together with Memento - a tech company specializing in AR and digital collectibles - the 3D twins of the collection’s looks were reimagined as limited-edition NFTs, hidden across the city of Milan. Through an interactive online app, visitors were invited to follow digital clues and collect each piece, turning the presentation into a city-wide treasure hunt.</div>
+                        </div>
+                        <div>
                             <div class="mini-slider" id="miniDuomo">
                                 <div class="viewport">
                                     <div class="track">
                                         <div class="slide">
-                                            <video autoplay loop muted playsinline preload="metadata" poster="images/testimonial-video-poster.jpg">
-                                                <source src="videos/mementoduomo.mp4" type="video/mp4">
+                                            <video autoplay loop muted playsinline preload="metadata" poster="images/mementoduomo.jpg">
+                                                <source src="videos/mementoduomo1.mp4" type="video/mp4">
                                             </video>
                                         </div>
                                         <div class="slide">
-                                            <video loop muted playsinline preload="metadata">
-                                                <source src="videos/mementoduomo1.mp4" type="video/mp4">
+                                            <video autoplay loop muted playsinline preload="metadata" poster="images/mementoduomo.jpg">
+                                                <source src="videos/mementoduomo.mp4" type="video/mp4">
                                             </video>
                                         </div>
                                     </div>
@@ -224,14 +252,15 @@
                                 <button class="arrow right" aria-label="Next">›</button>
                                 <div class="dots"></div>
                             </div>
-                            <div class="mini-copy">Duomo: architectural context and rapid turnarounds—shots designed for tight slots and consistent brand tone.</div>
+                            <div class="mini-controls">
+                                <button class="restart-btn-plain" type="button" aria-label="Restart video">Restart</button>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Guys -->
-                    <div>
-                        <h4 class="mini-title">Guys</h4>
-                        <div class="mini-row">
+                    <!-- Row 3: slider left, text right -->
+                    <div class="alt-row alt-md-left mt-large">
+                        <div>
                             <div class="mini-slider" id="miniGuys">
                                 <div class="viewport">
                                     <div class="track">
@@ -249,7 +278,10 @@
                                 <button class="arrow right" aria-label="Next">›</button>
                                 <div class="dots"></div>
                             </div>
-                            <div class="mini-copy">Guys: talent coordination and styling continuity—fast set changes with a steady visual identity.</div>
+                        </div>
+                        <div>
+                            <h4 class="mini-title" style="font-size:1.6rem;color:#FDF5E6;">A Worldwide Creative Action - Building a Global Design Community</h4>
+                            <div class="mini-copy" style="color:#FDF5E6;">Through a targeted social media initiative, Memento fostered an international network of emerging fashion designers, encouraging a dynamic exchange of references, creative processes, and conceptual approaches. This community became an open platform where designers could showcase and refine their vision, while remaining deeply connected to their cultural and geographic identities.<br><br>Each participant shared the signature look from their most recent collection, which was then translated into high-fidelity 3D models and integrated into the blockchain as limited-edition digital collectibles. To anchor these works to their origins, designers provided meaningful geolocations — from personal spaces to cultural landmarks — allowing each collectible to be positioned in situ across the globe.<br><br>This initiative bridged digital innovation with physical context, transforming individual narratives into a collective, decentralized cartography of contemporary fashion.</div>
                         </div>
                     </div>
                 </div>
@@ -258,26 +290,19 @@
 
         <section class="white-section">
             <div class="case-study-container">
-                <div class="white-card">
+                <div class="white-card" style="max-width: 860px; text-align: left;">
                     <h3>Key Points</h3>
-                    <p>Produzione snella.<br>Coerenza multi-canale.<br>Relazione con talenti e stakeholder.<br>Output verticali puliti e rapidi.</p>
+                    <ul class="kp-list">
+                        <li>Strategic partnerships and community-driven storytelling.</li>
+                        <li>Coherent multi-channel presence.</li>
+                        <li>Streamlined production flows.</li>
+                        <li>Clear, fast, and impactful vertical outputs.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="white-2col">
-            <div class="case-study-container">
-                <div class="grid">
-                    <div>
-                        <h3>Impact</h3>
-                    </div>
-                    <div>
-                        <p>Dal brief alla consegna, ogni passaggio tiene insieme qualità, timing e tono del brand. La visione di insieme guida scelte rapide e pulite: dal backstage al feed, senza frizioni.</p>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
+        
 
         
 
@@ -383,8 +408,16 @@
             });
             const prev = root.querySelector('.arrow.left');
             const next = root.querySelector('.arrow.right');
+            const restart = root.querySelector('.restart-btn');
+            const restartPlain = root.parentElement && root.parentElement.querySelector('.restart-btn-plain');
             prev.addEventListener('click',()=>{ index=(index-1+slides.length)%slides.length; update();});
             next.addEventListener('click',()=>{ index=(index+1)%slides.length; update();});
+            function doRestart(){
+                const vid = slides[index] && slides[index].querySelector('video');
+                if (vid) { try { vid.pause(); vid.currentTime = 0; vid.play(); } catch(e){} }
+            }
+            if (restart) restart.addEventListener('click', doRestart);
+            if (restartPlain) restartPlain.addEventListener('click', doRestart);
             update();
         }
         ['miniZemotion','miniDuomo','miniGuys'].forEach(initMini);

@@ -840,6 +840,21 @@
             display: none !important;
         }
 
+        /* Ensure anchor scroll positions account for fixed navbar */
+        [id^="chakra-"] {
+            scroll-margin-top: 140px !important;
+        }
+
+        /* Brief glow highlight on target card when navigated from chakras */
+        .chakra-card-highlight {
+            animation: chakra-card-glow 1.2s ease-out;
+        }
+        @keyframes chakra-card-glow {
+            0%   { box-shadow: 0 0 0 0 rgba(87,44,87,0); transform: translateZ(0) scale(1); }
+            30%  { box-shadow: 0 18px 48px rgba(87,44,87,0.35), 0 0 0 8px rgba(253,245,230,0.9); transform: scale(1.01); }
+            100% { box-shadow: 0 6px 18px rgba(87,44,87,0.18), 0 0 0 0 rgba(253,245,230,0); transform: scale(1); }
+        }
+
         
 
         /* Firefox horizontal scrollbar removal */
@@ -985,46 +1000,46 @@
                     <div class="chakras-section">
                         <div class="div-block-637">
                             <div class="div-block-636" data-target="chakra-innovation">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-innovation">
                                     <img src="images/chakra-innovation.svg" loading="lazy" width="85" alt="Innovation chakra icon">
-                                </div>
-                                <div class="chakra--text">Innovation</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-innovation">Innovation</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-sustainability">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-sustainability">
                                     <img src="images/chakra-sustainability.svg" loading="lazy" width="85" alt="Sustainability chakra icon">
-                                </div>
-                                <div class="chakra--text">Sustainability</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-sustainability">Sustainability</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-transparency">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-transparency">
                                     <img src="images/chakra-transparency.svg" loading="lazy" width="85" alt="Transparency chakra icon">
-                                </div>
-                                <div class="chakra--text">Transparency</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-transparency">Transparency</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-synergy">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-synergy">
                                     <img src="images/chakra-synergy.svg" loading="lazy" width="85" alt="Synergy chakra icon">
-                                </div>
-                                <div class="chakra--text">Synergy</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-synergy">Synergy</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-authenticity">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-authenticity">
                                     <img src="images/chakra-authenticity.svg" loading="lazy" width="85" alt="Authenticity chakra icon">
-                                </div>
-                                <div class="chakra--text">Authenticity</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-authenticity">Authenticity</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-humanity">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-humanity">
                                     <img src="images/chakra-humanity.svg" loading="lazy" width="85" alt="Humanity chakra icon">
-                                </div>
-                                <div class="chakra--text">Humanity</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-humanity">Humanity</a>
                             </div>
                             <div class="div-block-636" data-target="chakra-neo-primordial">
-                                <div class="div-block-635">
+                                <a class="div-block-635 chakra-link" href="#chakra-neo-primordial">
                                     <img src="images/chakra-neo-primordial.svg" loading="lazy" width="85" alt="Neo-Primordial chakra icon">
-                                </div>
-                                <div class="chakra--text">Neo-Primordial</div>
+                                </a>
+                                <a class="chakra--text chakra-link" href="#chakra-neo-primordial">Neo-Primordial</a>
                             </div>
                         </div>
                     </div>
@@ -1139,72 +1154,72 @@
                 <div class="page-padding">
                     <div class="chakra-verticali">
                         <div class="div-block-628">
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-innovation">
                                 <div class="div-block-7">
                                     <img src="images/chakra-innovation.svg" loading="lazy" alt="Innovation icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-innovation">Innovation</h4>
+                                    <h4 class="heading-5">Innovation</h4>
                                     <p class="paragraph-33"><strong class="bold-text-2"><em>GRETA</em></strong> stays up-to-date with the latest advancements, ensuring a cutting-edge approach.</p>
                                 </div>
                             </div>
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-sustainability">
                                 <div class="div-block-7">
                                     <img src="images/chakra-sustainability.svg" loading="lazy" alt="Sustainability icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-sustainability">Sustainability</h4>
+                                    <h4 class="heading-5">Sustainability</h4>
                                     <p class="paragraph-33"><strong><em>GRETA</em></strong> promotes sustainability, not only environmentally but also socially, with organized and efficient work.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="div-block-628">
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-transparency">
                                 <div class="div-block-7">
                                     <img src="images/chakra-transparency.svg" loading="lazy" alt="Transparency icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-transparency">Transparency</h4>
+                                    <h4 class="heading-5">Transparency</h4>
                                     <p class="paragraph-33">Maintains open, clear communication without secrets or omissions.</p>
                                 </div>
                             </div>
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-synergy">
                                 <div class="div-block-7">
                                     <img src="images/chakra-synergy.svg" loading="lazy" alt="Synergy icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-synergy">Synergy</h4>
+                                    <h4 class="heading-5">Synergy</h4>
                                     <p class="paragraph-33">Values collaboration and harmony among all project stakeholders.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="div-block-628">
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-authenticity">
                                 <div class="div-block-7">
                                     <img src="images/chakra-authenticity.svg" loading="lazy" alt="Authenticity icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-authenticity">Authenticity</h4>
+                                    <h4 class="heading-5">Authenticity</h4>
                                     <p class="paragraph-33">Envisions a traceable industry via blockchain, promoting responsible consumption and a return to "made-to-order."</p>
                                 </div>
                             </div>
-                            <div class="div-block-6">
+                            <div class="div-block-6" id="chakra-humanity">
                                 <div class="div-block-7">
                                     <img src="images/chakra-humanity.svg" loading="lazy" alt="Humanity icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-humanity">Humanity</h4>
+                                    <h4 class="heading-5">Humanity</h4>
                                     <p class="paragraph-33">Our work is centered on human well-being, even when using machines and technology.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="div-block-628">
-                            <div class="last-service-cd-wrape">
+                            <div class="last-service-cd-wrape" id="chakra-neo-primordial">
                                 <div class="last-card-wrape-services">
                                     <img src="images/chakra-neo-primordial.svg" loading="lazy" alt="Neo-Primordial icon" class="image-10">
                                 </div>
                                 <div class="div-block-8">
-                                    <h4 class="heading-5" id="chakra-neo-primordial">Neo-Primordial</h4>
+                                    <h4 class="heading-5">Neo-Primordial</h4>
                                     <p class="paragraph-33">Merges innovation with tradition, championing a return to made-to-order as a path forward<br><em>no future without a return to origins</em></p>
                                 </div>
                             </div>
@@ -1663,6 +1678,57 @@ You wouldn’t be surprised to work with her and getting to know the most multif
             // Initialize
             showSlides();
         });
+    </script>
+    <script>
+        (function(){
+            var pendingTargetId = null;
+
+            document.addEventListener('click', function(e){
+                var a = e.target.closest && e.target.closest('.chakra-link[href^="#chakra-"]');
+                if(!a) return;
+                var id = a.getAttribute('href').slice(1);
+                var el = document.getElementById(id);
+                if(!el) return;
+                e.preventDefault();
+                e.stopPropagation();
+                // remember which section we want to emphasize when it settles in view
+                pendingTargetId = id;
+                el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }, true);
+
+            // Highlight the target card when it settles in view after scrolling down
+            var lastY = window.scrollY;
+            var direction = 'down';
+            window.addEventListener('scroll', function(){
+                var y = window.scrollY;
+                direction = y > lastY ? 'down' : 'up';
+                lastY = y;
+            }, { passive: true });
+
+            try {
+                var observer = new IntersectionObserver(function(entries){
+                    entries.forEach(function(entry){
+                        if (!entry.isIntersecting) return;
+                        if (!pendingTargetId) return; // only highlight when coming from a click
+                        if (entry.target.id !== pendingTargetId) return; // only the chosen target
+                        var host = entry.target;
+                        var box = host.querySelector('.div-block-7, .last-card-wrape-services');
+                        if (!box) return;
+                        box.classList.remove('chakra-card-highlight');
+                        void box.offsetWidth;
+                        box.classList.add('chakra-card-highlight');
+                        setTimeout(function(){ box.classList.remove('chakra-card-highlight'); }, 1300);
+                        // clear pending so nothing else highlights
+                        pendingTargetId = null;
+                    });
+                }, { threshold: 0.6, rootMargin: '-120px 0px -40% 0px' });
+
+                document.querySelectorAll('[id^="chakra-"]').forEach(function(sec){
+                    observer.observe(sec);
+                });
+            } catch(_) { /* no-op */ }
+        
+        })();
     </script>
 </body>
 </html>
