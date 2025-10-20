@@ -8,18 +8,17 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Greta Iovene - Network di talenti indipendenti per progetti innovativi" name="description">
     
-    <!-- CSS Files -->
-    <link href="css/fonts.css?v=1758885340" rel="stylesheet" type="text/css">
-    <link href="css/style.css?v=1758885340" rel="stylesheet" type="text/css">
+    <!-- CSS Files with Cache Busting -->
+    <link href="css/fonts.css?v=1.0.0" rel="stylesheet" type="text/css">
+    <link href="css/style.css?v=1.0.0" rel="stylesheet" type="text/css">
+    <link href="css/3d-scroll-effect.css?v=1.0.0" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="css/case-studies-slider.css?v=1.0.0" rel="stylesheet" type="text/css">
     
-    <!-- Chakra Interactions Script -->
-    <script src="images/js/chakra-interactions.js" defer></script>
-    
-    <!-- Testimonial Slider Script -->
-    <script src="images/js/testimonial-slider.js" defer></script>
-    
-    <!-- Animations Script -->
-    <script src="images/js/animations.js" defer></script>
+    <!-- Scripts with Cache Busting -->
+    <script src="images/js/chakra-interactions.js?v=1.0.0" defer></script>
+    <script src="images/js/testimonial-slider.js?v=1.0.0" defer></script>
+    <script src="images/js/animations.js?v=1.0.0" defer></script>
     
     <!-- Font Loading Script -->
     <script type="text/javascript">
@@ -187,19 +186,98 @@
             margin-bottom: 0 !important;
         }
         
-        /* Case Studies Spacing */
+        /* Case Studies Horizontal Scroll */
         .div-block-288 {
-            margin-bottom: 0.75rem !important; /* tighter space below section title */
+            margin-bottom: 2rem !important;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .case-studies-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: #c4c4c4 transparent;
+        }
+        
+        .case-studies-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .case-studies-scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .case-studies-scroll-container::-webkit-scrollbar-thumb {
+            background-color: #c4c4c4;
+            border-radius: 3px;
+        }
+        
+        .case-studies-scroll-container .w-dyn-items {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        .case-studies-scroll-container .w-dyn-item {
+            flex: 0 0 320px;
+            min-width: 0;
         }
         
         .case-study-card {
-            margin-bottom: 1.5rem !important;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 0 !important;
             transition: all 0.3s ease !important;
             box-shadow: none !important;
+            display: flex;
+            flex-direction: column;
         }
         
-        .case-study-card:hover {
-            transform: translateY(-3px) !important;
+        .case-study-card .blog66_image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .case-study-card .div-block-289 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .case-study-card .heading-93 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+        
+        .case-study-card .paragraph-55 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .case-study-card .div-block-291 {
+            margin-top: auto;
+        }
+        
+        @media (max-width: 767px) {
+            .case-studies-scroll-container .w-dyn-item {
+                flex: 0 0 280px;
+            }
+            
+            .case-study-card .blog66_image {
+                height: 200px;
+            }
         }
         
         /* CTA Section Spacing */
@@ -731,73 +809,466 @@
             </div>
         </section>
 
-        <!-- Case Studies Section -->
-        <section id="case-studies" class="section-5 services">
-            <div class="container-default-2 w-container">
-                <div class="div-block-288">
-                    <div>
-                        <div class="div-block-287">
-                            <h2 class="heading-92">Case Studies</h2>
-                        </div>
-                        <div class="div-block-290">
-                            <div class="collection-list-wrapper-2 w-dyn-list">
-                                    <div role="list" class="collection-list-4 w-dyn-items">
-                                        <div role="listitem" class="w-dyn-item">
-                                            <a data-w-id="df4cbde4-95ff-c65b-07b4-28af429bc0bd" href="capri-music-awards.html" class="case-study-card w-inline-block" style="box-shadow: none !important; filter: none !important;">
-                                                <img loading="lazy" src="images/capri-music-awards.jpg" alt="Capri Music Awards" class="blog66_image">
-                                                <div style="display:none; box-shadow: none !important;" class="div-block-289">
-                                                    <h4 class="heading-93">Capri Music Awards</h4>
-                                                    <p class="paragraph-55">Worked with the Production team for the three-day inaugural edition of the Capri Music Awards.</p>
-                                                    <div class="div-block-291" style="box-shadow: none !important;">
-                                                        <div class="text-block-136" style="box-shadow: none !important;">Case study</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div role="listitem" class="w-dyn-item">
-                                            <a href="camera-della-moda.html" class="case-study-card w-inline-block" style="box-shadow: none !important; filter: none !important;">
-                                                <img loading="lazy" src="images/mementozemotion.jpg" alt="Camera della Moda" class="blog66_image">
-                                                <div style="display:none; box-shadow: none !important;" class="div-block-289">
-                                                    <h4 class="heading-93">Camera della Moda</h4>
-                                                    <p class="paragraph-55">Case study in progress.</p>
-                                                    <div class="div-block-291" style="box-shadow: none !important;">
-                                                        <div class="text-block-136" style="box-shadow: none !important;">Case study</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div role="listitem" class="w-dyn-item">
-                                            <a href="moncler.html" class="case-study-card w-inline-block" style="box-shadow: none !important; filter: none !important;">
-                                                <img loading="lazy" src="images/moncler1.jpg" alt="Moncler Case Study" class="blog66_image" style="object-fit: cover; object-position: top;">
-                                                <div class="div-block-289" style="display:block; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%) !important; background-image: url('images/moncler1.jpg'); background-size: cover; background-position: center;">
-                                                    <h4 class="heading-93" style="text-shadow: 0 2px 10px rgba(0,0,0,0.35);">Moncler</h4>
-                                                    <p class="paragraph-55" style="text-shadow: 0 2px 10px rgba(0,0,0,0.35);">Case study placeholder. Full content coming soon.</p>
-                                                    <div class="div-block-291" style="box-shadow: none !important;">
-                                                        <div class="text-block-136" style="box-shadow: none !important;">Case study</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div role="listitem" class="w-dyn-item">
-                                            <a href="limitless-innovation.html" class="case-study-card w-inline-block" style="box-shadow: none !important; filter: none !important;">
-                                                <img loading="lazy" src="images/limitlesscover.jpeg" alt="Limitless Innovation" class="blog66_image" style="object-fit: cover; object-position: center;">
-                                                <div class="div-block-289" style="display:block; background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%) !important; background-image: url('images/limitlesscover.jpeg'); background-size: cover; background-position: center;">
-                                                    <h4 class="heading-93" style="text-shadow: 0 2px 10px rgba(0,0,0,0.35);">Limitless Innovation</h4>
-                                                    <p class="paragraph-55" style="text-shadow: 0 2px 10px rgba(0,0,0,0.35);">Case study placeholder. Full content coming soon.</p>
-                                                    <div class="div-block-291" style="box-shadow: none !important;">
-                                                        <div class="text-block-136" style="box-shadow: none !important;">Case study</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+        <!-- 3D Case Studies Section -->
+        <section id="case-studies" class="projects-section">
+            <div class="projects-frame">
+                <h2 class="heading-92" style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;">Case Studies</h2>
+                
+                <div class="swiper case-studies-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Capri Music Awards -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="capri-music-awards.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/capri-music-awards.jpg" alt="Capri Music Awards" class="card-image">
                                     </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">Capri Music Awards</h3>
+                                        <p class="card-subtitle">3 Days Event</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <div class="div-block-638" style="display:none !important;"></div>
+
+                        <!-- Camera della Moda -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="camera-della-moda.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/mementozemotion.jpg" alt="Camera della Moda" class="card-image">
+                                    </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">Camera della Moda</h3>
+                                        <p class="card-subtitle">Digital Innovation</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Moncler -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="moncler.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/moncler1.jpg" alt="Moncler Case Study" class="card-image">
+                                    </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">Moncler</h3>
+                                        <p class="card-subtitle">Brand Experience</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 4. NFT Rome 2023 -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="nft-rome-2023.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/nftrome.jpg" alt="NFT Rome 2023" class="card-image">
+                                    </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">NFT Rome 2023</h3>
+                                        <p class="card-subtitle">3 Days Event</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Naples - Metaverse x Luxury -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="naples-metaverse-luxury.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/naples.jpg" alt="Naples Metaverse x Luxury" class="card-image">
+                                    </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">Naples - Metaverse x Luxury</h3>
+                                        <p class="card-subtitle">3 Days Event</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Paris - Temera x Marangoni -->
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a href="paris-temera-marangoni.html" class="card-content">
+                                    <div class="card-image-wrapper">
+                                        <img loading="lazy" src="images/limitlessparis.jpeg" alt="Paris - Temera x Istituto Marangoni" class="card-image">
+                                    </div>
+                                    <div class="card-overlay"></div>
+                                    <div class="card-title-container">
+                                        <h3 class="card-title">Paris - Temera x Marangoni</h3>
+                                        <p class="card-subtitle">3 Days Event</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
+                    
+                    <!-- Navigation -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
+        
+        <style>
+        /* 3D Case Studies Styles */
+        .projects-section { 
+            padding: 8rem 2rem 12rem;
+            background: #f7efe6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects-frame {
+            max-width: 1400px;
+            margin: 0 auto;
+            perspective: 2000px;
+        }
+        
+        .projects-track {
+            display: flex;
+            gap: 4rem;
+            padding: 4rem 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 6rem;
+            scroll-padding: 0 50%;
+            position: relative;
+        }
+        
+        .card {
+            scroll-snap-align: center;
+            position: relative;
+            width: 800px;
+            height: 500px;
+            flex: 0 0 auto;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform-style: preserve-3d;
+            transform: translateX(0) scale(0.9);
+            opacity: 0.6;
+        }
+        
+        .card.center {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+            z-index: 2;
+        }
+        
+        .card.prev {
+            transform: translateX(-50%) scale(0.9);
+            opacity: 0.6;
+            z-index: 1;
+        }
+        
+        .card.next {
+            transform: translateX(50%) scale(0.9);
+            opacity: 0.6;
+            z-index: 1;
+        }
+        
+        .card-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card.center .card-content {
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .card-image-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card.center .card-overlay {
+            opacity: 1;
+        }
+        
+        .card-title-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+        }
+        
+        .card.center .card-title-container {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            margin: 0 0 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .card-subtitle {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .nav-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #3B3E49;
+        }
+        
+        .nav-arrow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        
+        .nav-arrow:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .pagination {
+            font-size: 1.2rem;
+            color: #3B3E49;
+            font-weight: 500;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        @media (max-width: 991px) {
+            .card {
+                width: 600px;
+                height: 400px;
+            }
+            
+            .card-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-subtitle {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .projects-section {
+                padding: 6rem 1rem 8rem;
+            }
+            
+            .card {
+                width: 90vw;
+                height: 350px;
+            }
+            
+            .projects-track {
+                gap: 2rem;
+                padding: 3rem 1rem;
+            }
+            
+            .card-title {
+                font-size: 1.5rem;
+            }
+            
+            .card-subtitle {
+                font-size: 0.95rem;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .pagination {
+                font-size: 1rem;
+            }
+        }
+        </style>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.projects-track');
+            const cards = Array.from(document.querySelectorAll('.card'));
+            const prevBtn = document.getElementById('prev-case');
+            const nextBtn = document.getElementById('next-case');
+            const currentSlideEl = document.querySelector('.current-slide');
+            const totalSlidesEl = document.querySelector('.total-slides');
+            
+            let currentIndex = 0;
+            const cardCount = cards.length;
+            
+            // Set total slides
+            totalSlidesEl.textContent = cardCount;
+            
+            // Initialize cards
+            function updateCards() {
+                cards.forEach((card, index) => {
+                    // Update active state
+                    card.classList.toggle('center', index === currentIndex);
+                    card.classList.toggle('prev', index < currentIndex);
+                    card.classList.toggle('next', index > currentIndex);
+                    
+                    // Update ARIA attributes
+                    card.setAttribute('aria-hidden', index !== currentIndex);
+                    card.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+                });
+                
+                // Update navigation state
+                prevBtn.disabled = currentIndex <= 0;
+                nextBtn.disabled = currentIndex >= cardCount - 1;
+                
+                // Update pagination
+                currentSlideEl.textContent = currentIndex + 1;
+                
+                // Auto-scroll to center the active card
+                if (cards[currentIndex]) {
+                    cards[currentIndex].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            }
+            
+            // Navigation functions
+            function goToIndex(newIndex) {
+                // Ensure index is within bounds
+                newIndex = Math.max(0, Math.min(newIndex, cardCount - 1));
+                if (newIndex === currentIndex) return;
+                
+                currentIndex = newIndex;
+                updateCards();
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', () => goToIndex(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToIndex(currentIndex + 1));
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    goToIndex(currentIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    goToIndex(currentIndex + 1);
+                }
+            });
+            
+            // Touch events for swipe
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum distance for a swipe
+                const swipeDistance = touchStartX - touchEndX;
+                
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                        // Swipe left - go to next
+                        goToIndex(currentIndex + 1);
+                    } else {
+                        // Swipe right - go to previous
+                        goToIndex(currentIndex - 1);
+                    }
+                }
+            }
+            
+            // Initialize
+            updateCards();
+            
+            // Auto-center on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const cardIndex = parseInt(entry.target.dataset.index);
+                        if (cardIndex !== currentIndex) {
+                            currentIndex = cardIndex;
+                            updateCards();
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.6,
+                root: null
+            });
+            
+            cards.forEach(card => observer.observe(card));
+        });
+        </script>
 
         <!-- CTA Section -->
         <section class="section-6 cta">
@@ -935,26 +1406,623 @@
         </section>
     </div>
 
-    <!-- Scripts -->
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66e5b5b8b8e7b4e3b8e7b4e3" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <!-- Restore Webflow slider runtime (navbar remains static via CSS overrides above) -->
-    <script src="https://cdn.prod.website-files.com/66e5b5b8b8e7b4e3b8e7b4e3/js/webflow.js" type="text/javascript"></script>
-    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
-    <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
-    
-    <!-- Mobile Menu Toggle Script -->
+    <!-- Case Studies Slider Script -->
     <script>
-        function toggleMobileMenu() {
-            const navMenu = document.querySelector('.nav-menu-3');
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
+    document.addEventListener('DOMContentLoaded', function() {
+        const track = document.getElementById('case-studies-track');
+        const cards = Array.from(document.querySelectorAll('.card'));
+        const prevBtn = document.getElementById('prev-case');
+        const nextBtn = document.getElementById('next-case');
+        const currentSlideEl = document.querySelector('.current-slide');
+        const totalSlidesEl = document.querySelector('.total-slides');
+        
+        let currentIndex = 0;
+        const totalCards = cards.length;
+        
+        // Update total slides counter
+        if (totalSlidesEl) {
+            totalSlidesEl.textContent = totalCards;
+        }
+        
+        // Initialize cards
+        function updateCards() {
+            cards.forEach((card, index) => {
+                const pos = index - currentIndex;
+                card.setAttribute('data-pos', pos);
+                
+                // Add/remove active class for animations
+                if (pos === 0) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+                
+                // Update z-index for proper layering
+                card.style.zIndex = 10 - Math.abs(pos);
+            });
+            
+            // Update pagination
+            if (currentSlideEl) {
+                currentSlideEl.textContent = currentIndex + 1;
+            }
+            
+            // Update button states
+            if (prevBtn) prevBtn.disabled = currentIndex === 0;
+            if (nextBtn) nextBtn.disabled = currentIndex >= totalCards - 1;
+        }
+        
+        // Navigation functions
+        function goToIndex(newIndex) {
+            // Don't go out of bounds
+            if (newIndex < 0 || newIndex >= totalCards) return;
+            
+            currentIndex = newIndex;
+            updateCards();
+        }
+        
+        // Event listeners
+        if (prevBtn) prevBtn.addEventListener('click', () => goToIndex(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goToIndex(currentIndex + 1));
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                goToIndex(currentIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                goToIndex(currentIndex + 1);
+            }
+        });
+        
+        // Touch events for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance to trigger swipe
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    // Swipe right - go to previous
+                    goToIndex(currentIndex - 1);
+                } else {
+                    // Swipe left - go to next
+                    goToIndex(currentIndex + 1);
+                }
             }
         }
+        
+        // Initialize
+        updateCards();
+    });
+    </script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66e5b5b8b8e7b4e3b8e7b4e3" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="js/webflow.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    
+    <!-- 3D Case Studies Slider Script -->
+    <script>
+    (function() {
+        'use strict';
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const slider = document.querySelector('.blog66_group.w-slider');
+        // Wait for DOM and all assets to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper with 3D effect
+            const swiper = new Swiper('.case-studies-slider', {
+                // Enable 3D effect
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                spaceBetween: 60,
+                loop: true,
+                loopAdditionalSlides: 2,
+                speed: 900,
+                parallax: true,
+                observer: true,
+                observeParents: true,
+                watchSlidesProgress: true,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 300,
+                    modifier: 1,
+                    slideShadows: false
+                },
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    type: 'bullets',
+                    bulletClass: 'swiper-pagination-bullet',
+                    bulletActiveClass: 'swiper-pagination-bullet-active',
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '"></span>';
+                    }
+                },
+                // Keyboard control
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                // Mousewheel control
+                mousewheel: {
+                    forceToAxis: true,
+                    sensitivity: 0.5,
+                },
+                // Breakpoints
+                breakpoints: {
+                    320: {
+                        spaceBetween: 20,
+                        coverflowEffect: {
+                            depth: 150,
+                            stretch: 0,
+                            modifier: 1,
+                            slideShadows: false
+                        }
+                    },
+                    768: {
+                        spaceBetween: 40,
+                        coverflowEffect: {
+                            depth: 250,
+                            stretch: 0,
+                            modifier: 1,
+                            slideShadows: false
+                        }
+                    },
+                    1024: {
+                        spaceBetween: 60,
+                        coverflowEffect: {
+                            depth: 300,
+                            stretch: 0,
+                            modifier: 1,
+                            slideShadows: false
+                        }
+                    }
+                },
+                // Custom transitions
+                on: {
+                    init: function() {
+                        // Force update to fix initial rendering
+                        this.update();
+                        
+                        // Add custom classes to slides for better targeting
+                        this.slides.forEach((slide, index) => {
+                            slide.setAttribute('data-swiper-slide-index', index);
+                        });
+                        
+                        // Initial update of slide positions
+                        updateSlidePositions(this);
+                        
+                        // Small delay to ensure all elements are properly rendered
+                        setTimeout(() => {
+                            this.update();
+                            updateSlidePositions(this);
+                            
+                            // Force a reflow to fix any remaining rendering issues
+                            document.body.style.overflow = 'hidden';
+                            document.body.offsetHeight;
+                            document.body.style.overflow = '';
+                        }, 100);
+                    },
+                    beforeInit: function() {
+                        // Ensure Swiper container is visible before initialization
+                        const swiperEl = document.querySelector('.case-studies-slider');
+                        if (swiperEl) {
+                            swiperEl.style.visibility = 'visible';
+                            swiperEl.style.opacity = '1';
+                        }
+                    },
+                    slideChangeTransitionStart: function() {
+                        // Update slide positions on slide change
+                        updateSlidePositions(this);
+                    },
+                    resize: function() {
+                        // Update on resize with debounce
+                        clearTimeout(this.resizeTimeout);
+                        this.resizeTimeout = setTimeout(() => {
+                            this.update();
+                            updateSlidePositions(this);
+                        }, 250);
+                    },
+                    setTranslate: function() {
+                        // Update positions during slide animation
+                        updateSlidePositions(this);
+                    }
+                }
+            });
+            
+            // Function to update slide positions for 3D effect
+            function updateSlidePositions(swiperInstance) {
+                const slides = swiperInstance.slides;
+                const activeIndex = swiperInstance.activeIndex % slides.length; // Handle loop
+                
+                // Reset all slides
+                slides.forEach((slide, index) => {
+                    const slideProgress = slide.progress || 0;
+                    const absProgress = Math.abs(slideProgress);
+                    
+                    // Calculate position and scale based on distance from active slide
+                    let translateX = 0;
+                    let translateZ = 0;
+                    let scale = 1;
+                    let opacity = 1;
+                    let zIndex = 5;
+                    
+                    if (absProgress < 0.5) {
+                        // Active slide
+                        translateX = slideProgress * 20;
+                        translateZ = -absProgress * 50;
+                        scale = 1 - absProgress * 0.05;
+                        opacity = 1;
+                        zIndex = 10;
+                    } else if (absProgress < 1.5) {
+                        // Adjacent slides
+                        translateX = slideProgress * 40;
+                        translateZ = -50 - (absProgress - 0.5) * 100;
+                        scale = 0.95 - (absProgress - 0.5) * 0.1;
+                        opacity = 0.9 - (absProgress - 0.5) * 0.2;
+                        zIndex = 9 - Math.floor(absProgress);
+                    } else if (absProgress < 2.5) {
+                        // Further slides
+                        translateX = slideProgress * 80;
+                        translateZ = -150 - (absProgress - 1.5) * 100;
+                        scale = 0.85 - (absProgress - 1.5) * 0.1;
+                        opacity = 0.7 - (absProgress - 1.5) * 0.2;
+                        zIndex = 8 - Math.floor(absProgress);
+                    } else {
+                        // Furthest slides
+                        translateX = slideProgress * 120;
+                        translateZ = -250;
+                        scale = 0.75;
+                        opacity = 0.5;
+                        zIndex = 1;
+                    }
+                    
+                    // Apply transforms with GSAP for smooth animations
+                    if (window.gsap) {
+                        gsap.set(slide, {
+                            x: `${translateX}%`,
+                            z: translateZ,
+                            scale: scale,
+                            opacity: opacity,
+                            zIndex: Math.max(1, zIndex),
+                            force3D: true,
+                            transformStyle: 'preserve-3d',
+                            backfaceVisibility: 'hidden',
+                            willChange: 'transform, opacity',
+                            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease',
+                            overwrite: true
+                        });
+                    } else {
+                        // Fallback if GSAP is not available
+                        slide.style.transform = `translate3d(${translateX}%, 0, ${translateZ}px) scale(${scale})`;
+                        slide.style.opacity = opacity;
+                        slide.style.zIndex = Math.max(1, zIndex);
+                    }
+                    
+                    // Add/remove active class
+                    if (index === activeIndex) {
+                        slide.classList.add('swiper-slide-active');
+                    } else {
+                        slide.classList.remove('swiper-slide-active');
+                    }
+                });
+            }
+            
+            // Handle window resize events
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function() {
+                    swiper.update();
+                    updateSlidePositions(swiper);
+                }, 250);
+            });
+            
+            // Initialize slider visibility
+            const slider = document.querySelector('.case-studies-slider');
+            if (slider) {
+                slider.style.opacity = '1';
+                slider.style.visibility = 'visible';
+            }
+        });
+    })();
+    
+    // Handle hover effect on active slide
+    document.addEventListener('DOMContentLoaded', function() {
+        function updateHoverEffects() {
+            const activeSlide = document.querySelector('.swiper-slide-active .card');
+            if (!activeSlide) return;
+            
+            // Remove any existing event listeners
+            const newActiveSlide = activeSlide.cloneNode(true);
+            activeSlide.parentNode.replaceChild(newActiveSlide, activeSlide);
+            
+            // Add hover effect to new active slide
+            newActiveSlide.addEventListener('mouseenter', function() {
+                if (window.gsap) {
+                    gsap.to(newActiveSlide, {
+                        y: -10,
+                        scale: 1.02,
+                        boxShadow: '0 40px 80px rgba(0,0,0,0.25)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                }
+            });
+            
+            newActiveSlide.addEventListener('mouseleave', function() {
+                if (window.gsap) {
+                    gsap.to(newActiveSlide, {
+                        y: 0,
+                        scale: 1,
+                        boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                }
+            });
+        }
+        
+        // Initial setup
+        updateHoverEffects();
+        
+        // Update on slide change
+        document.addEventListener('slideChange', function() {
+            setTimeout(updateHoverEffects, 100);
+        });
+    });
+    
+    // Initialize GSAP animations when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ensure GSAP and ScrollTrigger are loaded
+        if (window.gsap && window.ScrollTrigger) {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Refresh ScrollTrigger after a short delay to ensure all elements are rendered
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 1000);
+            
+            // Animate elements with the 'animate-on-scroll' class
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            if (animateElements.length > 0) {
+                animateElements.forEach(element => {
+                    gsap.from(element, {
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                            once: true
+                        },
+                        opacity: 0,
+                        y: 30,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        onComplete: () => {
+                            // Force reflow to prevent animation flicker
+                            element.style.willChange = 'auto';
+                        }
+                    });
+                });
+            }
+            
+            // Add smooth scroll behavior for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: {
+                                y: targetElement,
+                                offsetY: 100,
+                                autoKill: true
+                            },
+                            ease: 'power2.inOut'
+                        });
+                    }
+                });
+            });
+        }
+    });
+    
+    // Handle window resize events with debounce
+    (function() {
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            document.body.classList.add('resize-animation-stopper');
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                document.body.classList.remove('resize-animation-stopper');
+                
+                // Refresh Swiper and ScrollTrigger on resize
+                if (typeof swiper !== 'undefined' && swiper.update) {
+                    swiper.update();
+                }
+                if (window.ScrollTrigger) {
+                    ScrollTrigger.refresh();
+                }
+            }, 250);
+        });
+    })();
+    
+    // Add CSS for resize animation stopper
+    const style = document.createElement('style');
+    style.textContent = `
+        .resize-animation-stopper * {
+            animation: none !important;
+            transition: none !important;
+        }
+        
+        /* Ensure smooth transitions for slider elements */
+        .swiper-slide {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        /* Improve slider performance */
+        .swiper-wrapper {
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            perspective: 1200px;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Ensure proper cleanup when page is unloaded
+    window.addEventListener('beforeunload', function() {
+        // Clean up GSAP animations
+        if (window.gsap) {
+            gsap.killTweensOf('*');
+            if (window.ScrollTrigger) {
+                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            }
+        }
+        
+        // Clean up event listeners
+        window.removeEventListener('resize', this);
+        window.removeEventListener('beforeunload', this);
+    });
+    
+    // Initialize everything when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add loaded class to body to enable transitions
+        document.body.classList.add('page-loaded');
+        
+        // Remove loading state after a short delay
+        setTimeout(() => {
+            document.body.classList.remove('page-loading');
+            document.body.style.visibility = 'visible';
+        }, 100);
+    });
+    
+    // Add loading state to body
+    document.body.classList.add('page-loading');
+    document.body.style.visibility = 'hidden';
+    
+    // Add loading styles
+    const loadingStyles = document.createElement('style');
+    loadingStyles.textContent = `
+        .page-loading * {
+            transition: none !important;
+        }
+        
+        .page-loaded .case-studies-slider {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+    `;
+    document.head.appendChild(loadingStyles);
+    
+    // Initialize 3D Scroll Effect when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Only initialize if GSAP and ScrollTrigger are available
+        if (window.gsap && window.ScrollTrigger) {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Initialize your 3D scroll effect here
+            // ... (your existing 3D scroll effect code)
+            
+            // Refresh ScrollTrigger after a short delay
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 1000);
+        }
+    });
+    </script>
+    
+    <!-- 3D Scroll Effect Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize GSAP ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // 3D Scroll Effect for Case Studies
+            const stack = document.querySelector('.case-studies-stack');
+            const cards = gsap.utils.toArray('.case-study-3d-card');
+            
+            if (stack && cards.length > 0) {
+                gsap.to(cards, {
+                    xPercent: -100 * (cards.length - 1),
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.case-studies-scroll-container',
+                        pin: true,
+                        scrub: 1,
+                        end: '+=3000',
+                    }
+                });
+                
+                // Add 3D transform on hover
+                cards.forEach((card, i) => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateY = (x - centerX) / 20;
+                        const rotateX = (centerY - y) / 20;
+                        
+                        gsap.to(card, {
+                            rotateY: rotateY,
+                            rotateX: rotateX,
+                            duration: 0.5,
+                            ease: 'power2.out'
+                        });
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, {
+                            rotateY: 0,
+                            rotateX: 0,
+                            duration: 0.5,
+                            ease: 'power2.out'
+                        });
+                    });
+                });
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.querySelector('.w-nav-button').classList.toggle('w--open');
+            document.querySelector('.w-nav-overlay').classList.toggle('w--open');
+            document.querySelector('.w-nav-overlay').style.height = document.documentElement.scrollHeight + 'px';
+            document.body.classList.toggle('nav-open');
+        }
             if (!slider) return;
             
             const mask = slider.querySelector('.w-slider-mask');

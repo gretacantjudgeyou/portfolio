@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Limitless Innovation III - Case Study | Greta Iovene</title>
+    <meta content="Limitless Innovation III - Case study." property="og:title">
+    <meta content="Limitless Innovation III - Case study." property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="css/fonts.css?v=1758885340" rel="stylesheet" type="text/css">
+    <link href="css/style.css?v=1758885340" rel="stylesheet" type="text/css">
+</head>
+<body class="body">
+    <div class="home-page-wraper">
+        <div data-animation="default" data-collapse="none" data-duration="400" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand"><img src="images/greta-logo-main.png" alt="Greta Logo" class="image-236"></a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="greta-logo-wraper"><img src="images/greta-logo-secondary.png" alt="Greta Logo" class="image-237"></div>
+                </div>
+            </div>
+        </div>
+
+        <section class="case-hero">
+            <div class="case-study-container">
+                <header class="case-study-header">
+                    <div class="case-study-dash"></div>
+                    <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
+                    <h1 class="case-study-title">Limitless Innovation III</h1>
+                    <p class="case-study-subtitle">Copia di lavoro dalla pagina Limitless principale. Personalizza quando preferisci.</p>
+                    <div class="hero-divider"></div>
+                </header>
+                <img src="images/limitlesscover.jpeg" alt="Limitless Innovation" class="case-study-main-image">
+            </div>
+        </section>
+
+        <section class="white-2col event-block">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div><h3 class="event-title">Highlights</h3></div>
+                    <div><p class="paragraph-copy">Sezione di esempio con immagini placeholder della serie Limitless.</p></div>
+                </div>
+                <div class="cma-slider">
+                    <div class="viewport">
+                        <div class="track">
+                            <div class="slide"><img src="images/limitlessparis2.jpeg" alt="Limitless"></div>
+                            <div class="slide"><img src="images/limitlessparis5.jpeg" alt="Limitless"></div>
+                            <div class="slide"><img src="images/limitless1.jpg" alt="Limitless"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous">‹</button>
+                    <button class="arrow right" aria-label="Next">›</button>
+                    <div class="dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand"><img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo"></a>
+                            <div><a href="mailto:info@gretaiovene.com" class="link-9">info@gretaiovene.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper"><div class="text-block-116">Copyright © gretaiovene.com 2025</div></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (function(){
+            const slider = document.querySelector('.cma-slider');
+            if(!slider) return;
+            const track = slider.querySelector('.track');
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+            const dotsWrap = slider.querySelector('.dots');
+            const btnPrev = slider.querySelector('.arrow.left');
+            const btnNext = slider.querySelector('.arrow.right');
+            let index = 0;
+            slides.forEach((_,i)=>{ const d=document.createElement('div'); d.className='dot'+(i===0?' active':''); d.addEventListener('click',()=>{index=i;update();}); dotsWrap.appendChild(d); });
+            function update(){ track.style.transform='translate3d(' + (-index*100) + '%,0,0)'; Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index)); }
+            const next=()=>{ index=(index+1)%slides.length; update(); };
+            const prev=()=>{ index=(index-1+slides.length)%slides.length; update(); };
+            btnNext&&btnNext.addEventListener('click',next); btnPrev&&btnPrev.addEventListener('click',prev);
+            update();
+        })();
+    </script>
+</body>
+</html>

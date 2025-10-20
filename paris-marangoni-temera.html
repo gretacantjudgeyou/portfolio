@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <title>Paris - Instituto Marangoni & Temera | Case Study | Greta Iovene</title>
+    <meta content="Paris - Instituto Marangoni & Temera - Case study showcasing our collaboration." property="og:title">
+    <meta content="Paris - Instituto Marangoni & Temera - Case study showcasing our collaboration." property="twitter:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <!-- CSS Files -->
+    <link href="css/fonts.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Case Study Page Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important;
+            font-weight: 700 !important;
+        }
+        
+        p, .case-study-content {
+            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important;
+            font-weight: 400 !important;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: #333;
+        }
+        
+        .nav-link--final {
+            font-family: 'ITC Avant Garde Gothic Pro Medium', sans-serif !important;
+            font-weight: 500 !important;
+            transition: none !important;
+        }
+        
+        /* Match navbar typography with inner pages */
+        .nav-link--final { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        /* Force identical navbar sizing on homepage */
+        .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
+        .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
+        .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
+        
+        /* Case Study Layout */
+        .case-study-container {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            padding: 2rem;
+        }
+        
+        .case-study-header {
+            margin-bottom: 4rem;
+        }
+        
+        .case-study-dash {
+            width: 60px;
+            height: 4px;
+            background: #572C57;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cs-back {
+            color: #572C57;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cs-back:hover {
+            text-decoration: underline;
+        }
+        
+        .cs-back .arr {
+            font-size: 1.1rem;
+            line-height: 1;
+            transform: translateY(-1px);
+        }
+        
+        .case-hero {
+            padding: 2rem 0 4rem;
+            background: #FDF5E6;
+        }
+        
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: #1A1A1A;
+        }
+        
+        .case-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 3rem 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #572C57;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Two Column Layout */
+        .white-2col {
+            background: #fff;
+            padding: 6rem 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .grid h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1A1A1A;
+        }
+        
+        .grid p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Full Width Image */
+        .full-width-image {
+            width: 100%;
+            height: 80vh;
+            min-height: 600px;
+            object-fit: cover;
+            margin: 4rem 0;
+        }
+        
+        /* Partners Section */
+        .partners {
+            padding: 4rem 0;
+            background: #F9F5F0;
+        }
+        
+        .partners h3 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1A1A1A;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .partner-logo {
+            max-width: 180px;
+            height: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .case-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image {
+                height: 400px;
+            }
+            
+            .full-width-image {
+                height: 50vh;
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-container {
+                padding: 1rem;
+            }
+            
+            .case-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-image {
+                height: 300px;
+                margin: 2rem 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Author section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .author-image {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.5rem;
+            color: #1A1A1A;
+        }
+        
+        .author-title {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .author-bio {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: #572C57;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #6a3a6a;
+            transform: translateY(-3px);
+        }
+        
+        /* Custom slider styles */
+        .cma-slider { position: relative; width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); }
+        .cma-slides { display: flex; transition: transform 0.5s ease; height: 600px; }
+        .cma-slide { flex: 0 0 100%; height: 100%; position: relative; }
+        .cma-slide img, .cma-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .cma-slide-content { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); color: white; padding: 2rem; }
+        .cma-slide h3 { margin: 0 0 0.5rem; font-size: 1.5rem; }
+        .cma-slide p { margin: 0; opacity: 0.9; font-size: 1rem; }
+        .cma-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; }
+        .cma-arrow:hover { background: rgba(255,255,255,0.3); }
+        .cma-prev { left: 20px; }
+        .cma-next { right: 20px; }
+        .cma-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; }
+        .cma-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; }
+        .cma-dot.active { background: white; transform: scale(1.2); }
+        
+        /* Responsive adjustments for slider */
+        @media (max-width: 768px) {
+            .cma-slides { height: 400px; }
+            .cma-slide-content { padding: 1.5rem; }
+            .cma-slide h3 { font-size: 1.2rem; }
+            .cma-slide p { font-size: 0.9rem; }
+            .cma-arrow { width: 40px; height: 40px; font-size: 1rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .cma-slides { height: 300px; }
+            .cma-slide-content { padding: 1rem; }
+            .cma-slide h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+            .cma-slide p { font-size: 0.8rem; }
+            .cma-dot { width: 8px; height: 8px; }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="home-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand-2 w-nav-brand">
+                        <img src="images/greta-logo.png" alt="Greta Iovene" class="logo">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link-9 nav-link--final w-nav-link">Home</a>
+                        <a href="about.html" class="nav-link-9 nav-link--final w-nav-link">About</a>
+                        <a href="services.html" class="nav-link-9 nav-link--final w-nav-link">Services</a>
+                        <a href="blog.html" class="nav-link-9 nav-link--final w-nav-link">Blog</a>
+                        <a href="contact.html" class="button-primary-2 small w-button">Get in Touch</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-2 w-icon-nav-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="case-hero">
+            <div class="case-study-container">
+                <header class="case-study-header">
+                    <div class="case-study-dash"></div>
+                    <div class="case-study-meta">
+                        <span>2024</span>
+                        <a class="cs-back" href="services.html#case-studies">
+                            <span class="arr">←</span> Back to Case Studies
+                        </a>
+                    </div>
+                    <h1>Paris - Instituto Marangoni & Temera</h1>
+                    <p>Strategic partnership and event production for a unique educational and networking experience in the heart of Paris, bringing together fashion, technology, and innovation.</p>
+                </header>
+                
+                <img src="images/paris-marangoni-hero.jpg" alt="Paris - Instituto Marangoni & Temera" class="hero-image">
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Days</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Speakers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Attendees</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Workshops</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="white-2col">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div>
+                        <h3>Overview</h3>
+                        <p>In collaboration with Instituto Marangoni and Temera, we crafted an immersive three-day event in Paris that bridged the gap between fashion education and technological innovation. The event brought together industry leaders, students, and professionals to explore the future of fashion through the lens of digital transformation.</p>
+                        <p>Our team was responsible for the end-to-end production, from conceptualization to execution, ensuring a seamless experience that exceeded expectations and delivered measurable impact for all stakeholders.</p>
+                    </div>
+                    <div>
+                        <h3>Challenge</h3>
+                        <p>Creating a cohesive experience that would resonate with both fashion students and tech professionals required a delicate balance. We needed to design an event that was both educational and inspirational, with content that was accessible to beginners yet valuable for industry veterans.</p>
+                        <p>Additional challenges included coordinating international speakers, managing hybrid elements for remote participants, and creating networking opportunities that would foster meaningful connections.</p>
+                    </div>
+                </div>
+                
+                <!-- Full Width Image -->
+                <img src="images/paris-marangoni-panorama.jpg" alt="Event Panorama" class="full-width-image">
+                
+                <div class="grid">
+                    <div>
+                        <h3>Solution</h3>
+                        <p>We developed a multi-track program that included keynote presentations, interactive workshops, and networking sessions. The event was structured to allow participants to choose their own journey based on their interests and experience level.</p>
+                        <p>Key elements included hands-on tech demonstrations, case study presentations from leading fashion brands, and mentorship sessions with industry experts. We also implemented a dedicated event app to facilitate networking and provide real-time updates to attendees.</p>
+                    </div>
+                    <div>
+                        <h3>Results</h3>
+                        <p>The event was a resounding success, with 98% of attendees rating it as "excellent" or "very good" in post-event surveys. The partnership between Instituto Marangoni and Temera was strengthened, leading to ongoing collaborations and the establishment of a new scholarship program for students interested in fashion technology.</p>
+                        <p>Follow-up surveys conducted three months after the event showed that 85% of participants had implemented learnings from the event in their work or studies, and 72% reported forming valuable professional connections that they maintained after the event.</p>
+                    </div>
+                </div>
+                
+                <!-- Image Slider -->
+                <div class="cma-slider" style="margin: 4rem 0;">
+                    <div class="cma-slides">
+                        <div class="cma-slide">
+                            <img src="images/paris-marangoni-slide1.jpg" alt="Keynote Presentation">
+                            <div class="cma-slide-content">
+                                <h3>Keynote Presentations</h3>
+                                <p>Industry leaders shared insights on the future of fashion and technology.</p>
+                            </div>
+                        </div>
+                        <div class="cma-slide">
+                            <img src="images/paris-marangoni-slide2.jpg" alt="Workshop Session">
+                            <div class="cma-slide-content">
+                                <h3>Interactive Workshops</h3>
+                                <p>Hands-on sessions allowed participants to apply new skills in real-time.</p>
+                            </div>
+                        </div>
+                        <div class="cma-slide">
+                            <img src="images/paris-marangoni-slide3.jpg" alt="Networking">
+                            <div class="cma-slide-content">
+                                <h3>Networking Opportunities</h3>
+                                <p>Structured networking sessions fostered meaningful connections.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="cma-arrow cma-prev">❮</button>
+                    <button class="cma-arrow cma-next">❯</button>
+                    <div class="cma-dots"></div>
+                </div>
+                
+                <!-- Testimonial -->
+                <div style="max-width: 800px; margin: 4rem auto; text-align: center;">
+                    <blockquote style="font-style: italic; font-size: 1.25rem; line-height: 1.6; color: #333; position: relative; padding: 2rem;">
+                        <p>"The collaboration with Greta's team transformed our vision into an extraordinary reality. The event not only met but exceeded our expectations, creating lasting value for our students and partners alike."</p>
+                        <footer style="margin-top: 1.5rem; font-style: normal; font-weight: 600; color: #572C57;">
+                            — Marie Dubois, Director of Innovation, Instituto Marangoni Paris
+                        </footer>
+                    </blockquote>
+                </div>
+                
+                <!-- Author Section -->
+                <div class="author-section">
+                    <img src="images/author-greta.jpg" alt="Greta Iovene" class="author-image">
+                    <div class="author-info">
+                        <h4>Greta Iovene</h4>
+                        <div class="author-title">Founder & Creative Director</div>
+                        <p class="author-bio">With over a decade of experience in event production and brand strategy, Greta specializes in creating meaningful connections between brands and their audiences through innovative experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners">
+            <div class="case-study-container">
+                <h3>In Partnership With</h3>
+                <div class="partners-grid">
+                    <img src="images/logo-marangoni.png" alt="Instituto Marangoni" class="partner-logo">
+                    <img src="images/logo-temera.png" alt="Temera" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand">
+                                <img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo">
+                            </a>
+                            <p class="footer-main-text">Creating meaningful connections through innovative experiences and strategic partnerships.</p>
+                            <div class="social-media">
+                                <a href="#" class="social-icon w-inline-block">
+                                    <img src="images/instagram-icon.svg" alt="Instagram" class="social-icon-img">
+                                </a>
+                                <a href="#" class="social-icon w-inline-block">
+                                    <img src="images/linkedin-icon.svg" alt="LinkedIn" class="social-icon-img">
+                                </a>
+                                <a href="#" class="social-icon w-inline-block">
+                                    <img src="images/twitter-icon.svg" alt="Twitter" class="social-icon-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links-block">
+                        <div class="footer-mobile-content2">
+                            <div class="div-block-228">
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Company</div>
+                                    <a href="about.html" class="footer-link">About Us</a>
+                                    <a href="services.html" class="footer-link">Services</a>
+                                    <a href="blog.html" class="footer-link">Blog</a>
+                                    <a href="contact.html" class="footer-link">Contact</a>
+                                </div>
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Services</div>
+                                    <a href="services.html#event-production" class="footer-link">Event Production</a>
+                                    <a href="services.html#brand-strategy" class="footer-link">Brand Strategy</a>
+                                    <a href="services.html#creative-direction" class="footer-link">Creative Direction</a>
+                                    <a href="services.html#digital-experiences" class="footer-link">Digital Experiences</a>
+                                </div>
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Connect</div>
+                                    <a href="mailto:hello@gretaiovene.com" class="footer-link">hello@gretaiovene.com</a>
+                                    <a href="tel:+393331234567" class="footer-link">+39 333 123 4567</a>
+                                    <div class="footer-social-links">
+                                        <a href="#" class="footer-social-link">Instagram</a>
+                                        <a href="#" class="footer-social-link">LinkedIn</a>
+                                        <a href="#" class="footer-social-link">Twitter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper">
+                    <div class="text-block-116">© 2025 Greta Iovene. All rights reserved.</div>
+                    <div class="footer-legal-links">
+                        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="footer-legal-link">Terms of Service</a>
+                        <a href="cookie-policy.html" class="footer-legal-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top" id="back-to-top">↑</a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Simple slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.cma-slider');
+            if (!slider) return;
+            
+            const slides = slider.querySelector('.cma-slides');
+            const slideItems = slider.querySelectorAll('.cma-slide');
+            const prevBtn = slider.querySelector('.cma-prev');
+            const nextBtn = slider.querySelector('.cma-next');
+            const dotsContainer = slider.querySelector('.cma-dots');
+            
+            let currentIndex = 0;
+            const totalSlides = slideItems.length;
+            
+            // Create dots
+            slideItems.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('cma-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = slider.querySelectorAll('.cma-dot');
+            
+            // Update slider position
+            function updateSlider() {
+                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Go to specific slide
+            function goToSlide(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                updateSlider();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+            
+            // Event listeners
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            
+            // Auto-advance slides
+            let slideInterval = setInterval(nextSlide, 5000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', () => {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
