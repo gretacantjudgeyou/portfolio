@@ -11,10 +11,6 @@
     <!-- CSS Files with Cache Busting -->
     <link href="css/fonts.css?v=1.0.0" rel="stylesheet" type="text/css">
     <link href="css/style.css?v=1.0.0" rel="stylesheet" type="text/css">
-    <link href="css/3d-scroll-effect.css?v=1.0.0" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="css/case-studies-slider.css?v=1.0.0" rel="stylesheet" type="text/css">
-    
     <!-- Scripts with Cache Busting -->
     <script src="images/js/chakra-interactions.js?v=1.0.0" defer></script>
     <script src="images/js/testimonial-slider.js?v=1.0.0" defer></script>
@@ -85,6 +81,115 @@
         
         .slider-dot.active, .testimonial-dot.active, .horizontal-dot.active {
             background-color: #FDF5E6;
+        }
+        
+        /* 3D Carousel Styles */
+        .carousel-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 0;
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        
+        .carousel__cell {
+            position: absolute;
+            width: 400px;
+            height: 500px;
+            left: 50%;
+            top: 50%;
+            margin: -250px 0 0 -200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+        
+        .carousel__cell-content {
+            background: white;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            text-align: center;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .carousel__cell-content:hover {
+            transform: scale(1.05);
+        }
+        
+        .carousel__cell h3 {
+            margin-top: 0;
+            color: #3B3E49;
+            font-family: var(--font-title);
+        }
+        
+        .carousel__cell p {
+            color: #666;
+            font-family: var(--font-copy);
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .carousel-button {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #FDF5E6;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            color: #3B3E49;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        
+        .carousel-button.prev {
+            left: -80px;
+        }
+        
+        .carousel-button.next {
+            right: -80px;
+        }
+        
+        .carousel-button:hover {
+            background: #FDF5E6;
+            transform: scale(1.1);
         }
         
         /* Match navbar typography with inner pages */
@@ -186,140 +291,6 @@
             margin-bottom: 0 !important;
         }
         
-        /* Case Studies Horizontal Scroll */
-        .div-block-288 {
-            margin-bottom: 2rem !important;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        .case-studies-scroll-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 1.5rem;
-            padding-bottom: 1.5rem;
-            scrollbar-width: thin;
-            scrollbar-color: #c4c4c4 transparent;
-        }
-        
-        .case-studies-scroll-container::-webkit-scrollbar {
-            height: 6px;
-        }
-        
-        .case-studies-scroll-container::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        
-        .case-studies-scroll-container::-webkit-scrollbar-thumb {
-            background-color: #c4c4c4;
-            border-radius: 3px;
-        }
-        
-        .case-studies-scroll-container .w-dyn-items {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0 1rem;
-        }
-        
-        .case-studies-scroll-container .w-dyn-item {
-            flex: 0 0 320px;
-            min-width: 0;
-        }
-        
-        .case-study-card {
-            width: 100%;
-            height: 100%;
-            margin-bottom: 0 !important;
-            transition: all 0.3s ease !important;
-            box-shadow: none !important;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .case-study-card .blog66_image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        
-        .case-study-card .div-block-289 {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 1.5rem;
-            background: #fff;
-            border-radius: 0 0 8px 8px;
-        }
-        
-        .case-study-card .heading-93 {
-            margin-top: 0;
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-            line-height: 1.3;
-        }
-        
-        .case-study-card .paragraph-55 {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        .case-study-card .div-block-291 {
-            margin-top: auto;
-        }
-        
-        @media (max-width: 767px) {
-            .case-studies-scroll-container .w-dyn-item {
-                flex: 0 0 280px;
-            }
-            
-            .case-study-card .blog66_image {
-                height: 200px;
-            }
-        }
-        
-        /* CTA Section Spacing */
-        .section-6.cta { padding: 0.75rem 0 1.75rem 0 !important; margin-top: 0 !important; }
-        .section-6.cta .container-small-540px { margin-top: 0 !important; }
-        
-        .container-small-540px {
-            margin-bottom: 3rem !important;
-        }
-        
-        .cta-wrapper {
-            display: flex !important;
-            justify-content: center !important;
-        }
-        
-        .card-4.cta-left {
-            padding: 2.5rem !important;
-            text-align: center !important;
-            max-width: 500px !important;
-        }
-        
-        .cta-icon {
-            margin-bottom: 1.5rem !important;
-        }
-        
-        .heading-90 {
-            margin-bottom: 1rem !important;
-        }
-        
-        .paragraph-52.cta-card {
-            margin-bottom: 2rem !important;
-        }
-        
-        /* Buttons */
-        .button-primary-2 {
-            font-family: 'ITC Avant Garde Gothic Pro Medium', 'Montserrat', sans-serif !important;
-            font-weight: 500 !important;
-            padding: 0.875rem 2rem !important;
-            border-radius: 6px !important;
-            transition: all 0.3s ease !important;
-        }
-        
         /* Footer Spacing */
         .footer-dark {
             padding: 3rem 0 2rem 0 !important;
@@ -348,309 +319,6 @@
             color: #572C57 !important;
         }
         
-        /* Case Study Hover Effect - Back to slide from bottom */
-        .case-study-card {
-            position: relative !important;
-            overflow: hidden !important;
-            box-shadow: none !important;
-        }
-        
-        .case-study-card::before {
-            content: '' !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            bottom: 0 !important;
-            background: rgba(0,0,0,0) !important;
-            transition: background 0.4s ease !important;
-            z-index: 1 !important;
-        }
-        
-        .case-study-card:hover::before {
-            background: rgba(0,0,0,0) !important;
-        }
-        
-        .case-study-card .div-block-289 {
-            position: absolute !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%) !important;
-            padding: 1.25rem 1.5rem !important;
-            transform: translateY(0) !important;
-            transition: none !important;
-            opacity: 1 !important;
-            display: block !important;
-            z-index: 2 !important;
-            box-shadow: none !important;
-            filter: none !important;
-        }
-        
-        .case-study-card:hover .div-block-289 { transform: none !important; opacity: 1 !important; }
-        
-        .case-study-card .div-block-289 h4,
-        .case-study-card .div-block-289 .heading-93 {
-            color: #FDF5E6 !important;
-            margin-bottom: 0.5rem !important;
-            font-family: 'ITC Avant Garde Gothic Pro Medium', sans-serif !important;
-        }
-        
-        .case-study-card .div-block-289 p,
-        .case-study-card .div-block-289 .paragraph-55 { display: none !important; }
-        /* Subtitle only for specific cards */
-        .case-study-card .div-block-289 .cs-sub { display: block !important; color: #FDF5E6 !important; opacity: 0.95 !important; margin-top: .1rem !important; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem !important; }
-        
-        .case-study-card .div-block-291 {
-            text-align: center !important;
-            background: transparent !important;
-            background-color: transparent !important;
-            box-shadow: none !important;
-        }
-        
-        /* Override external CSS with higher specificity */
-        .services-page-wraper .case-study-card .div-block-291 .text-block-136,
-        .services-page-wraper .text-block-136,
-        .case-study-card .div-block-291 .text-block-136,
-        .text-block-136 {
-            font-family: 'ITC Avant Garde Gothic Pro Bold', sans-serif !important;
-            font-weight: 700 !important;
-            background-color: #FDF5E6 !important;
-            color: #572C57 !important;
-            padding: 0.75rem 1.5rem !important;
-            border-radius: 25px !important;
-            display: inline-block !important;
-            font-size: 0.875rem !important;
-            letter-spacing: 0.5px !important;
-            line-height: 1.2 !important;
-            min-width: auto !important;
-            text-decoration: none !important;
-            transition: all 0.3s ease !important;
-            box-shadow: none !important;
-            border: none !important;
-            cursor: pointer !important;
-            position: relative !important;
-            z-index: 10 !important;
-        }
-        
-        /* Remove any background from parent containers */
-        .case-study-card .div-block-289::before,
-        .case-study-card .div-block-289::after {
-            display: none !important;
-        }
-        
-        .services-page-wraper .case-study-card .div-block-291,
-        .services-page-wraper .text-block-136,
-        .case-study-card .div-block-291,
-        .text-block-136 { display: none !important; }
-        
-        /* Services Page Slider Container */
-        .slider-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .blog66_group {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .blog66_mask {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
-        }
-        
-        .blog66_slide {
-            flex: 0 0 33.333%;
-            padding-right: 1rem;
-        }
-        
-        .blog66_image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-        
-        /* Navigation dots styling */
-        .blog66_slide-nav {
-            margin-top: 1rem !important;
-            text-align: center;
-        }
-        
-        .blog66_slide-nav .w-slider-dot {
-            width: 10px !important;
-            height: 10px !important;
-            background-color: rgba(128, 128, 128, 0.4) !important;
-            border: none !important;
-            margin: 0 4px !important;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-        }
-        
-        .blog66_slide-nav .w-slider-dot.w-active {
-            background-color: #333333 !important;
-            transform: scale(1.2);
-        }
-        
-        .blog66_slide-nav .w-slider-dot:hover {
-            background-color: #666666 !important;
-            transform: scale(1.1);
-        }
-        
-        /* Services Page Slider Arrows */
-        .slider-nav-arrow {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            flex-shrink: 0;
-        }
-        
-        .slider-nav-arrow:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .slider-nav-arrow .uui-button-icon {
-            color: #572C57;
-        }
-        
-        /* Hide original arrows */
-        .blog66_group .uui-testimonial18_arrow {
-            display: none;
-        }
-        
-        /* Responsive Spacing */
-        @media (max-width: 768px) {
-            .section-7, .section-6.cta {
-                padding: 2.5rem 0 !important;
-            }
-            
-            .section-5.services {
-                padding: 2rem 0 !important;
-            }
-            
-            .container-medium-714px {
-                padding: 0 1rem !important;
-            }
-            
-            .card-4.cta-left {
-                padding: 2rem !important;
-            }
-        }
-        
-        .icon {
-            inset: 105.8% 0 auto 47% !important;
-        }
-        .icon-2 {
-            top: 105.5%;
-            left: 400px;
-            right: 0;
-        }
-        
-        /* ===================== FINAL OVERRIDES (HIGH PRIORITY) ===================== */
-        /* 1) Remove fog/overlay from background video and nav overlay */
-        .w-background-video.w-background-video-atom { position: relative !important; z-index: -3 !important; pointer-events: none !important; mix-blend-mode: normal !important; filter: none !important; }
-        .w-background-video.w-background-video-atom > video { pointer-events: none !important; }
-        /* also ensure its wrapper sits below and non-interactive */
-        .div-block-638 { position: relative !important; z-index: -3 !important; pointer-events: none !important; }
-        .div-block-638 * { pointer-events: none !important; }
-        .w-nav-overlay { display: none !important; opacity: 0 !important; pointer-events: none !important; }
-        /* Ensure content sits above video */
-        .section-5.services, .section-6.cta { position: relative !important; z-index: 1 !important; }
-        /* Kill any generic overlay layers that may tint the page */
-        .overlay, .bg-overlay, .global-overlay, .section-overlay, .uui-overlay, .w-overlay, .w-lightbox-backdrop {
-            display: none !important; opacity: 0 !important; pointer-events: none !important; backdrop-filter: none !important;
-        }
-        /* Catch overlays by id name too */
-        [id*="overlay" i] { display: none !important; opacity: 0 !important; pointer-events: none !important; backdrop-filter: none !important; }
-        /* Remove potential navbar pseudo veils */
-        .navbar-5::before, .navbar-5::after, .navbar-6::before, .navbar-6::after { content: none !important; display: none !important; background: none !important; box-shadow: none !important; opacity: 0 !important; }
-        .navbar-5, .navbar-6 { mix-blend-mode: normal !important; backdrop-filter: none !important; }
-        /* Explicitly disable Webflow menu overlays and hero fade overlays */
-        .c-nav-menu-overlay, .c-nav-menu-overlay-2, .nav-menu-overlay-bg, .hero-background-fade-overlay {
-            display: none !important; opacity: 0 !important; pointer-events: none !important;
-            -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
-        }
-        /* Remove backdrop blur panels used in some components */
-        .uui-testimonial18_content-wrapper, .blog-img-wrape, .desktop-menu, .navbar-2, .navbar-3 {
-            -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
-            background-color: transparent !important;
-        }
-        /* Remove potential pseudo-element veils */
-        body::before, body::after,
-        .home-page-wraper::before, .home-page-wraper::after {
-            content: none !important; display: none !important; background: none !important; box-shadow: none !important; filter: none !important; opacity: 0 !important;
-        }
-        /* Ensure root stacking context is above background video */
-        html, body, .home-page-wraper { position: relative !important; z-index: 0 !important; filter: none !important; mix-blend-mode: normal !important; }
-
-        /* 2) Case Studies typography (for tagged elements) – use site font variables */
-        .section-5.services .case-study-card .heading-93 { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
-        .section-5.services .case-study-card .paragraph-55 { font-family: var(--font-copy) !important; font-weight: 400 !important; }
-        .section-5.services .case-study-card .text-block-136 { font-family: var(--font-subtitle) !important; font-weight: 600 !important; }
-
-        /* 3) CTA colors and typography (per richiesta) */
-        .section-6.cta { background: #ffffff !important; position: relative !important; overflow: hidden !important; }
-        .section-6.cta .heading-100 { font-family: var(--font-title) !important; color: #60667A !important; font-weight: 700 !important; }
-        .section-6.cta .paragraph-52,
-        .section-6.cta .paragraph-52.cta,
-        .section-6.cta .paragraph-52.cta-card { font-family: var(--font-copy) !important; color: #3B3E49 !important; opacity: 1 !important; font-weight: 400 !important; }
-        .section-6.cta .card-4.cta-left { border: 2px solid #572C57 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.18) !important; }
-        /* CTA button: pieno colore */
-        .section-6.cta .button-primary-2.small.w-button { font-family: var(--font-subtitle) !important; color: #FDF5E6 !important; background: #572C57 !important; border: 2px solid #572C57 !important; font-weight: 600 !important; }
-        .section-6.cta .button-primary-2.small.w-button:hover { background: #6a376a !important; color: #FDF5E6 !important; border-color: #6a376a !important; }
-
-        /* 3b) CTA animated soft blobs background (subtle) */
-        .section-6.cta::before {
-            content: "";
-            position: absolute;
-            inset: -10% -10% -10% -10%;
-            background:
-              radial-gradient(35% 35% at 20% 30%, rgba(87,44,87,0.12) 0%, rgba(87,44,87,0.0) 70%),
-              radial-gradient(30% 30% at 80% 20%, rgba(96,102,122,0.12) 0%, rgba(96,102,122,0.0) 70%),
-              radial-gradient(40% 40% at 50% 80%, rgba(61,62,73,0.10) 0%, rgba(61,62,73,0.0) 70%);
-            z-index: 0;
-            animation: ctaBlobs 16s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-        @keyframes ctaBlobs {
-            0% { transform: translate3d(0,0,0) scale(1); filter: blur(0px); }
-            100% { transform: translate3d(0,-2%,0) scale(1.02); filter: blur(0.2px); }
-        }
-        .section-6.cta > * { position: relative; z-index: 1; }
-
-        /* 4) Footer fonts */
-        .footer-dark .link-9,
-        .footer-dark .text-block-116,
-        .footer-dark .text-block-18,
-        .footer-dark .link-f1 .inicio-whit,
-        .footer-dark .link-f1 .inicio-white { font-family: 'ITC Avant Garde Gothic Pro Medium', 'Montserrat', sans-serif !important; }
-        
-        /* FORCE remove dim opacity applied inline by interactions on sections */
-        section.section-7,
-        section.section-5.services {
-            opacity: 1 !important;
-            filter: none !important;
-        }
-        section.section-7[style*="opacity"],
-        section.section-5.services[style*="opacity"] {
-            opacity: 1 !important;
-            filter: none !important;
-        }
     </style>
 </head>
 
@@ -761,6 +429,51 @@
                             <h2 class="heading-92">Featured Projects</h2>
                         </div>
                         <div class="slider-container">
+                            <!-- 3D Carousel Container -->
+                            <div class="carousel-container">
+                                <div class="carousel">
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 1</h3>
+                                            <p>Description for project 1</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 2</h3>
+                                            <p>Description for project 2</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 3</h3>
+                                            <p>Description for project 3</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 4</h3>
+                                            <p>Description for project 4</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 5</h3>
+                                            <p>Description for project 5</p>
+                                        </div>
+                                    </div>
+                                    <div class="carousel__cell">
+                                        <div class="carousel__cell-content">
+                                            <h3>Project 6</h3>
+                                            <p>Description for project 6</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-controls">
+                                    <button class="carousel-button prev">❮</button>
+                                    <button class="carousel-button next">❯</button>
+                                </div>
+                            </div>
                             
                             <div class="blog66_group w-slider" data-delay="4000" data-animation="slide" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="6" data-duration="500" data-infinite="true">
                                 <div class="blog66_mask w-slider-mask">
@@ -807,491 +520,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- 3D Case Studies Section -->
-        <section id="case-studies" class="projects-section">
-            <div class="projects-frame">
-                <h2 class="heading-92" style="text-align: center; margin-bottom: 4rem; font-size: 2.5rem;">Case Studies</h2>
-                
-                <div class="swiper case-studies-slider">
-                    <div class="swiper-wrapper">
-                        <!-- Capri Music Awards -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="capri-music-awards.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/capri-music-awards.jpg" alt="Capri Music Awards" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">Capri Music Awards</h3>
-                                        <p class="card-subtitle">3 Days Event</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Camera della Moda -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="camera-della-moda.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/mementozemotion.jpg" alt="Camera della Moda" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">Camera della Moda</h3>
-                                        <p class="card-subtitle">Digital Innovation</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moncler -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="moncler.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/moncler1.jpg" alt="Moncler Case Study" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">Moncler</h3>
-                                        <p class="card-subtitle">Brand Experience</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 4. NFT Rome 2023 -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="nft-rome-2023.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/nftrome.jpg" alt="NFT Rome 2023" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">NFT Rome 2023</h3>
-                                        <p class="card-subtitle">3 Days Event</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 5. Naples - Metaverse x Luxury -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="naples-metaverse-luxury.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/naples.jpg" alt="Naples Metaverse x Luxury" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">Naples - Metaverse x Luxury</h3>
-                                        <p class="card-subtitle">3 Days Event</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 6. Paris - Temera x Marangoni -->
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <a href="paris-temera-marangoni.html" class="card-content">
-                                    <div class="card-image-wrapper">
-                                        <img loading="lazy" src="images/limitlessparis.jpeg" alt="Paris - Temera x Istituto Marangoni" class="card-image">
-                                    </div>
-                                    <div class="card-overlay"></div>
-                                    <div class="card-title-container">
-                                        <h3 class="card-title">Paris - Temera x Marangoni</h3>
-                                        <p class="card-subtitle">3 Days Event</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                    <!-- Navigation -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    
-                    <!-- Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-        
-        <style>
-        /* 3D Case Studies Styles */
-        .projects-section { 
-            padding: 8rem 2rem 12rem;
-            background: #f7efe6;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .projects-frame {
-            max-width: 1400px;
-            margin: 0 auto;
-            perspective: 2000px;
-        }
-        
-        .projects-track {
-            display: flex;
-            gap: 4rem;
-            padding: 4rem 2rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            padding-bottom: 6rem;
-            scroll-padding: 0 50%;
-            position: relative;
-        }
-        
-        .card {
-            scroll-snap-align: center;
-            position: relative;
-            width: 800px;
-            height: 500px;
-            flex: 0 0 auto;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            transform-style: preserve-3d;
-            transform: translateX(0) scale(0.9);
-            opacity: 0.6;
-        }
-        
-        .card.center {
-            transform: translateX(0) scale(1);
-            opacity: 1;
-            z-index: 2;
-        }
-        
-        .card.prev {
-            transform: translateX(-50%) scale(0.9);
-            opacity: 0.6;
-            z-index: 1;
-        }
-        
-        .card.next {
-            transform: translateX(50%) scale(0.9);
-            opacity: 0.6;
-            z-index: 1;
-        }
-        
-        .card-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: block;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transform-style: preserve-3d;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .card.center .card-content {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-        
-        .card-image-wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        
-        .card.center .card-overlay {
-            opacity: 1;
-        }
-        
-        .card-title-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            color: white;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
-        }
-        
-        .card.center .card-title-container {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .card-title {
-            font-size: 2rem;
-            margin: 0 0 0.5rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .card-subtitle {
-            font-size: 1.1rem;
-            margin: 0;
-            opacity: 0.9;
-            font-weight: 400;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .nav-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            color: #3B3E49;
-        }
-        
-        .nav-arrow:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-        }
-        
-        .nav-arrow:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .pagination {
-            font-size: 1.2rem;
-            color: #3B3E49;
-            font-weight: 500;
-            min-width: 60px;
-            text-align: center;
-        }
-        
-        @media (max-width: 991px) {
-            .card {
-                width: 600px;
-                height: 400px;
-            }
-            
-            .card-title {
-                font-size: 1.8rem;
-            }
-            
-            .card-subtitle {
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .projects-section {
-                padding: 6rem 1rem 8rem;
-            }
-            
-            .card {
-                width: 90vw;
-                height: 350px;
-            }
-            
-            .projects-track {
-                gap: 2rem;
-                padding: 3rem 1rem;
-            }
-            
-            .card-title {
-                font-size: 1.5rem;
-            }
-            
-            .card-subtitle {
-                font-size: 0.95rem;
-            }
-            
-            .nav-arrow {
-                width: 40px;
-                height: 40px;
-            }
-            
-            .pagination {
-                font-size: 1rem;
-            }
-        }
-        </style>
-        
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const track = document.querySelector('.projects-track');
-            const cards = Array.from(document.querySelectorAll('.card'));
-            const prevBtn = document.getElementById('prev-case');
-            const nextBtn = document.getElementById('next-case');
-            const currentSlideEl = document.querySelector('.current-slide');
-            const totalSlidesEl = document.querySelector('.total-slides');
-            
-            let currentIndex = 0;
-            const cardCount = cards.length;
-            
-            // Set total slides
-            totalSlidesEl.textContent = cardCount;
-            
-            // Initialize cards
-            function updateCards() {
-                cards.forEach((card, index) => {
-                    // Update active state
-                    card.classList.toggle('center', index === currentIndex);
-                    card.classList.toggle('prev', index < currentIndex);
-                    card.classList.toggle('next', index > currentIndex);
-                    
-                    // Update ARIA attributes
-                    card.setAttribute('aria-hidden', index !== currentIndex);
-                    card.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
-                });
-                
-                // Update navigation state
-                prevBtn.disabled = currentIndex <= 0;
-                nextBtn.disabled = currentIndex >= cardCount - 1;
-                
-                // Update pagination
-                currentSlideEl.textContent = currentIndex + 1;
-                
-                // Auto-scroll to center the active card
-                if (cards[currentIndex]) {
-                    cards[currentIndex].scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'nearest',
-                        inline: 'center'
-                    });
-                }
-            }
-            
-            // Navigation functions
-            function goToIndex(newIndex) {
-                // Ensure index is within bounds
-                newIndex = Math.max(0, Math.min(newIndex, cardCount - 1));
-                if (newIndex === currentIndex) return;
-                
-                currentIndex = newIndex;
-                updateCards();
-            }
-            
-            // Event listeners
-            prevBtn.addEventListener('click', () => goToIndex(currentIndex - 1));
-            nextBtn.addEventListener('click', () => goToIndex(currentIndex + 1));
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    goToIndex(currentIndex - 1);
-                } else if (e.key === 'ArrowRight') {
-                    goToIndex(currentIndex + 1);
-                }
-            });
-            
-            // Touch events for swipe
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            track.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-            
-            track.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-            
-            function handleSwipe() {
-                const swipeThreshold = 50; // Minimum distance for a swipe
-                const swipeDistance = touchStartX - touchEndX;
-                
-                if (Math.abs(swipeDistance) > swipeThreshold) {
-                    if (swipeDistance > 0) {
-                        // Swipe left - go to next
-                        goToIndex(currentIndex + 1);
-                    } else {
-                        // Swipe right - go to previous
-                        goToIndex(currentIndex - 1);
-                    }
-                }
-            }
-            
-            // Initialize
-            updateCards();
-            
-            // Auto-center on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const cardIndex = parseInt(entry.target.dataset.index);
-                        if (cardIndex !== currentIndex) {
-                            currentIndex = cardIndex;
-                            updateCards();
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.6,
-                root: null
-            });
-            
-            cards.forEach(card => observer.observe(card));
-        });
-        </script>
-
-        <!-- CTA Section -->
-        <section class="section-6 cta">
-            <div class="cta">
-                <div>
-                    <div data-w-id="ce9748ab-9dcd-141c-8342-ffcb8a4dc6b0" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); opacity: 1; transform-style: preserve-3d;" class="container-small-540px text-center w-container">
-                        <h2 class="heading-100">Need help with a project?</h2>
-                        <p class="paragraph-52 cta">Web3, fintech, or AI — we help visionary teams craft strategy, spark awareness, and scale growth across every key channel.</p>
-                    </div>
-                    <div class="container-medium-898px w-container">
-                        <div class="cta-wrapper">
-                            <div data-w-id="ce9748ab-9dcd-141c-8342-ffcb8a4dc6b7" style="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); opacity: 1; transform-style: preserve-3d;" class="card-4 cta-left">
-                                <img width="293.5" sizes="(max-width: 479px) 97vw, (max-width: 1919px) 284.693359375px, 15vw" alt="Get In TouchCompany Logo - Growth Webflow Template" src="https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1).png" srcset="https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1)-p-500.png 500w, https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1)-p-800.png 800w, https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1)-p-1080.png 1080w, https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1)-p-1600.png 1600w, https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1)-p-2000.png 2000w, https://cdn.prod.website-files.com/680d388bccbfc46d3d93a55d/680d3da2c5490e510021cb7a_GRETA%20LOGO%23FDF5E6%20FINAL%202025-03%20(1).png 4500w" class="cta-icon">
-                                <h3 class="heading-90">Get in touch today!</h3>
-                                <p class="paragraph-52 cta-card">Ready to bring your ideas to life? Our team is here to help you turn concepts into reality with expert guidance and fast communication.</p>
-                                <a href="#" class="button-primary-2 small w-button">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        </section
         <!-- Footer -->
         <section class="footer-dark">
             <div class="container-default w-container">
@@ -1389,7 +618,7 @@
                 </div>
                 <div class="divider"></div>
                 <div data-w-id="85fd23cb-6c0b-3787-2a88-1d1032db24e4" class="small-print-wrapper">
-                    <div class="text-block-116">Copyright © gretaiovene.com 2025</div>
+                    <div class="text-block-116">Copyright 2025 gretaiovene.com</div>
                     <div class="social-icons-3">
                         <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="social-media-icon-2 w-inline-block">
                             <img loading="lazy" src="images/linkedin-icon.svg" alt="LinkedIn" class="image-110">
@@ -1405,104 +634,57 @@
             </div>
         </section>
     </div>
-
-    <!-- Case Studies Slider Script -->
+    
+    <!-- 3D Carousel Script -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const track = document.getElementById('case-studies-track');
-        const cards = Array.from(document.querySelectorAll('.card'));
-        const prevBtn = document.getElementById('prev-case');
-        const nextBtn = document.getElementById('next-case');
-        const currentSlideEl = document.querySelector('.current-slide');
-        const totalSlidesEl = document.querySelector('.total-slides');
+        const carousel = document.querySelector('.carousel');
+        const cells = document.querySelectorAll('.carousel__cell');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        let currentAngle = 0;
+        const cellCount = cells.length;
+        const angle = 360 / cellCount;
         
-        let currentIndex = 0;
-        const totalCards = cards.length;
-        
-        // Update total slides counter
-        if (totalSlidesEl) {
-            totalSlidesEl.textContent = totalCards;
-        }
-        
-        // Initialize cards
-        function updateCards() {
-            cards.forEach((card, index) => {
-                const pos = index - currentIndex;
-                card.setAttribute('data-pos', pos);
-                
-                // Add/remove active class for animations
-                if (pos === 0) {
-                    card.classList.add('active');
-                } else {
-                    card.classList.remove('active');
-                }
-                
-                // Update z-index for proper layering
-                card.style.zIndex = 10 - Math.abs(pos);
+        // Position cells in 3D space with more vertical spacing
+        function positionCells() {
+            const radius = Math.round((500 / 2) / Math.tan(Math.PI / cellCount));
+            
+            cells.forEach((cell, i) => {
+                const cellAngle = angle * i;
+                // Rimuovo l'offset verticale per mantenere tutte le slide alla stessa altezza
+                cell.style.transform = `rotateY(${cellAngle}deg) translateZ(${radius}px)`;
             });
             
-            // Update pagination
-            if (currentSlideEl) {
-                currentSlideEl.textContent = currentIndex + 1;
-            }
-            
-            // Update button states
-            if (prevBtn) prevBtn.disabled = currentIndex === 0;
-            if (nextBtn) nextBtn.disabled = currentIndex >= totalCards - 1;
+            // Set initial rotation
+            rotateCarousel();
         }
         
-        // Navigation functions
-        function goToIndex(newIndex) {
-            // Don't go out of bounds
-            if (newIndex < 0 || newIndex >= totalCards) return;
-            
-            currentIndex = newIndex;
-            updateCards();
+        function rotateCarousel() {
+            const radius = Math.round((500 / 2) / Math.tan(Math.PI / cellCount));
+            carousel.style.transform = `translateZ(-${radius}px) rotateY(${currentAngle}deg)`;
+        }
+        
+        // Navigation
+        function rotateNext() {
+            currentAngle -= angle;
+            rotateCarousel();
+        }
+        
+        function rotatePrev() {
+            currentAngle += angle;
+            rotateCarousel();
         }
         
         // Event listeners
-        if (prevBtn) prevBtn.addEventListener('click', () => goToIndex(currentIndex - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goToIndex(currentIndex + 1));
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                goToIndex(currentIndex - 1);
-            } else if (e.key === 'ArrowRight') {
-                goToIndex(currentIndex + 1);
-            }
-        });
-        
-        // Touch events for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        track.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        track.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50; // Minimum distance to trigger swipe
-            const swipeDistance = touchEndX - touchStartX;
-            
-            if (Math.abs(swipeDistance) > swipeThreshold) {
-                if (swipeDistance > 0) {
-                    // Swipe right - go to previous
-                    goToIndex(currentIndex - 1);
-                } else {
-                    // Swipe left - go to next
-                    goToIndex(currentIndex + 1);
-                }
-            }
-        }
+        nextButton.addEventListener('click', rotateNext);
+        prevButton.addEventListener('click', rotatePrev);
         
         // Initialize
-        updateCards();
+        positionCells();
+        
+        // Handle window resize
+        window.addEventListener('resize', positionCells);
     });
     </script>
     
@@ -1516,644 +698,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="js/webflow.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
-    
-    <!-- 3D Case Studies Slider Script -->
-    <script>
-    (function() {
-        'use strict';
 
-        // Wait for DOM and all assets to load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Swiper with 3D effect
-            const swiper = new Swiper('.case-studies-slider', {
-                // Enable 3D effect
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                spaceBetween: 60,
-                loop: true,
-                loopAdditionalSlides: 2,
-                speed: 900,
-                parallax: true,
-                observer: true,
-                observeParents: true,
-                watchSlidesProgress: true,
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 300,
-                    modifier: 1,
-                    slideShadows: false
-                },
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                // Pagination
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    type: 'bullets',
-                    bulletClass: 'swiper-pagination-bullet',
-                    bulletActiveClass: 'swiper-pagination-bullet-active',
-                    renderBullet: function (index, className) {
-                        return '<span class="' + className + '"></span>';
-                    }
-                },
-                // Keyboard control
-                keyboard: {
-                    enabled: true,
-                    onlyInViewport: true,
-                },
-                // Mousewheel control
-                mousewheel: {
-                    forceToAxis: true,
-                    sensitivity: 0.5,
-                },
-                // Breakpoints
-                breakpoints: {
-                    320: {
-                        spaceBetween: 20,
-                        coverflowEffect: {
-                            depth: 150,
-                            stretch: 0,
-                            modifier: 1,
-                            slideShadows: false
-                        }
-                    },
-                    768: {
-                        spaceBetween: 40,
-                        coverflowEffect: {
-                            depth: 250,
-                            stretch: 0,
-                            modifier: 1,
-                            slideShadows: false
-                        }
-                    },
-                    1024: {
-                        spaceBetween: 60,
-                        coverflowEffect: {
-                            depth: 300,
-                            stretch: 0,
-                            modifier: 1,
-                            slideShadows: false
-                        }
-                    }
-                },
-                // Custom transitions
-                on: {
-                    init: function() {
-                        // Force update to fix initial rendering
-                        this.update();
-                        
-                        // Add custom classes to slides for better targeting
-                        this.slides.forEach((slide, index) => {
-                            slide.setAttribute('data-swiper-slide-index', index);
-                        });
-                        
-                        // Initial update of slide positions
-                        updateSlidePositions(this);
-                        
-                        // Small delay to ensure all elements are properly rendered
-                        setTimeout(() => {
-                            this.update();
-                            updateSlidePositions(this);
-                            
-                            // Force a reflow to fix any remaining rendering issues
-                            document.body.style.overflow = 'hidden';
-                            document.body.offsetHeight;
-                            document.body.style.overflow = '';
-                        }, 100);
-                    },
-                    beforeInit: function() {
-                        // Ensure Swiper container is visible before initialization
-                        const swiperEl = document.querySelector('.case-studies-slider');
-                        if (swiperEl) {
-                            swiperEl.style.visibility = 'visible';
-                            swiperEl.style.opacity = '1';
-                        }
-                    },
-                    slideChangeTransitionStart: function() {
-                        // Update slide positions on slide change
-                        updateSlidePositions(this);
-                    },
-                    resize: function() {
-                        // Update on resize with debounce
-                        clearTimeout(this.resizeTimeout);
-                        this.resizeTimeout = setTimeout(() => {
-                            this.update();
-                            updateSlidePositions(this);
-                        }, 250);
-                    },
-                    setTranslate: function() {
-                        // Update positions during slide animation
-                        updateSlidePositions(this);
-                    }
-                }
-            });
-            
-            // Function to update slide positions for 3D effect
-            function updateSlidePositions(swiperInstance) {
-                const slides = swiperInstance.slides;
-                const activeIndex = swiperInstance.activeIndex % slides.length; // Handle loop
-                
-                // Reset all slides
-                slides.forEach((slide, index) => {
-                    const slideProgress = slide.progress || 0;
-                    const absProgress = Math.abs(slideProgress);
-                    
-                    // Calculate position and scale based on distance from active slide
-                    let translateX = 0;
-                    let translateZ = 0;
-                    let scale = 1;
-                    let opacity = 1;
-                    let zIndex = 5;
-                    
-                    if (absProgress < 0.5) {
-                        // Active slide
-                        translateX = slideProgress * 20;
-                        translateZ = -absProgress * 50;
-                        scale = 1 - absProgress * 0.05;
-                        opacity = 1;
-                        zIndex = 10;
-                    } else if (absProgress < 1.5) {
-                        // Adjacent slides
-                        translateX = slideProgress * 40;
-                        translateZ = -50 - (absProgress - 0.5) * 100;
-                        scale = 0.95 - (absProgress - 0.5) * 0.1;
-                        opacity = 0.9 - (absProgress - 0.5) * 0.2;
-                        zIndex = 9 - Math.floor(absProgress);
-                    } else if (absProgress < 2.5) {
-                        // Further slides
-                        translateX = slideProgress * 80;
-                        translateZ = -150 - (absProgress - 1.5) * 100;
-                        scale = 0.85 - (absProgress - 1.5) * 0.1;
-                        opacity = 0.7 - (absProgress - 1.5) * 0.2;
-                        zIndex = 8 - Math.floor(absProgress);
-                    } else {
-                        // Furthest slides
-                        translateX = slideProgress * 120;
-                        translateZ = -250;
-                        scale = 0.75;
-                        opacity = 0.5;
-                        zIndex = 1;
-                    }
-                    
-                    // Apply transforms with GSAP for smooth animations
-                    if (window.gsap) {
-                        gsap.set(slide, {
-                            x: `${translateX}%`,
-                            z: translateZ,
-                            scale: scale,
-                            opacity: opacity,
-                            zIndex: Math.max(1, zIndex),
-                            force3D: true,
-                            transformStyle: 'preserve-3d',
-                            backfaceVisibility: 'hidden',
-                            willChange: 'transform, opacity',
-                            transition: 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease',
-                            overwrite: true
-                        });
-                    } else {
-                        // Fallback if GSAP is not available
-                        slide.style.transform = `translate3d(${translateX}%, 0, ${translateZ}px) scale(${scale})`;
-                        slide.style.opacity = opacity;
-                        slide.style.zIndex = Math.max(1, zIndex);
-                    }
-                    
-                    // Add/remove active class
-                    if (index === activeIndex) {
-                        slide.classList.add('swiper-slide-active');
-                    } else {
-                        slide.classList.remove('swiper-slide-active');
-                    }
-                });
-            }
-            
-            // Handle window resize events
-            let resizeTimeout;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function() {
-                    swiper.update();
-                    updateSlidePositions(swiper);
-                }, 250);
-            });
-            
-            // Initialize slider visibility
-            const slider = document.querySelector('.case-studies-slider');
-            if (slider) {
-                slider.style.opacity = '1';
-                slider.style.visibility = 'visible';
-            }
-        });
-    })();
-    
-    // Handle hover effect on active slide
-    document.addEventListener('DOMContentLoaded', function() {
-        function updateHoverEffects() {
-            const activeSlide = document.querySelector('.swiper-slide-active .card');
-            if (!activeSlide) return;
-            
-            // Remove any existing event listeners
-            const newActiveSlide = activeSlide.cloneNode(true);
-            activeSlide.parentNode.replaceChild(newActiveSlide, activeSlide);
-            
-            // Add hover effect to new active slide
-            newActiveSlide.addEventListener('mouseenter', function() {
-                if (window.gsap) {
-                    gsap.to(newActiveSlide, {
-                        y: -10,
-                        scale: 1.02,
-                        boxShadow: '0 40px 80px rgba(0,0,0,0.25)',
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                }
-            });
-            
-            newActiveSlide.addEventListener('mouseleave', function() {
-                if (window.gsap) {
-                    gsap.to(newActiveSlide, {
-                        y: 0,
-                        scale: 1,
-                        boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                }
-            });
-        }
-        
-        // Initial setup
-        updateHoverEffects();
-        
-        // Update on slide change
-        document.addEventListener('slideChange', function() {
-            setTimeout(updateHoverEffects, 100);
-        });
-    });
-    
-    // Initialize GSAP animations when DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ensure GSAP and ScrollTrigger are loaded
-        if (window.gsap && window.ScrollTrigger) {
-            // Register ScrollTrigger plugin
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Refresh ScrollTrigger after a short delay to ensure all elements are rendered
-            setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 1000);
-            
-            // Animate elements with the 'animate-on-scroll' class
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            if (animateElements.length > 0) {
-                animateElements.forEach(element => {
-                    gsap.from(element, {
-                        scrollTrigger: {
-                            trigger: element,
-                            start: 'top 85%',
-                            toggleActions: 'play none none none',
-                            once: true
-                        },
-                        opacity: 0,
-                        y: 30,
-                        duration: 0.8,
-                        ease: 'power2.out',
-                        onComplete: () => {
-                            // Force reflow to prevent animation flicker
-                            element.style.willChange = 'auto';
-                        }
-                    });
-                });
-            }
-            
-            // Add smooth scroll behavior for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        gsap.to(window, {
-                            duration: 1,
-                            scrollTo: {
-                                y: targetElement,
-                                offsetY: 100,
-                                autoKill: true
-                            },
-                            ease: 'power2.inOut'
-                        });
-                    }
-                });
-            });
-        }
-    });
-    
-    // Handle window resize events with debounce
-    (function() {
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            document.body.classList.add('resize-animation-stopper');
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                document.body.classList.remove('resize-animation-stopper');
-                
-                // Refresh Swiper and ScrollTrigger on resize
-                if (typeof swiper !== 'undefined' && swiper.update) {
-                    swiper.update();
-                }
-                if (window.ScrollTrigger) {
-                    ScrollTrigger.refresh();
-                }
-            }, 250);
-        });
-    })();
-    
-    // Add CSS for resize animation stopper
-    const style = document.createElement('style');
-    style.textContent = `
-        .resize-animation-stopper * {
-            animation: none !important;
-            transition: none !important;
-        }
-        
-        /* Ensure smooth transitions for slider elements */
-        .swiper-slide {
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
-            backface-visibility: hidden;
-            transform-style: preserve-3d;
-        }
-        
-        /* Improve slider performance */
-        .swiper-wrapper {
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-            perspective: 1200px;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Ensure proper cleanup when page is unloaded
-    window.addEventListener('beforeunload', function() {
-        // Clean up GSAP animations
-        if (window.gsap) {
-            gsap.killTweensOf('*');
-            if (window.ScrollTrigger) {
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-            }
-        }
-        
-        // Clean up event listeners
-        window.removeEventListener('resize', this);
-        window.removeEventListener('beforeunload', this);
-    });
-    
-    // Initialize everything when DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add loaded class to body to enable transitions
-        document.body.classList.add('page-loaded');
-        
-        // Remove loading state after a short delay
-        setTimeout(() => {
-            document.body.classList.remove('page-loading');
-            document.body.style.visibility = 'visible';
-        }, 100);
-    });
-    
-    // Add loading state to body
-    document.body.classList.add('page-loading');
-    document.body.style.visibility = 'hidden';
-    
-    // Add loading styles
-    const loadingStyles = document.createElement('style');
-    loadingStyles.textContent = `
-        .page-loading * {
-            transition: none !important;
-        }
-        
-        .page-loaded .case-studies-slider {
-            opacity: 1 !important;
-            visibility: visible !important;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-    `;
-    document.head.appendChild(loadingStyles);
-    
-    // Initialize 3D Scroll Effect when DOM is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Only initialize if GSAP and ScrollTrigger are available
-        if (window.gsap && window.ScrollTrigger) {
-            // Register ScrollTrigger plugin
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Initialize your 3D scroll effect here
-            // ... (your existing 3D scroll effect code)
-            
-            // Refresh ScrollTrigger after a short delay
-            setTimeout(() => {
-                ScrollTrigger.refresh();
-            }, 1000);
-        }
-    });
-    </script>
-    
-    <!-- 3D Scroll Effect Script -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize GSAP ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // 3D Scroll Effect for Case Studies
-            const stack = document.querySelector('.case-studies-stack');
-            const cards = gsap.utils.toArray('.case-study-3d-card');
-            
-            if (stack && cards.length > 0) {
-                gsap.to(cards, {
-                    xPercent: -100 * (cards.length - 1),
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: '.case-studies-scroll-container',
-                        pin: true,
-                        scrub: 1,
-                        end: '+=3000',
-                    }
-                });
-                
-                // Add 3D transform on hover
-                cards.forEach((card, i) => {
-                    card.addEventListener('mousemove', (e) => {
-                        const rect = card.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
-                        const rotateY = (x - centerX) / 20;
-                        const rotateX = (centerY - y) / 20;
-                        
-                        gsap.to(card, {
-                            rotateY: rotateY,
-                            rotateX: rotateX,
-                            duration: 0.5,
-                            ease: 'power2.out'
-                        });
-                    });
-                    
-                    card.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            rotateY: 0,
-                            rotateX: 0,
-                            duration: 0.5,
-                            ease: 'power2.out'
-                        });
-                    });
-                });
-            }
-        });
-        
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            document.querySelector('.w-nav-button').classList.toggle('w--open');
-            document.querySelector('.w-nav-overlay').classList.toggle('w--open');
-            document.querySelector('.w-nav-overlay').style.height = document.documentElement.scrollHeight + 'px';
-            document.body.classList.toggle('nav-open');
-        }
-            if (!slider) return;
-            
-            const mask = slider.querySelector('.w-slider-mask');
-            const slides = Array.from(mask.querySelectorAll('.w-slide'));
-            // Use Webflow's built-in arrows inside this slider
-            const prevArrow = slider.querySelector('.w-slider-arrow-left');
-            const nextArrow = slider.querySelector('.w-slider-arrow-right');
-            const nav = slider.querySelector('.w-slider-nav');
-            
-            if (!slides.length) return;
-
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            let isTransitioning = false;
-
-            // Clone first 3 slides at the end and last 3 slides at the beginning for seamless loop
-            const firstThreeSlides = slides.slice(0, 3).map(slide => slide.cloneNode(true));
-            const lastThreeSlides = slides.slice(-3).map(slide => slide.cloneNode(true));
-            
-            // Add cloned slides
-            lastThreeSlides.forEach(clone => mask.insertBefore(clone, slides[0]));
-            firstThreeSlides.forEach(clone => mask.appendChild(clone));
-            
-            // Update slides array to include clones
-            const allSlides = Array.from(mask.querySelectorAll('.w-slide'));
-            
-            // Start at position 3 (after the cloned last slides)
-            currentIndex = 3;
-            
-            function updateSlider(instant = false) {
-                const translateX = -(currentIndex * 33.333);
-                mask.style.transition = instant ? 'none' : 'transform 0.5s ease';
-                mask.style.transform = `translateX(${translateX}%)`;
-                
-                // Update dots (only for original slides)
-                if (nav) {
-                    const dots = nav.querySelectorAll('.w-slider-dot');
-                    const actualIndex = (currentIndex - 3 + totalSlides) % totalSlides;
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('w-active', index === actualIndex);
-                    });
-                }
-            }
-
-            function nextSlide() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                
-                currentIndex++;
-                updateSlider();
-                
-                // If we've reached the cloned first slides, jump back to real first slide
-                if (currentIndex >= totalSlides + 3) {
-                    setTimeout(() => {
-                        currentIndex = 3;
-                        updateSlider(true);
-                        setTimeout(() => {
-                            isTransitioning = false;
-                        }, 50);
-                    }, 500);
-                } else {
-                    setTimeout(() => {
-                        isTransitioning = false;
-                    }, 500);
-                }
-            }
-
-            function prevSlide() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                
-                currentIndex--;
-                updateSlider();
-                
-                // If we've reached the cloned last slides, jump to real last slide
-                if (currentIndex < 3) {
-                    setTimeout(() => {
-                        currentIndex = totalSlides + 2;
-                        updateSlider(true);
-                        setTimeout(() => {
-                            isTransitioning = false;
-                        }, 50);
-                    }, 500);
-                } else {
-                    setTimeout(() => {
-                        isTransitioning = false;
-                    }, 500);
-                }
-            }
-
-            // Event listeners
-            if (prevArrow) prevArrow.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); });
-            if (nextArrow) nextArrow.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); });
-
-            // Build dots navigation
-            if (nav) {
-                nav.innerHTML = '';
-                for (let i = 0; i < totalSlides; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = 'w-slider-dot' + (i === 0 ? ' w-active' : '');
-                    dot.addEventListener('click', () => {
-                        if (isTransitioning) return;
-                        // Map dot index to real slide index accounting for 3 head clones
-                        currentIndex = i + 3;
-                        updateSlider();
-                    });
-                    nav.appendChild(dot);
-                }
-            }
-            
-            // Neutralize dummy anchors inside slides to avoid jumping to top
-            Array.from(slider.querySelectorAll('.blog66_item-link[href="#"]')).forEach(a => {
-                a.setAttribute('href', 'javascript:void(0)');
-                a.addEventListener('click', (e) => e.preventDefault());
-            });
-
-            // Initialize
-            updateSlider();
-        });
-    </script>
-    
-    <!-- Patch: sanitize inline opacity applied by Webflow interactions on sections -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function(){
-        const targets = Array.from(document.querySelectorAll('section.section-7, section.section-5.services'));
-        const fix = () => targets.forEach(el => { try { el.style.removeProperty('opacity'); el.style.opacity = '1'; el.style.filter = 'none'; } catch(e){} });
-        fix();
-        window.addEventListener('load', fix, { once: true });
-        document.addEventListener('scroll', fix, { passive: true });
-      });
-    </script>
-</body>
-</html>
-CACHE CLEAR TEST - Fri Sep 26 13:10:41 CEST 2025
