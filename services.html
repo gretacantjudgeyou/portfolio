@@ -108,28 +108,84 @@
         .carousel__cell {
             position: absolute;
             width: 400px;
-            height: 500px;
+            height: 600px;
             left: 50%;
             top: 50%;
-            margin: -250px 0 0 -200px;
+            margin: -300px 0 0 -200px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
             backface-visibility: hidden;
         }
         
         .carousel__cell-content {
-            background: white;
+            height: 450px; /* Fixed height for image area */
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: #f8f8f8;
+        }
+        
+        .carousel-image {
             width: 100%;
             height: 100%;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel__cell:hover .carousel-image {
+            transform: scale(1.05);
+        }
+        
+        .carousel__cell-caption {
             text-align: center;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 0 10px;
+        }
+        
+        .carousel__cell a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+        
+        .carousel__cell a:hover .carousel__cell-content {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .carousel__cell a:active .carousel__cell-content {
+            transform: translateY(0);
+        }
+        
+        .carousel__cell-title {
+            font-family: var(--font-title);
+            font-size: 24px;
+            color: #3B3E49;
+            margin: 10px 0 5px 0;
+            line-height: 1.3;
+            transition: color 0.2s ease;
+        }
+        
+        .carousel__cell a:hover .carousel__cell-title {
+            color: #000;
+        }
+        
+        .carousel__cell-title em {
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .carousel__cell-description {
+            font-family: var(--font-copy);
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
         }
         
         .carousel__cell-content:hover {
@@ -433,40 +489,70 @@
                             <div class="carousel-container">
                                 <div class="carousel">
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 1</h3>
-                                            <p>Description for project 1</p>
-                                        </div>
+                                        <a href="moncler.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/moncler1.jpg" alt="Moncler Event" class="carousel-image">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">Moncler</h3>
+                                                <p class="carousel__cell-description">Event Production & Management</p>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 2</h3>
-                                            <p>Description for project 2</p>
-                                        </div>
+                                        <a href="capri-music-awards.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/capri-music-awards.jpg" alt="Capri Music Awards" class="carousel-image">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">Capri Music Awards</h3>
+                                                <p class="carousel__cell-description">3 Days Event Production</p>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 3</h3>
-                                            <p>Description for project 3</p>
-                                        </div>
+                                        <a href="nft-rome-2023.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/nftrome.jpg" alt="NFT Rome 2023" class="carousel-image">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">NFT Rome 2023</h3>
+                                                <p class="carousel__cell-description">Blockchain Event Management</p>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 4</h3>
-                                            <p>Description for project 4</p>
-                                        </div>
+                                        <a href="camera-della-moda.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/mementozemotion.jpg" alt="Camera della Moda" class="carousel-image">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">Camera della Moda</h3>
+                                                <p class="carousel__cell-description">Fashion Week Production</p>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 5</h3>
-                                            <p>Description for project 5</p>
-                                        </div>
+                                        <a href="naples-metaverse-x-luxury-symposium.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/naples.jpg" alt="Metaverse x-Luxury Symposium Naples" class="carousel-image">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">Metaverse x-Luxury Symposium <em>Naples</em></h3>
+                                                <p class="carousel__cell-description">3 Days Event Production</p>
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="carousel__cell">
-                                        <div class="carousel__cell-content">
-                                            <h3>Project 6</h3>
-                                            <p>Description for project 6</p>
-                                        </div>
+                                        <a href="paris-marangoni-temera.html" class="carousel__link">
+                                            <div class="carousel__cell-content">
+                                                <img src="images/limitlessparis6.jpeg" alt="Temera x Istituto Marangoni Paris" class="carousel-image" onerror="this.onerror=null; this.src='images/limitlessparis6.jpg'">
+                                            </div>
+                                            <div class="carousel__cell-caption">
+                                                <h3 class="carousel__cell-title">Temera x Istituto Marangoni <em>Innovation Event Paris</em></h3>
+                                                <p class="carousel__cell-description">3 Days Event Production</p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="carousel-controls">
