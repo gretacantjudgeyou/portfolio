@@ -127,6 +127,15 @@
             transform: translateX(-2px);
         }
         
+        .cma-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 900px; /* Increased height for better visibility */
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+        
         /* Main Image */
         .case-study-main-image {
             width: 100%;
@@ -332,7 +341,7 @@
         .white-2col { background: #ffffff; padding: 3rem 0; }
         .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
         .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
-        .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
+        .white-2col h3::before { display: none; }
         .white-2col .grid p { font-size: 0.9rem; }
         .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         
@@ -350,7 +359,7 @@
         .cma-slider .slide { flex: 0 0 100%; height: 100%; margin: 0; border: 0; box-sizing: border-box; overflow: hidden; }
         .cma-slider .slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); outline: none; }
         .cma-slider .slide video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); }
-        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(87,44,87,0.9); color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: #0a1a0a; color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
         .cma-slider .arrow.left { left: 8px; }
         .cma-slider .arrow.right { right: 8px; }
         .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
@@ -458,11 +467,10 @@
                     <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
                     <h1 class="case-study-title">NFT ROME 2023</h1>
                     <p class="case-study-subtitle" style="font-family: 'ITC Avant Garde Gothic Pro Extra Light Oblique', sans-serif; font-style: italic; font-size: 1.15rem !important;">Event Manager</p>
-                    <p class="case-study-subtitle avg-extra-light">Part of NFT Rome 2023 - a distributed festival dedicated to digital art, culture, and blockchain innovation - the <span class="avg-demi">Metaverse×Luxury Symposium</span> was the fashion-focused chapter of a <span class="avg-demi">broader ecosystem</span> connecting multiple disciplines across the city.
-<br>Together with the Limitless Innovation team, I curated and produced this segment, dedicated to exploring how fashion and technology can coexist within new creative and ethical frameworks within one of Rome's most emblematic venues: <span class="avg-demi">Palazzo Poli</span>, the palace behind the Trevi Fountain.</p>
+                    <p class="case-study-subtitle avg-extra-light">Part of NFT Rome 2023 - a distributed festival dedicated to digital art, culture, and blockchain innovation - the <span class="avg-demi">Metaverse×Luxury Symposium</span> was the fashion-focused chapter of a broader ecosystem connecting multiple disciplines across the city.
+<br>Together with the Limitless Innovation team, I curated and produced this segment, dedicated to exploring how fashion and technology can coexist within new creative and ethical frameworks within one of Rome's most emblematic venues: <span class="avg-demi">Palazzo Poli</span>, the palace behind the <span class="avg-demi">Trevi Fountain.</span></p>
                 </header>
                 <img src="images/nftrome.jpg" alt="NFT Rome 2023" class="case-study-main-image">
-                <div class="hero-divider" style="margin: 3rem auto;"></div>
                 <div class="top-text-grid">
                     <div>
                         <p class="paragraph-64 font-xlt bold">Collaboration & Partners</p>
@@ -470,7 +478,7 @@
                     </div>
                     <div>
                         <p class="paragraph-64 font-xlt bold">My Role</p>
-                        <p class="paragraph-64 font-xlt" style="opacity: 1 !important; visibility: visible !important;">As <span class="avg-book">Event Manager</span>, I oversaw the development and delivery of the <span class="avg-book">fashion segment</span>, from the initial brief to on-site execution. I managed <span class="avg-book">speaker relations</span>, curated the run of show, and ensured that <span class="avg-book">logistics</span>, setup, and content <span class="avg-book">production</span> followed a coherent direction.</p>
+                        <p class="paragraph-64 font-xlt" style="opacity: 1 !important; visibility: visible !important;">As <span class="avg-book">Event Manager</span>, I oversaw the development and delivery of the <span class="avg-book">fashion segment</span>, from the initial brief to on-site execution. I managed <span class="avg-book">speaker relations</span>, curated the run of show, and ensured that <span class="avg-book">logistics</span>, setup, and content <span class="avg-book">production</span> followed a coherent direction <span class="avg-extra-light-oblique">(Media, Online Communication and Design were not curated by me).</span></p>
                     </div>
                     <div>
                         <p class="paragraph-64 font-xlt bold">Challenges & Coordination</p>
@@ -520,62 +528,55 @@
             </div>
         </section>
 
-        <section class="white-section">
-            <div class="case-study-container">
-                <div class="white-card">
-                    <h3>A New Chapter for Capri</h3>
-                    <p>This project’s success stemmed from collaboration - between producers, artists, technical teams, and local institutions. The collective commitment of everyone involved turned an ambitious idea into an experience that resonated with both the island’s history and its creative future.</p>
-                </div>
-            </div>
-        </section>
-
         <section class="white-2col">
             <div class="case-study-container">
                 <div class="grid">
-                    <div>
-                        <h3>Impact</h3>
-                    </div>
-                    <div>
-                        <p>The first edition of the Capri Music Awards set a new precedent for live cultural events on the island. Managing three days of performances, logistics, and production in such a unique setting offered tangible proof of what can be achieved through organization, teamwork, and precision under pressure.</p>
-                    </div>
                 </div>
-                <div class="cma-slider" id="cmaSlider">
+                <div style="position: relative;">
+                    <div class="cma-slider" id="cmaSlider">
                     <div class="viewport">
                         <div class="track">
-                            <!-- Slide 1: autoplay video first -->
+                            <!-- Slide 1: Video senza audio -->
                             <div class="slide">
-                                <video autoplay playsinline muted preload="metadata" poster="images/testimonial-video-poster.jpg">
-                                    <source src="videos/Un%20assaggio%20dei%20Capri%20Young%20Awards-passione,%20sorrisi%20e%20tanta%20musica%20per%20questa%20prima%20edizione.%23C.mp4" type="video/mp4">
+                                <video playsinline controls muted preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+                                    <source src="videos/nftrome.mp4" type="video/mp4">
                                 </video>
                             </div>
                             
-                            <!-- Slide 2: image -->
-                            <div class="slide"><img src="images/capri-music-awards-1.jpg" alt="Capri Music Awards"></div>
+                            <!-- Slide 2: Immagine -->
+                            <div class="slide">
+                                <img src="images/nftrome4.jpeg" alt="NFT Rome Event" style="width: 100%; height: 100%; object-fit: contain;">
+                            </div>
                             
-                            <!-- Slide 3: image -->
-                            <div class="slide"><img src="images/imgi_23_515504884_122129438162806111_1586130414609348070_n.jpg" alt="Capri Music Awards"></div>
-
-                            <!-- Slide 4..: original slides remain in same order as before -->
-                            <div class="slide"><img src="images/capri-music-awards-2.jpg" alt="Capri Music Awards"></div>
-                            <div class="slide"><img src="images/capri-music-awards-3.jpg" alt="Capri Music Awards"></div>
-                            <div class="slide"><img src="images/capri-music-awards-4.jpg" alt="Capri Music Awards"></div>
-                            <div class="slide"><img src="images/capri-music-awards-5.jpg" alt="Capri Music Awards"></div>
+                            <!-- Slide 3: Video con audio -->
+                            <div class="slide">
+                                <video playsinline controls preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+                                    <source src="videos/nftrome1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Slide 4: Video con audio -->
+                            <div class="slide">
+                                <video playsinline controls preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+                                    <source src="videos/nftrome2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Slide 5: Video muto senza controlli -->
+                            <div class="slide">
+                                <video playsinline muted preload="metadata" style="width: 100%; height: 100%; object-fit: contain;">
+                                    <source src="videos/nftrome4.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                     <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
                     <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
-                    <div class="dots" id="cmaDots"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partners logos -->
-        <section class="partners">
-            <div class="case-study-container">
-                <div class="partners-title">Official partners</div>
-                <div class="partners-card">
-                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
-                </div>
+                        <div class="dots" id="cmaDots"></div>
+                    </div>
+                    <div style="position: absolute; bottom: 15px; right: 20px; font-size: 0.65rem; color: #888; font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif; text-align: right; line-height: 1.2; z-index: 10; background: rgba(255,255,255,0.9); padding: 3px 8px; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        Content by <a href="https://www.instagram.com/limitlessinnovation.luxury" target="_blank" style="color: #666; text-decoration: none; font-weight: 500;">@limitlessinnovation.luxury</a>
+                    </div>
             </div>
         </section>
 
@@ -725,11 +726,9 @@
             });
             window.cmaNext = function(){ index = (index + 1) % slides.length; update(); };
             window.cmaPrev = function(){ index = (index - 1 + slides.length) % slides.length; update(); };
-            // Autoplay advance every 6s; longer if video duration is longer
-            let timer = setInterval(()=>window.cmaNext(), 6000);
-            slider.addEventListener('mouseenter', ()=>clearInterval(timer));
-            slider.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.cmaNext(), 6000); });
-            // Start: ensure first slide state and play if video
+            // Rimuovo l'autoplay e l'auto-avanzamento
+            // Le slide si cambiano solo manualmente
+            // I video si avviano solo quando l'utente preme play
             update();
         })();
     </script>
