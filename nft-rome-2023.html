@@ -2,9 +2,9 @@
 <html lang="it">
 <head>
     <meta charset="utf-8">
-    <title>NFT Rome 2023 - Case Study | Greta Iovene</title>
-    <meta content="NFT Rome 2023 - Case study showcasing our work at the premier NFT event in Italy." property="og:title">
-    <meta content="NFT Rome 2023 - Case study showcasing our work at the premier NFT event in Italy." property="twitter:title">
+    <title>Capri Music Awards - Case Study | Greta Iovene</title>
+    <meta content="Capri Music Awards - Worked with the Production team for the three-day inaugural edition of the Capri Music Awards." property="og:title">
+    <meta content="Capri Music Awards - Worked with the Production team for the three-day inaugural edition of the Capri Music Awards." property="twitter:title">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     
     <!-- CSS Files -->
@@ -21,8 +21,8 @@
         p, .case-study-content {
             font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif !important;
             font-weight: 400 !important;
-            line-height: 1.35;
-            letter-spacing: -0.01em;
+            line-height: 1.35; /* tighter */
+            letter-spacing: -0.01em; /* tighter */
             color: #333;
         }
         
@@ -48,362 +48,690 @@
         
         .case-study-header {
             margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
         }
         
-        .case-study-dash {
-            width: 60px;
-            height: 4px;
-            background: #572C57;
-            margin-bottom: 1.5rem;
+        .case-study-title {
+            font-size: 3rem;
+            color: #572C57;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .case-study-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
         }
         
         .case-study-meta {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            font-family: 'ITC Avant Garde Gothic Pro Book', sans-serif;
+            gap: 2rem;
             font-size: 0.9rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .cs-back {
-            color: #572C57;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .cs-back:hover {
-            text-decoration: underline;
-        }
-        
-        .cs-back .arr {
-            font-size: 1.1rem;
-            line-height: 1;
-            transform: translateY(-1px);
-        }
-        
-        .case-hero {
-            padding: 2rem 0 4rem;
-            background: #1A1A2E; /* Dark blue theme for NFT */
-        }
-        
-        .case-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            color: #FDF5E6;
-        }
-        
-        .case-hero p {
-            font-size: 1.25rem;
-            max-width: 800px;
+            color: #888;
             margin-bottom: 2rem;
-            color: #E6E6E6;
         }
         
-        .hero-image {
+        .case-study-dash {
+            width: 40px;
+            height: 2px;
+            background-color: #572C57;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study-content {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+        }
+        
+        .case-study-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .case-study-content h2 {
+            color: #572C57;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .case-study-content h3 {
+            color: #572C57;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .case-study-content a {
+            color: #572C57;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .case-study-content a:hover {
+            color: #4a2449;
+        }
+        
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #572C57; text-decoration: none; margin-bottom: 2rem; padding: .6rem 1rem; border: 2px solid #572C57; border-radius: 10px; font-weight: 600; font-size: .95rem; transition: transform .25s ease, color .25s ease, border-color .25s ease; background: transparent; box-shadow: none; position: relative; overflow: visible; }
+        .back-link:hover { transform: translateX(-4px); color: #572C57; border-color: #572C57; }
+        
+        .back-link::after {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.25s ease;
+        }
+        
+        .back-link:hover::after {
+            transform: translateX(-2px);
+        }
+        
+        /* Main Image */
+        .case-study-main-image {
             width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin: 3rem 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            max-width: 800px;
+            height: auto;
+            margin: 3rem auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
         
-        /* Stats Section */
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin: 4rem 0;
+            margin: 3rem 0;
         }
         
         .stat-item {
             text-align: center;
             padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: #FDF5E6;
+            border-radius: 8px;
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: #00D1FF; /* NFT blue accent */
+            color: #572C57;
             margin-bottom: 0.5rem;
-            line-height: 1;
         }
         
         .stat-label {
             font-size: 1rem;
-            color: #B8C2CC;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #666;
         }
         
-        /* Two Column Layout */
-        .white-2col {
-            background: #fff;
-            padding: 6rem 0;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        
-        .grid h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #1A1A1A;
-        }
-        
-        .grid p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        
-        /* Full Width Image */
-        .full-width-image {
-            width: 100%;
-            height: 80vh;
-            min-height: 600px;
-            object-fit: cover;
-            margin: 4rem 0;
-            border-radius: 12px;
-        }
-        
-        /* Partners Section */
-        .partners {
-            padding: 4rem 0;
-            background: #F8FAFC;
-        }
-        
-        .partners h3 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1A1A1A;
-        }
-        
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            align-items: center;
-            justify-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .partner-logo {
-            max-width: 180px;
-            height: auto;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        
-        .partner-logo:hover {
-            opacity: 1;
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-            
-            .case-hero h1 {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-study-title {
                 font-size: 2.5rem;
             }
             
-            .hero-image {
-                height: 400px;
-            }
-            
-            .full-width-image {
-                height: 50vh;
-                min-height: 400px;
-            }
-        }
-        
-        @media (max-width: 768px) {
             .case-study-container {
+                margin: 2rem auto 0;
                 padding: 1rem;
             }
             
-            .case-hero h1 {
-                font-size: 2rem;
+            .case-study-meta {
+                flex-direction: column;
+                gap: 0.5rem;
             }
             
-            .hero-image {
-                height: 300px;
-                margin: 2rem 0;
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .partners-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
         }
         
-        /* Author section */
-        .author-section {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
+        /* New layout to match reference */
+        .case-hero, .purple-block { 
+            background: linear-gradient(135deg, #040a04 0%, #0a1a0a 25%, #1a2a1a 50%, #0a1a0a 75%, #040a04 100%);
+            padding: 3.5rem 0 2rem 0;
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            position: relative;
+            overflow: hidden;
         }
         
-        .author-image {
-            width: 80px !important;
-            height: 80px !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
+        .case-hero::before, .purple-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, 
+                    rgba(192, 192, 192, 0.03) 0%, 
+                    rgba(192, 192, 192, 0.1) 50%, 
+                    rgba(192, 192, 192, 0.03) 100%);
+            pointer-events: none;
         }
         
-        .author-info h4 {
-            margin-bottom: 0.5rem;
-            color: #1A1A1A;
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        .author-title {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+        /* Add subtle silver highlights */
+        .case-hero::after, .purple-block::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(192, 192, 192, 0.4), 
+                transparent);
+            animation: shine 8s ease-in-out infinite;
         }
         
-        .author-bio {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #333;
+        @keyframes shine {
+            0% { transform: translateX(-100%); opacity: 0; }
+            20% { opacity: 0.5; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+        .case-hero .case-study-title { 
+            color: #FDF5E6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            font-size: 4.4rem; 
+            line-height: 1.05; 
+            font-family: var(--font-title) !important; 
+            font-weight: 700 !important; 
+            letter-spacing: -0.01em; 
         }
         
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: #00D1FF;
-            color: #1A1A2E;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
+        .purple-block h2 { 
+            color: #FDF5E6;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
         }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        .case-hero .case-study-dash { background: #FDF5E6; }
+        .case-hero .case-study-meta { color: #FDF5E6; opacity: 0.8; }
+        .case-hero .case-study-subtitle { color: rgba(253, 245, 230, 0.9); font-size: 0.85rem; line-height: 1.28; max-width: 420px; margin-bottom: 1.1rem; font-family: var(--font-copy) !important; font-weight: 400 !important; letter-spacing: -0.005em; }
+        .hero-divider { 
+            height: 1px; 
+            width: 100%; 
+            max-width: 900px; 
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(192, 192, 192, 0.3), 
+                rgba(192, 192, 192, 0.6), 
+                rgba(192, 192, 192, 0.3), 
+                transparent); 
+            margin: 1.25rem auto 1.5rem; 
+            border: none;
         }
-        
-        .back-to-top:hover {
-            background: #00B8E6;
-            transform: translateY(-3px);
+        .top-text-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; color: #FDF5E6; margin-top: 1rem; }
+        .top-text-grid p, .paragraph-64 { color: rgba(253, 245, 230, 0.9); margin: 0.1rem 0; line-height: 1.25; font-size: 0.8rem; max-width: 220px; letter-spacing: -0.005em; }
+        /* Titles already set to subtitle+500 via .top-text-grid .paragraph-64.bold rule below */
+        /* Use Extra Light for the 4 body paragraphs under the small titles */
+        .top-text-grid p:not(.bold) { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
+        /* Extra Light variant approximation */
+        .font-xlt { font-family: var(--font-xlt) !important; font-weight: 200 !important; }
+        .top-text-grid p.bold { font-weight: 700; }
+        .case-study-main-image { width: 100%; max-width: 840px; height: auto; margin: 2rem auto 3rem; display: block; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+        .purple-block { padding: 4rem 0; }
+        .purple-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .purple-2col h2 { 
+            color: #FDF5E6; 
+            font-size: 2.1rem; 
+            margin: 0 0 1.5rem 0; 
+            font-family: var(--font-subtitle) !important; 
+            font-weight: 700 !important; 
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
+        .purple-2col p { color: #FDF5E6; line-height: 1.6; margin: 0; font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
+        .white-section { background: #ffffff; padding: 3rem 0; }
+        .white-card { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 2rem; text-align: center; }
+        .white-card h3 { margin: 0 0 0.5rem 0; }
+        .white-card p { font-size: 0.9rem; }
+        .white-2col { background: #ffffff; padding: 3rem 0; }
+        .white-2col .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+        .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
+        .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
+        .white-2col .grid p { font-size: 0.9rem; }
+        .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         
-        /* Custom slider styles */
-        .cma-slider { position: relative; width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); }
-        .cma-slides { display: flex; transition: transform 0.5s ease; height: 600px; }
-        .cma-slide { flex: 0 0 100%; height: 100%; position: relative; }
-        .cma-slide img, .cma-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .cma-slide-content { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); color: white; padding: 2rem; }
-        .cma-slide h3 { margin: 0 0 0.5rem; font-size: 1.5rem; }
-        .cma-slide p { margin: 0; opacity: 0.9; font-size: 1rem; }
-        .cma-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,209,255,0.9); color: #1A1A2E; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s ease; }
-        .cma-arrow:hover { background: #00B8E6; }
-        .cma-prev { left: 20px; }
-        .cma-next { right: 20px; }
-        .cma-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 10px; }
-        .cma-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; }
-        .cma-dot.active { background: #00D1FF; transform: scale(1.2); }
+        /* Partners logos */
+        .partners { background: #FDF5E6; padding: 4rem 0 6rem 0; }
+        .partners-title { font-family: var(--font-subtitle) !important; font-weight: 700 !important; font-size: 2.2rem; color: #572C57; text-align: center; margin: 0 0 4rem 0; letter-spacing: 0.4px; }
+        .partners-card { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.08); padding: 1.5rem; display: flex; align-items: center; justify-content: center; }
+        .partners-card img { max-width: 100%; height: auto; display: block; }
         
-        /* Responsive adjustments for slider */
+        /* Bottom slider */
+        /* VERTICAL slider for Instagram formats */
+        .cma-slider { position: relative; width: 100%; max-width: 840px; margin: 0 auto; }
+        .cma-slider .viewport { overflow: hidden; border-radius: 20px; box-shadow: none; background: transparent; aspect-ratio: 9 / 16; height: min(98vh, 1100px); margin: 0 auto; width: 100%; }
+        .cma-slider .track { display: flex; height: 100%; transition: transform 0.5s ease; will-change: transform; gap: 0; backface-visibility: hidden; }
+        .cma-slider .slide { flex: 0 0 100%; height: 100%; margin: 0; border: 0; box-sizing: border-box; overflow: hidden; }
+        .cma-slider .slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); outline: none; }
+        .cma-slider .slide video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); }
+        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(87,44,87,0.9); color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        .cma-slider .arrow.left { left: 8px; }
+        .cma-slider .arrow.right { right: 8px; }
+        .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
+        .cma-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
+        .cma-slider .dot.active { background: #572C57; }
         @media (max-width: 768px) {
-            .cma-slides { height: 400px; }
-            .cma-slide-content { padding: 1.5rem; }
-            .cma-slide h3 { font-size: 1.2rem; }
-            .cma-slide p { font-size: 0.9rem; }
-            .cma-arrow { width: 40px; height: 40px; font-size: 1rem; }
+            .cma-slider .arrow.left { left: 6px; }
+            .cma-slider .arrow.right { right: 6px; }
+        }
+        @media (max-width: 768px) {
+            .top-text-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .purple-2col { grid-template-columns: 1fr; }
+            .white-2col .grid { grid-template-columns: 1fr; }
         }
         
-        @media (max-width: 480px) {
-            .cma-slides { height: 300px; }
-            .cma-slide-content { padding: 1rem; }
-            .cma-slide h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-            .cma-slide p { font-size: 0.8rem; }
-            .cma-dot { width: 8px; height: 8px; }
-        }
+        /* Requested tweaks */
+        /* Medium weight for the 4 small subtitles in top-text-grid */
+        .top-text-grid .paragraph-64.bold { font-family: var(--font-subtitle) !important; font-weight: 500 !important; }
+        
+        /* Bigger Connections h2 + correct font */
+        .purple-2col h2 { font-size: 2.2rem !important; letter-spacing: -0.01em; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        /* Correct paragraph font in purple block */
+        .purple-2col p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        
+        /* h3 headings: larger, no special effects */
+        .white-section .white-card h3,
+        .white-2col .grid h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; font-size: 2.1rem !important; text-shadow: none !important; animation: none !important; position: static; }
+
+        /* Base fade-in animations for main blocks */
+        .purple-2col, .white-section .white-card, .white-2col .grid { opacity: 0; animation: fadeInUp 0.8s ease-out 0.15s forwards; }
+        .white-2col .grid > div:nth-child(1) { animation-delay: 0.12s; }
+        .white-2col .grid > div:nth-child(2) { animation-delay: 0.22s; }
+        
+        /* Bigger Impact h3 (heading left in two-column block) + correct fonts */
+        .white-2col .grid h3 { font-size: 2rem !important; font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-2col .grid p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+
+        /* Global section font normalization for headings/paragraphs in this page */
+        .white-section h3 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .white-section p { font-family: var(--font-copy) !important; font-weight: 400 !important; }
+        .purple-block h2 { font-family: var(--font-subtitle) !important; font-weight: 700 !important; }
+        .purple-block p { font-family: var(--font-copy) !important; font-weight: 400 !important; font-size: 0.9rem; }
+
+        /* Back to services link inside meta */
+        .case-study-meta { display: flex; align-items: center; gap: 1rem; }
+        .cs-back { color: #FDF5E6; font-family: var(--font-subtitle); font-weight: 600; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; opacity: .9; }
+        .cs-back:hover { opacity: 1; text-decoration: underline; }
+        .cs-back .arr { font-size: 1.1rem; line-height: 1; transform: translateY(-1px); }
+        
+        /* Author image: force perfect circle */
+        .author-image { width: 120px !important; height: 120px !important; aspect-ratio: 1 / 1 !important; border-radius: 50% !important; object-fit: cover !important; display: block; }
     </style>
-    .cma-slider .viewport{overflow:hidden;border-radius:20px;aspect-ratio:9/16;height:min(98vh,1100px)}
-    .cma-slider .track{display:flex;height:100%;transition:transform .5s ease}
-    .cma-slider .slide{flex:0 0 100%;height:100%}
-    .cma-slider img,.cma-slider video{width:100%;height:100%;object-fit:cover;display:block}
-    .cma-slider .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(87,44,87,.9);color:#FDF5E6;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.2)}
-    .cma-slider .arrow.left{left:8px}.cma-slider .arrow.right{right:8px}
-    .cma-slider .dots{display:flex;gap:10px;justify-content:center;margin-top:12px}
-    .cma-slider .dot{width:8px;height:8px;border-radius:50%;background:#d7cdd7}
-    .cma-slider .dot.active{background:#572C57}
-    .cs-back{color:#FDF5E6;font-family:var(--font-subtitle);font-weight:600;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;opacity:.9}
-    .cs-back:hover{opacity:1;text-decoration:underline}
-  </style>
 </head>
+
 <body class="body">
-  <div class="home-page-wraper">
-    <div class="navbar-5 navbar-6 w-nav"><div class="container-26 w-container"><div class="div-block-630"><a href="index.html" class="brand w-nav-brand"><img src="images/greta-logo-main.png" alt="Greta Logo" class="image-236"></a><nav class="nav-menu-3 w-nav-menu"><a href="index.html" class="nav-link--final">Home</a><a href="services.html" class="nav-link--final">Services</a><a href="blog.html" class="nav-link--final">Blog</a><a href="about.html" class="nav-link--final">About</a></nav><div class="greta-logo-wraper"><img src="images/greta-logo-secondary.png" alt="Greta Logo" class="image-237"></div></div></div></div>
-    <section class="case-hero">
-      <div class="case-study-container">
-        <header class="case-study-header">
-          <div class="case-study-dash"></div>
-          <div class="case-study-meta"><span>2023</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
-          <h1 class="case-study-title">NFT Rome 2023</h1>
-          <p class="case-study-subtitle">Attivazione e contenuti verticali per l’evento di Roma. Setup leggero, consegne rapide, ritmo e riconoscibilità.</p>
-          <div class="hero-divider"></div>
-        </header>
-        <img src="images/limitlesscover.jpeg" alt="NFT Rome 2023" class="case-study-main-image">
-      </div>
-    </section>
-    <section class="white-section">
-      <div class="case-study-container">
-        <div class="white-card"><h3>Key Points</h3><p>Setup leggero. Tempi rapidi di montaggio. Hook visivo. Output verticali puliti.</p></div>
-      </div>
-    </section>
-    <section class="white-section">
-      <div class="case-study-container">
-        <div class="cma-slider"><div class="viewport"><div class="track">
-          <div class="slide"><img src="images/limitlessparis1.jpeg" alt="Rome"></div>
-          <div class="slide"><video muted playsinline preload="metadata" poster="images/limitlesscover.jpeg" controls><source src="videos/limitless1.mp4" type="video/mp4"></video></div>
-          <div class="slide"><img src="images/limitless1.jpg" alt="Rome"></div>
-        </div></div><button class="arrow left" aria-label="Previous">‹</button><button class="arrow right" aria-label="Next">›</button><div class="dots"></div></div>
-      </div>
-    </section>
-    <section class="footer-dark"><div class="container-default w-container"><div class="divider"></div><div class="small-print-wrapper"><div class="text-block-116">Copyright © gretaiovene.com 2025</div></div></div></section>
-  </div>
-  <script>
-    (function(){const s=document.querySelector('.cma-slider');if(!s)return;const t=s.querySelector('.track');const slides=[...s.querySelectorAll('.slide')];const dots=s.querySelector('.dots');const L=s.querySelector('.arrow.left');const R=s.querySelector('.arrow.right');let i=0;slides.forEach((_,k)=>{const d=document.createElement('div');d.className='dot'+(k===0?' active':'');d.onclick=()=>{i=k;u()};dots.appendChild(d)});function u(){t.style.transform='translate3d('+(-i*100)+'%,0,0)';[...dots.children].forEach((d,k)=>d.classList.toggle('active',k===i))}L&&L.addEventListener('click',()=>{i=(i-1+slides.length)%slides.length;u()});R&&R.addEventListener('click',()=>{i=(i+1)%slides.length;u()});u()})();
-  </script>
+    <div class="home-page-wraper">
+        <!-- Navigation -->
+        <div data-animation="default" data-collapse="none" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-5 navbar-6 w-nav">
+            <div class="container-26 w-container">
+                <div class="div-block-630">
+                    <a href="index.html" class="brand w-nav-brand">
+                        <img src="images/greta-logo-main.png" loading="lazy" alt="Greta Logo" class="image-236">
+                    </a>
+                    <nav role="navigation" class="nav-menu-3 w-nav-menu">
+                        <a href="index.html" class="nav-link--final">Home</a>
+                        <a href="services.html" class="nav-link--final">Services</a>
+                        <a href="blog.html" class="nav-link--final">Blog</a>
+                        <a href="about.html" class="nav-link--final">About</a>
+                    </nav>
+                    <div class="menu-button-4 w-nav-button">
+                        <div class="icon-12 w-icon-nav-menu"></div>
+                        <div class="c-nav-items">
+                            <button class="link-block-10 menu w-inline-block" onclick="toggleMobileMenu()">
+                                <h1 class="link-menu-2">menu</h1>
+                            </button>
+                            <div class="cloneable-area">
+                                <div class="c-nav-menu-btn-3">
+                                    <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f159" class="_w-nav-menu-btn">
+                                        <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15a" class="b-nav-menu-btn default">
+                                            <div data-w-id="28c05add-6e24-8b19-bb12-932ef999f15b" class="c-nav-menu-btn-icon">
+                                                <div class="_w-nav-menu-btn-icon">
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                    <div class="nav-menu-btn-line short"></div>
+                                                    <div class="nav-menu-btn-line long"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="greta-logo-wraper">
+                        <img src="images/greta-logo-secondary.png" loading="lazy" width="Auto" alt="Greta Logo" class="image-237">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Study Content -->
+        <section class="case-hero">
+            <div class="case-study-container">
+                <header class="case-study-header">
+                    <div class="case-study-dash"></div>
+                    <div class="case-study-meta"><span>2025</span><a class="cs-back" href="services.html#case-studies"><span class="arr">←</span></a></div>
+                    <h1 class="case-study-title">NFT ROME 2023</h1>
+                    <p class="case-study-subtitle" style="font-family: 'ITC Avant Garde Gothic Pro Extra Light Oblique', sans-serif; font-style: italic; font-size: 1.15rem !important;">Event Manager</p>
+                    <p class="case-study-subtitle avg-extra-light">Part of NFT Rome 2023 - a distributed festival dedicated to digital art, culture, and blockchain innovation - the <span class="avg-demi">Metaverse×Luxury Symposium</span> was the fashion-focused chapter of a <span class="avg-demi">broader ecosystem</span> connecting multiple disciplines across the city.
+<br>Together with the Limitless Innovation team, I curated and produced this segment, dedicated to exploring how fashion and technology can coexist within new creative and ethical frameworks within one of Rome's most emblematic venues: <span class="avg-demi">Palazzo Poli</span>, the palace behind the Trevi Fountain.</p>
+                </header>
+                <img src="images/nftrome.jpg" alt="NFT Rome 2023" class="case-study-main-image">
+                <div class="hero-divider" style="margin: 3rem auto;"></div>
+                <div class="top-text-grid">
+                    <div>
+                        <p class="paragraph-64 font-xlt bold">Collaboration & Partners</p>
+                        <p class="paragraph-64 font-xlt">A collaboration between <span class="avg-book">Limitless Innovation</span>, <span class="avg-book">NFT Rome</span>, and powered by <span class="avg-book">Sewernation</span> and <span class="avg-book">Stargraph</span>, the symposium brought together institutions, brands, and innovators within a shared vision of digital culture. The project required constant coordination across teams, balancing artistic ambition with operational precision.</p>
+                    </div>
+                    <div>
+                        <p class="paragraph-64 font-xlt bold">My Role</p>
+                        <p class="paragraph-64 font-xlt" style="opacity: 1 !important; visibility: visible !important;">As <span class="avg-book">Event Manager</span>, I oversaw the development and delivery of the <span class="avg-book">fashion segment</span>, from the initial brief to on-site execution. I managed <span class="avg-book">speaker relations</span>, curated the run of show, and ensured that <span class="avg-book">logistics</span>, setup, and content <span class="avg-book">production</span> followed a coherent direction.</p>
+                    </div>
+                    <div>
+                        <p class="paragraph-64 font-xlt bold">Challenges & Coordination</p>
+                        <p class="paragraph-64 font-xlt">Transforming a historic venue like <span class="avg-book">Palazzo Poli</span> into a fully equipped conference space demanded a meticulous approach. From <span class="avg-book">technical</span> infrastructure to guest management, I worked to maintain <span class="avg-book">balance</span> between digital innovation and architectural preservation.</p>
+                    </div>
+                    <div>
+                        <p class="paragraph-64 font-xlt bold">Outcome & Reflection</p>
+                        <p class="paragraph-64 font-xlt">What made the project meaningful wasn't just its scale, but the <span class="avg-book">harmony it achieved</span>: more then twelve different speakers, each from <span class="avg-book">distinct industries</span>, connected through one shared narrative. The event became proof that when coordination, design, and dialogue align, even complex systems can move with simplicity - and leave something that lasts beyond the day itself.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="purple-block">
+            <div class="case-study-container">
+                <div class="purple-2col">
+                    <h2>Speakers</h2>
+                    <p>The symposium brought together leading voices from fashion, technology, and digital innovation, fostering dialogue between established luxury brands and emerging tech ventures.
+<br>Among the speakers:
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Massimo Paloni</span>, COO and Innovation Officer, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Bulgari</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Gionata Galdenzi</span>, E-commerce Manager, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Moschino / AEFFE Group</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Beatriz Barros</span>, E-commerce & Digital Experience Manager, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Moschino</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Marco Ruffa</span>, Digital Transformation Director, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Pinko</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Renato Capizzi</span>, Founder, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">The Artisan</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Marco Bisato</span>, Co-founder & CEO, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">CUSTOMIX</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Jonathan Napolitano</span>, Founder, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">XRAL</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Michele Imbimbo</span>, CEO & Founder, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Stargraph</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Diego Di Tommaso</span>, Co-founder, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Over the Reality</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Giacomo Cretella</span> & <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Alessio Barbati</span>, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Triboo Group</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Massimo Brandellero</span>, Founder & CEO, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">The ID Factory</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Fabio Albizzati</span>, CEO, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">WeWear</span>
+
+<br>•<span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">Fabrizio Perrone</span>, Founder, <span style="font-family: 'ITC Avant Garde Gothic Pro Demi', sans-serif; font-weight: 600;">2WATCH</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-section">
+            <div class="case-study-container">
+                <div class="white-card">
+                    <h3>A New Chapter for Capri</h3>
+                    <p>This project’s success stemmed from collaboration - between producers, artists, technical teams, and local institutions. The collective commitment of everyone involved turned an ambitious idea into an experience that resonated with both the island’s history and its creative future.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white-2col">
+            <div class="case-study-container">
+                <div class="grid">
+                    <div>
+                        <h3>Impact</h3>
+                    </div>
+                    <div>
+                        <p>The first edition of the Capri Music Awards set a new precedent for live cultural events on the island. Managing three days of performances, logistics, and production in such a unique setting offered tangible proof of what can be achieved through organization, teamwork, and precision under pressure.</p>
+                    </div>
+                </div>
+                <div class="cma-slider" id="cmaSlider">
+                    <div class="viewport">
+                        <div class="track">
+                            <!-- Slide 1: autoplay video first -->
+                            <div class="slide">
+                                <video autoplay playsinline muted preload="metadata" poster="images/testimonial-video-poster.jpg">
+                                    <source src="videos/Un%20assaggio%20dei%20Capri%20Young%20Awards-passione,%20sorrisi%20e%20tanta%20musica%20per%20questa%20prima%20edizione.%23C.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            
+                            <!-- Slide 2: image -->
+                            <div class="slide"><img src="images/capri-music-awards-1.jpg" alt="Capri Music Awards"></div>
+                            
+                            <!-- Slide 3: image -->
+                            <div class="slide"><img src="images/imgi_23_515504884_122129438162806111_1586130414609348070_n.jpg" alt="Capri Music Awards"></div>
+
+                            <!-- Slide 4..: original slides remain in same order as before -->
+                            <div class="slide"><img src="images/capri-music-awards-2.jpg" alt="Capri Music Awards"></div>
+                            <div class="slide"><img src="images/capri-music-awards-3.jpg" alt="Capri Music Awards"></div>
+                            <div class="slide"><img src="images/capri-music-awards-4.jpg" alt="Capri Music Awards"></div>
+                            <div class="slide"><img src="images/capri-music-awards-5.jpg" alt="Capri Music Awards"></div>
+                        </div>
+                    </div>
+                    <button class="arrow left" aria-label="Previous" onclick="cmaPrev()">‹</button>
+                    <button class="arrow right" aria-label="Next" onclick="cmaNext()">›</button>
+                    <div class="dots" id="cmaDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners logos -->
+        <section class="partners">
+            <div class="case-study-container">
+                <div class="partners-title">Official partners</div>
+                <div class="partners-card">
+                    <img src="images/Screenshot 2025-09-11 alle 16.28.44 - Modificata.png" alt="Partners Logos">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer-dark">
+            <div class="container-default w-container">
+                <div class="footer-links-block-2">
+                    <div class="links-block main">
+                        <div class="footer-main-content-wrapper">
+                            <a href="index.html" class="footer-logo-link w-nav-brand">
+                                <img src="images/greta-logo-footer.png" alt="Greta Logo" class="footer-logo">
+                            </a>
+                            <div>
+                                <a href="mailto:info@gretaiovene.com" class="link-9">info@gretaiovene.com</a>
+                            </div>
+                        </div>
+                        <div class="footer-newsletter w-form">
+                            <form id="email-form" name="email-form" data-name="Email Form" action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="form-newsletter-footer">
+                                <input class="input newsletter-footer w-input" maxlength="256" name="email-2" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required="">
+                                <input type="submit" data-wait="Please wait..." class="button-primary-2 back w-button" value="Subscribe">
+                            </form>
+                            <div class="success-message-2 small w-form-done">
+                                <div>Thank you! You are now subscribed!</div>
+                            </div>
+                            <div class="error-message-2 w-form-fail">
+                                <div>Oops! Something went wrong.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="links-block">
+                        <div class="footer-mobile-content2">
+                            <div class="div-block-228">
+                                <div class="footer-content-links">
+                                    <div class="text-block-18">Company</div>
+                                    <div class="div-block-229">
+                                        <a href="index.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Home</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Home</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="services.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit style-my-class-color-red-style">Services</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Services</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="blog.html" aria-current="page" class="link-f1 w-inline-block w--current">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">Blogs</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">Blogs</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="about.html" class="link-f1 w-inline-block">
+                                            <div class="div-hover">
+                                                <div class="div-magnetico">
+                                                    <div class="div-mascara">
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-whit menu-white">About</div>
+                                                        </div>
+                                                        <div class="caja-de-texto">
+                                                            <div class="inicio-white menu-white">About</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="spacer links-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="small-print-wrapper">
+                    <div class="text-block-116">Copyright © gretaiovene.com 2025</div>
+                    <div class="social-icons-3">
+                        <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img loading="lazy" src="images/linkedin-icon.svg" alt="LinkedIn" class="image-110">
+                        </a>
+                        <a href="https://twitter.com/gretaiovene" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Twitter" src="images/twitter-icon.svg" loading="lazy">
+                        </a>
+                        <a href="https://www.instagram.com/gretacantjudgeyou/" target="_blank" class="social-media-icon-2 w-inline-block">
+                            <img width="45" height="45" alt="Instagram" src="images/instagram-icon.svg" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Simple bottom slider logic
+        (function(){
+            const slider = document.getElementById('cmaSlider');
+            if (!slider) return;
+            const track = slider.querySelector('.track');
+            const slides = Array.from(slider.querySelectorAll('.slide'));
+            const dotsWrap = document.getElementById('cmaDots');
+            let index = 0;
+            function update(){
+                // Ensure exact centering without subpixel offsets and round to 3 decimals
+                const x = Math.round((-index * 100) * 1000) / 1000;
+                track.style.transform = 'translate3d(' + x + '%,0,0)';
+                Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('active', i===index));
+                // Pause all videos except the active one; play the active if it's a video
+                slides.forEach((s,i)=>{
+                    const vid = s.querySelector('video');
+                    if (!vid) return;
+                    if (i === index) { try { vid.play(); } catch(e){} }
+                    else { try { vid.pause(); vid.currentTime = 0; } catch(e){} }
+                });
+            }
+            // Build dots
+            slides.forEach((_,i)=>{
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i===0 ? ' active' : '');
+                dot.addEventListener('click', ()=>{ index = i; update(); });
+                dotsWrap.appendChild(dot);
+            });
+            window.cmaNext = function(){ index = (index + 1) % slides.length; update(); };
+            window.cmaPrev = function(){ index = (index - 1 + slides.length) % slides.length; update(); };
+            // Autoplay advance every 6s; longer if video duration is longer
+            let timer = setInterval(()=>window.cmaNext(), 6000);
+            slider.addEventListener('mouseenter', ()=>clearInterval(timer));
+            slider.addEventListener('mouseleave', ()=>{ timer = setInterval(()=>window.cmaNext(), 6000); });
+            // Start: ensure first slide state and play if video
+            update();
+        })();
+    </script>
 </body>
 </html>
