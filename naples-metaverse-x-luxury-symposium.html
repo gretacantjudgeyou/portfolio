@@ -155,20 +155,117 @@
         .white-2col h3 { position: relative; margin: 0 0 0.75rem 0; }
         .white-2col h3::before { content: ''; position: absolute; left: 0; bottom: -8px; width: 40px; height: 2px; background: #000; }
         .bottom-image { width: 100%; max-width: 900px; display: block; margin: 1rem auto 0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        
+rim        /* Video verticale per E. Marinella */
+        .case-media-block {
+            position: relative;
+            padding-bottom: calc(var(--case-video-top, 0px) + var(--case-video-height, 0px) + 16px);
+        }
+        .case-media-block .media-heading {
+            position: relative;
+        }
+        .case-media-block .case-video-container {
+            position: absolute;
+            left: var(--case-video-left, 0px);
+            top: var(--case-video-top, 0px);
+            width: var(--case-video-width, 130px);
+            height: var(--case-video-height, 0px);
+            aspect-ratio: 9 / 16;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .case-media-block .case-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         /* Bottom slider vertical format */
         .cma-slider { position: relative; width: 100%; max-width: 840px; margin: 0 auto; }
-        .cma-slider .viewport { overflow: hidden; border-radius: 20px; box-shadow: none; background: transparent; aspect-ratio: 9 / 16; height: min(98vh, 1100px); margin: 0 auto; width: 100%; }
-        .cma-slider .track { display: flex; height: 100%; transition: transform 0.5s ease; will-change: transform; gap: 0; backface-visibility: hidden; }
-        .cma-slider .slide { flex: 0 0 100%; height: 100%; margin: 0; border: 0; box-sizing: border-box; overflow: hidden; }
-        .cma-slider .slide img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); outline: none; }
-        .cma-slider .slide video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; background: transparent; transform: translateZ(0); }
-        .cma-slider .arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(87,44,87,0.9); color: #FDF5E6; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
-        .cma-slider .arrow.left { left: 8px; }
-        .cma-slider .arrow.right { right: 8px; }
-        .cma-slider .dots { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
-        .cma-slider .dot { width: 8px; height: 8px; border-radius: 50%; background: #d7cdd7; cursor: pointer; }
-        .cma-slider .dot.active { background: #572C57; }
+        .cma-slider .viewport { 
+            overflow: hidden; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            width: 100%; 
+            height: 500px; /* Altezza fissa per lo slider */
+        }
+        .cma-slider .track { 
+            display: flex; 
+            height: 100%; 
+            transition: transform 0.5s ease; 
+            will-change: transform;
+        }
+        .cma-slider .slide { 
+            flex: 0 0 100%; 
+            min-width: 100%; 
+            height: 100%;
+            position: relative;
+            background: #f5f5f5; /* Sfondo di fallback */
+            overflow: hidden; 
+        }
+        .cma-slider .slide img { 
+            display: block; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+        }
+        .cma-slider .arrow { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: none;
+            color: #333;
+            border: none;
+            width: 40px; 
+            height: 40px; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 24px;
+            z-index: 10;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+        .cma-slider .arrow:hover {
+            color: #000;
+            transform: translateY(-50%) scale(1.2);
+        }
+        .cma-slider .arrow.left { left: 15px; }
+        .cma-slider .arrow.right { right: 15px; }
+        .cma-slider .dots { 
+            display: flex; 
+            gap: 10px; 
+            justify-content: center; 
+            margin-top: 15px;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        .cma-slider .dot { 
+            width: 8px; 
+            height: 8px; 
+            border-radius: 50%; 
+            background: rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .cma-slider .dot.active { 
+            background: #333;
+            transform: scale(1.3);
+        }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px);} to { opacity: 1; transform: translateY(0);} }
         @media (max-width: 768px) { .purple-2col { grid-template-columns: 1fr; } .white-2col .grid { grid-template-columns: 1fr; } }
@@ -225,27 +322,86 @@
                     <p class="case-study-subtitle">3 Days Event Production | Symposium + Expo, private visit to E.Marinella & Angela Srl</p>
                     <div class="hero-divider"></div>
                     <div class="top-text-grid">
-                        <div>
-                            <p class="paragraph-64 font-xlt bold">Symposium</p>
+                        <div class="case-media-block">
+                            <p class="paragraph-64 font-xlt bold media-heading">Symposium <br> <em></em></p>
+                            <div class="case-video-container">
+                                <div class="cma-slider">
+                                    <div class="viewport">
+                                        <div class="track">
+                                            <div class="slide">
+                                                <img src="images/symposium/symposium1.jpg" alt="Symposium 1" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di symposium1.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/symposium/symposium2.jpg?t=20251113" alt="Symposium 2" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di symposium2.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/symposium/symposium3.jpg?t=20251113" alt="Symposium 3" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di symposium3.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/symposium/symposium4.jpg?t=20251113" alt="Symposium 4" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di symposium4.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="arrow left">←</button>
+                                    <button class="arrow right">→</button>
+                                    <div class="dots"></div>
+                                </div>
+                            </div>
                             <p class="paragraph-64 font-xlt">Held at Villa Doria d'Angri, the Symposium followed the signature Limitless Innovation format, supported by MoreNFT and BonusLab for media coverage. The event brought to Naples a reflection on innovation and <span class="avg-demi">digital transformation</span> across fashion and <span class="avg-demi">craftsmanship</span>.<br><br>
                             On stage, Fabrizio Rinaldi (<span class="avg-demi">Armani</span>) explored the value of innovation and growth mindset, while Davide Sgherri, Head of New Media at <span class="avg-demi">Dolce & Gabbana</span>, shared his perspective on community building through <span class="avg-demi">Web3</span> technologies. Marc Sondermann, CEO of <span class="avg-demi">Fashion Magazine</span>, together with professors from <span class="avg-demi">Parthenope University</span>, discussed how Italy's fashion and craftsmanship ecosystem is evolving from <span class="avg-demi">education</span> and professional formation to communication and <span class="avg-demi">storytelling</span>. Blake Lezenski (<span class="avg-demi">Outlier Ventures</span>), Alessandro Loggi (Co-founder of <span class="avg-demi">CVing</span>), Fulvio Vinci and Francesco Moriello (<span class="avg-demi">MoreNFT</span>) enriched the dialogue with insights into digital innovation. The Rector of Parthenope University, the City Councillor, and the Mayor of Naples embraced the Symposium as a <span class="avg-demi">starting point</span> to mark Naples' renewed <span class="avg-demi">commitment</span> to progress, research, and development in the <span class="avg-demi">digital field</span>.</p>
                         </div>
-                        <div>
-                            <p class="paragraph-64 font-xlt bold">Expo</p>
+                        <div class="case-media-block">
+                            <p class="paragraph-64 font-xlt bold media-heading">Expo <br> <em>Showcasing Innovation in Fashion Tech</em></p>
+                            <div class="case-video-container">
+                                <div class="cma-slider">
+                                    <div class="viewport">
+                                        <div class="track">
+                                            <div class="slide">
+                                                <img src="images/expo/expo1.jpg?t=20251113" alt="Expo Showcase 1" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di expo1.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/expo/expo2.jpg?t=20251113" alt="Expo Showcase 2" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di expo2.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/expo/expo3.jpg?t=20251113" alt="Expo Showcase 3" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di expo3.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/expo/expo4.jpg?t=20251113" alt="Expo Showcase 4" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di expo4.jpg')">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="images/expo/expo5.jpg?t=20251113" alt="Expo Showcase 5" style="width:100%;height:100%;object-fit:cover;display:block;background:#f0f0f0;" onerror="this.onerror=null; console.error('Errore nel caricamento di expo5.jpg')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="arrow left">←</button>
+                                    <button class="arrow right">→</button>
+                                    <div class="dots"></div>
+                                </div>
+                            </div>
                             <p class="paragraph-64 font-xlt">After the Symposium, Limitless Innovation opened the floor to an <span class="avg-demi">Expo showcasing</span> leading-edge startups and scale-ups whose solutions echoed the themes explored during the talks. <br>Among them: <br><a href="https://www.customix.it/projects" target="_blank" rel="noopener noreferrer" class="avg-demi">Customix</a>, a digital atelier that uses <span class="avg-demi">immersive</span> 3D, AR/VR and metaverse technologies to help fashion brands tell their identity in new environments. <br> <a href="https://www.overthereality.ai/" target="_blank" rel="noopener noreferrer" class="avg-demi">Over the Reality (OVR)</a> builds a <span class="avg-demi">blockchain-enabled augmented reality</span> platform that merges physical and digital worlds for <span class="avg-demi">geolocated experiences</span>. <br> <a href="https://www.2w.gg/" target="_blank" rel="noopener noreferrer" class="avg-demi">2WATCH</a>, a media-tech company from Naples, designs <span class="avg-demi">phygital entertainment</span> formats and platforms enabling brands to reach next-gen audiences through e-sports and immersive content. <br><a href="https://www.futurefashionsolution.com/case-studies-3d/" target="_blank" rel="noopener noreferrer" class="avg-demi">Future Fashion (by Zakeke)</a> offers 3D configurators, AR virtual try-ons and omnichannel commerce <span class="avg-demi">tools to bridge digital and physical</span> shopping. <br> <a href="https://wewear.tech/it/" target="_blank" rel="noopener noreferrer" class="avg-demi">We Wear</a> develops <span class="avg-demi">personalized avatars</span> and <span class="avg-demi">virtual-fitting</span> technology to enhance brand-consumer interaction in online and offline environments.</p>
                         </div>
-                        <div>
-                            <p class="paragraph-64 font-xlt bold">E. Marinella <br> <em>The Essence of Neapolitan Craftsmanship</em></p>
+                        <div class="case-media-block">
+                            <p class="paragraph-64 font-xlt bold media-heading">E. Marinella <br> <em>The Essence of Neapolitan Craftsmanship</em></p>
+                            <div class="case-video-container">
+                                <video playsinline muted preload="metadata" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless6.mp4" type="video/mp4">
+                                </video>
+                            </div>
                             <p class="paragraph-64 font-xlt">As part of the Naples experience, our guests were welcomed inside the <span class="avg-demi">historic boutique of <a href="https://www.emarinella.eu/it/pages/our-story-over-a-century-of-style" target="_blank" rel="noopener noreferrer" class="avg-demi">E. Marinella</a></span>, founded in <span class="avg-demi">1914</span> by Eugenio Marinella and today one of the <span class="avg-demi">most iconic symbols of Neapolitan craftsmanship</span>.<br><br>
                             Known for its <span class="avg-demi">handmade ties</span>, loved across generations and by the <span class="avg-demi">British royal family</span>, Marinella represents the enduring elegance of Italian savoir-faire.<br>
                             We were greeted by <span class="avg-demi">Maurizio Marinella</span>, third generation of the family, and <span class="avg-demi">Alessandro Marinella</span>, who is carrying the brand into the future through innovation while preserving its artisanal soul. In the courtyard beside the original shop, we met the <span class="avg-demi">seamstresses</span>, many of whom have spent their lives here, watching the company grow and evolve. Touching the fabrics, seeing their precision, and walking through a workshop that still feels profoundly human despite the brand's global reach was deeply moving.<br><br>
                             In a world where family-run fashion houses rarely endure unchanged, Marinella stands as an <span class="avg-demi">exception</span>: a story of strategic choices, sound governance, values, and continuity that keeps the <span class="avg-demi">flag of true craftsmanship flying high</span>.</p>
                         </div>
-                        <div>
-                            <p class="paragraph-64 font-xlt bold">Angela Srl <br> <em>The Silent Power Behind Italian Craftsmanship</em></p>
+                        <div class="case-media-block">
+                            <p class="paragraph-64 font-xlt bold media-heading">Angela Srl <br> <em>The Silent Power Behind Italian Craftsmanship</em></p>
+                            <div class="case-video-container">
+                                <video playsinline muted preload="metadata" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
+                                    <source src="videos/limitless7.mp4" type="video/mp4">
+                                </video>
+                            </div>
                             <p class="paragraph-64 font-xlt">During our visit to <a href="https://www.angelasrl.com/it/home" target="_blank" rel="noopener noreferrer" class="avg-demi">Angela Srl</a>, we stepped into more than a renowned <span class="avg-demi">leather goods manufacturer</span>; we entered a place where fashion is still an <span class="avg-demi">art form</span>.<br><br>
                             Led by <span class="avg-demi">Angela Capezzuto</span> in a small southern town, the company has grown into a trusted partner for luxury giants such as <span class="avg-demi">LVMH, Kering, and Prada</span>.<br><br>
-                            What made this visit truly special was meeting not only the <span class="avg-demi">artisans crafting</span> the finest leather pieces but also the <span class="avg-demi">resident artists</span> who collaborate on unique projects. Among them, I had a remarkable conversation with an <span class="avg-demi">illustrator</span> whose work has been personally chosen by <em>Maria Grazia Chiuri</em> for <em>Dior's iconic foulards</em>, each design hand-drawn by him and then reproduced on silk through intricate printing processes. In his words and in his <span class="avg-demi">art</span>, I found a living example of how fashion is <em>not</em> merely business or innovation, but a form of <span class="avg-demi">storytelling</span> - a reminder that its greatest strength lies in its ability <em>to be art</em>.<br><br>
+                            What made this visit truly special was meeting not only the <span class="avg-demi">artisans crafting</span> the finest leather pieces but also the <span class="avg-demi">resident artists</span> who collaborate on unique projects. Among them, I had a conversation with an <span class="avg-demi">illustrator</span> whose work has been personally chosen by <em>Maria Grazia Chiuri</em> for <em>Dior's iconic foulards</em>, each design hand-drawn by him and then reproduced on silk through intricate printing processes. In his words and in his <span class="avg-demi">art</span>, I found a living example of how fashion is <em>not just</em> merely business or innovation, but a form of <span class="avg-demi">storytelling</span> - a reminder that its greatest strength lies in its ability <em>to be art</em>.<br><br>
                             Angela herself is a <span class="avg-demi">collector</span> of the gifts received over the years from the luxury houses she collaborates with. Walking through her office felt like a guided tour through a private museum, where every piece tells a <em>story</em> of collaboration, respect, and the intertwining of creativity and <span class="avg-demi">heritage</span>. It was a vivid reminder that true luxury is about more than products: it's about the <span class="avg-demi">people</span>, the artistic <em>vision</em>, and the creative <em>soul</em> that shape its identity.<br><br>
                             <em>Even years later, I still look back on this visit as one of the most meaningful and transformative experiences of my journey in fashion.</em><br><br>
                             A heartfelt thank you to Angela and her team for revealing the beauty of the <span class="avg-demi">authentic essence of Italian craftsmanship</span>.</p>
@@ -255,120 +411,6 @@
             </div>
         </section>
 
-        <section class="purple-block">
-            <div class="case-study-container">
-                <div class="purple-2col">
-                    <h2>Connections</h2>
-                    <p>Tra produzione e creatività, il flusso resta lineare: briefing breve, ruoli chiari, scouting essenziale, tempi stretti. Ogni consegna mantiene pulizia e coerenza di brand pur restando agile, pensata per piattaforme social e formati verticali.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="white-section">
-            <div class="case-study-container">
-                <div class="white-card">
-                    <h3>Key Points</h3>
-                    <p>Setup leggero.<br>Tempi rapidi di montaggio.<br>Ritmo e hook visivo.<br>Output verticali puliti.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Event 1: Paris Activation -->
-        <section class="white-2col event-block">
-            <div class="case-study-container">
-                <div class="grid">
-                    <div>
-                        <h3 class="event-title">Paris Activation</h3>
-                    </div>
-                    <div>
-                        <p class="paragraph-copy">Shooting on-the-go tra strade e backstage. Formati verticali pensati per velocità, ritmo e riconoscibilità visiva.</p>
-                    </div>
-                </div>
-                <div class="cma-slider">
-                    <div class="viewport">
-                        <div class="track">
-                            <div class="slide"><img src="images/limitlessparis1.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis2.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis3.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis4.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis5.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis6.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide"><img src="images/limitlessparis7.jpeg" alt="Limitless Paris"></div>
-                        </div>
-                    </div>
-                    <button class="arrow left" aria-label="Previous">‹</button>
-                    <button class="arrow right" aria-label="Next">›</button>
-                    <div class="dots"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Event 2: Milano Lab -->
-        <section class="white-2col event-block">
-            <div class="case-study-container">
-                <div class="grid">
-                    <div>
-                        <h3 class="event-title">Milano Lab</h3>
-                    </div>
-                    <div>
-                        <p class="paragraph-copy">Studio, cut rapidi e passaggi da still a motion. Dal set alle stories con consegna in giornata.</p>
-                    </div>
-                </div>
-                <div class="cma-slider">
-                    <div class="viewport">
-                        <div class="track">
-                            <div class="slide">
-                                <video playsinline muted preload="metadata" poster="images/limitlesscover.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
-                                    <source src="videos/limitless1.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="slide"><img src="images/limitless1.jpg" alt="Limitless"></div>
-                            <div class="slide">
-                                <video playsinline muted preload="metadata" poster="images/limitlesscover.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
-                                    <source src="videos/limitless2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="slide"><img src="images/limitlesscover.jpeg" alt="Limitless"></div>
-                        </div>
-                    </div>
-                    <button class="arrow left" aria-label="Previous">‹</button>
-                    <button class="arrow right" aria-label="Next">›</button>
-                    <div class="dots"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Event 3: Social Rollout -->
-        <section class="white-2col event-block">
-            <div class="case-study-container">
-                <div class="grid">
-                    <div>
-                        <h3 class="event-title">Social Rollout</h3>
-                    </div>
-                    <div>
-                        <p class="paragraph-copy">Editing agile per formati 9:16. Sequenze brevi con hook iniziale, ritmo centrale e chiusura chiara.</p>
-                    </div>
-                </div>
-                <div class="cma-slider">
-                    <div class="viewport">
-                        <div class="track">
-                            <div class="slide">
-                                <video playsinline muted preload="metadata" poster="images/limitlessparis3.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
-                                    <source src="videos/limitless3.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="slide"><img src="images/limitlessparis6.jpeg" alt="Limitless Paris"></div>
-                            <div class="slide">
-                                <video playsinline muted preload="metadata" poster="images/limitlessparis5.jpeg" controls controlslist="nodownload noplaybackrate" disablepictureinpicture>
-                                    <source src="videos/limitless4.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="slide"><img src="images/limitlessparis7.jpeg" alt="Limitless Paris"></div>
-                        </div>
-                    </div>
-                    <button class="arrow left" aria-label="Previous">‹</button>
-                    <button class="arrow right" aria-label="Next">›</button>
-                    <div class="dots"></div>
                 </div>
             </div>
         </section>
@@ -429,7 +471,160 @@
         </section>
     </div>
 
-    <!-- JavaScript (multi-slider initializer, no Webflow runtime) -->
+    <!-- Enhanced Slider with Auto-Scroll -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all sliders on the page
+            const sliders = document.querySelectorAll('.cma-slider');
+            
+            sliders.forEach(slider => {
+                const track = slider.querySelector('.track');
+                const slides = Array.from(track.children);
+                if (slides.length === 0) return;
+                
+                const prevBtn = slider.querySelector('.arrow.left');
+                const nextBtn = slider.querySelector('.arrow.right');
+                const dotsContainer = slider.querySelector('.dots');
+                
+                // Clone first and last slides for infinite effect
+                const firstSlide = slides[0].cloneNode(true);
+                const lastSlide = slides[slides.length - 1].cloneNode(true);
+                track.insertBefore(lastSlide, slides[0]);
+                track.appendChild(firstSlide);
+                
+                let currentIndex = 1; // Start from first real slide
+                const slideCount = slides.length;
+                let isAnimating = false;
+                
+                // Set initial position
+                track.style.transition = 'none';
+                track.style.transform = `translateX(-100%)`;
+                
+                // Create navigation dots if they don't exist
+                if (dotsContainer && dotsContainer.children.length === 0) {
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('div');
+                        dot.className = 'dot' + (i === 0 ? ' active' : '');
+                        dot.addEventListener('click', () => goToSlide(i + 1));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+                
+                // Function to update slide position
+                function updateSlidePosition(animate = true) {
+                    if (animate) {
+                        track.style.transition = 'transform 0.5s ease';
+                    } else {
+                        track.style.transition = 'none';
+                    }
+                    track.style.transform = `translateX(${-currentIndex * 100}%)`;
+                }
+
+                // Function to go to specific slide
+                function goToSlide(index) {
+                    if (isAnimating || slideCount === 0) return;
+                    isAnimating = true;
+                    
+                    // Update current index
+                    currentIndex = index;
+                    
+                    // If we're at the end, handle the loop
+                    if (currentIndex > slideCount) {
+                        currentIndex = 1;
+                        updateSlidePosition(true);
+                        
+                        // After animation, reset to the first slide without animation
+                        setTimeout(() => {
+                            track.style.transition = 'none';
+                            currentIndex = 1;
+                            updateSlidePosition(false);
+                            isAnimating = false;
+                        }, 500);
+                    } 
+                    // If we're at the beginning, handle the loop
+                    else if (currentIndex < 1) {
+                        currentIndex = slideCount;
+                        updateSlidePosition(true);
+                        
+                        // After animation, reset to the last slide without animation
+                        setTimeout(() => {
+                            track.style.transition = 'none';
+                            currentIndex = slideCount;
+                            updateSlidePosition(false);
+                            isAnimating = false;
+                        }, 500);
+                    } 
+                    // Normal slide transition
+                    else {
+                        updateSlidePosition(true);
+                        setTimeout(() => {
+                            isAnimating = false;
+                        }, 500);
+                    }
+                    
+                    // Update navigation dots
+                    updateDots();
+                }
+                
+                // Update navigation dots
+                function updateDots() {
+                    if (!dotsContainer) return;
+                    const dots = Array.from(dotsContainer.children);
+                    const dotIndex = (currentIndex - 1 + slideCount) % slideCount;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === dotIndex);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+                }
+                
+                // Initialize dots
+                updateDots();
+                
+                // Set initial position
+                updateSlidePosition(false);
+                
+                // Add navigation handlers
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+                }
+                
+                // Handle touch events for mobile swipe
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                slider.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                
+                slider.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, { passive: true });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50; // Minimum distance for a swipe
+                    const swipeDistance = touchEndX - touchStartX;
+                    
+                    if (Math.abs(swipeDistance) < swipeThreshold) return;
+                    
+                    if (swipeDistance > 0) {
+                        // Swipe right - go to previous slide
+                        goToSlide(currentIndex - 1);
+                    } else {
+                        // Swipe left - go to next slide
+                        goToSlide(currentIndex + 1);
+                    }
+                }
+            });
+        });
+    </script>
+        });
+    </script>
+    
+    <!-- Original Scripts Below -->
     <script>
         (function(){
             const sliders = Array.from(document.querySelectorAll('.cma-slider'));
@@ -473,13 +668,97 @@
                 btnNext && btnNext.addEventListener('click', next);
                 btnPrev && btnPrev.addEventListener('click', prev);
 
-                let timer = setInterval(next, 6000);
-                slider.addEventListener('mouseenter', ()=>clearInterval(timer));
-                slider.addEventListener('mouseleave', ()=>{ timer = setInterval(next, 6000); });
-
                 update();
             });
         })();
+
+        (function(){
+            const blocks = Array.from(document.querySelectorAll('.case-media-block'));
+            if (!blocks.length) { return; }
+
+            const mq = window.matchMedia ? window.matchMedia('(orientation: portrait)') : null;
+
+            const updateBlock = (block) => {
+                const heading = block.querySelector('.media-heading');
+                const video = block.querySelector('.case-video-container');
+                if (!heading || !video) { return; }
+
+                const headingWidth = heading.offsetWidth;
+                if (!headingWidth) { return; }
+
+                const width = Math.min(Math.max(headingWidth * 0.68, 145), 200);
+                const top = heading.offsetTop + heading.offsetHeight + 12;
+                const height = Math.round(width * (16 / 9));
+                const left = Math.max(0, heading.offsetLeft + (headingWidth - width) / 2 - 26);
+
+                block.style.setProperty('--case-video-width', width + 'px');
+                block.style.setProperty('--case-video-top', top + 'px');
+                block.style.setProperty('--case-video-height', height + 'px');
+                block.style.setProperty('--case-video-left', left + 'px');
+                video.style.opacity = '1';
+                video.style.pointerEvents = 'auto';
+            };
+
+            const updateAll = () => blocks.forEach(updateBlock);
+
+            window.addEventListener('load', updateAll);
+            window.addEventListener('resize', updateAll);
+            if (mq) {
+                if (mq.addEventListener) { mq.addEventListener('change', updateAll); }
+                else if (mq.addListener) { mq.addListener(updateAll); }
+            }
+            updateAll();
+        })();
+
+        // Inizializza lo slider per la sezione Symposium
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.top-text-grid > div:first-child .cma-slider');
+            if (!slider) return;
+            
+            const track = slider.querySelector('.track');
+            const slides = Array.from(track.children);
+            const prevBtn = slider.querySelector('.arrow.left');
+            const nextBtn = slider.querySelector('.arrow.right');
+            const dotsContainer = slider.querySelector('.dots');
+            
+            if (slides.length === 0) return;
+            
+            // Crea i punti di navigazione
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+            
+            const dots = Array.from(dotsContainer.children);
+            let currentIndex = 0;
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    goToSlide(currentIndex);
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    goToSlide(currentIndex);
+                });
+            }
+            
+            // Inizializza il primo slide
+            goToSlide(0);
+        });
     </script>
 </body>
 </html>
