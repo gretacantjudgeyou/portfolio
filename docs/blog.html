@@ -5,7 +5,7 @@
     <title>Blog | Greta Iovene</title>
     <meta content="Blog - Insights & Innovations" property="og:title">
     <meta content="Blog - Insights & Innovations" property="twitter:title">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <!-- CSS Files -->
     <link href="css/fonts.css?v=1758885340" rel="stylesheet" type="text/css">
@@ -66,6 +66,101 @@
 
         /* Dates: match box text color */
         .text-block-115-pulic-date { color: inherit !important; opacity: .9; }
+        
+        /* Stili per la navbar fissa in alto */
+        .navbar-5 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        /* Stili per la versione mobile */
+        /* Prevenire lo zoom su input */
+        input, select, textarea, button {
+            font-size: 16px !important;
+        }
+        
+        /* Migliorare la risposta al tocco */
+        a, button, .w-nav-button {
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
+        }
+        @media (max-width: 767px) {
+            /* Reset delle dimensioni base */
+            html {
+                font-size: 14px;
+                -webkit-text-size-adjust: 100%;
+            }
+            
+            /* Header e navigazione */
+            .navbar-5 {
+                padding: 12px 16px !important;
+                background-color: #000 !important;
+            }
+            
+            .nav-link--final {
+                font-size: 16px !important;
+                padding: 12px 0 !important;
+                display: block;
+                text-align: center;
+                color: #fff !important;
+            }
+            
+            /* Menu mobile */
+            .w-nav-button {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1001;
+            }
+            
+            /* Sezione Coming Soon */
+            .rt-component-section {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                height: 100vh !important;
+                overflow: hidden !important;
+                padding-top: 60px !important; /* Spazio per la navbar */
+            }
+            
+            .rt-marquee-one {
+                min-width: 300% !important;
+                padding: 2vh 0 !important;
+                font-size: 8vw !important;
+            }
+            
+            .rt-marquee-left-text {
+                font-size: 8vw !important;
+                padding: 0 4vw !important;
+                white-space: nowrap !important;
+            }
+            
+            .rt-heading-one {
+                font-size: 16vw !important;
+                -webkit-text-stroke-width: 1px !important;
+                padding: 0 3vw !important;
+                white-space: nowrap !important;
+            }
+            
+            .rt-marquee-divider {
+                margin: 1.5vh 0 !important;
+                height: 1px !important;
+                background-color: rgba(255,255,255,0.3) !important;
+            }
+            
+            /* Ottimizzazione contenitori */
+            .w-container {
+                padding: 0 16px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+        }
     </style>
 </head>
 
@@ -232,18 +327,40 @@
     <script src="js/webflow.js" type="text/javascript"></script>
     <script>
         function toggleMobileMenu() {
-            const navMenu = document.querySelector('.w-nav-menu');
-            const menuButton = document.querySelector('.w-nav-button');
-            navMenu.classList.toggle('w--open');
-            menuButton.classList.toggle('w--open');
+            const navMenu = document.querySelector('.nav-menu-3');
+            const navButton = document.querySelector('.w-nav-button');
+            
+            if (navMenu && navButton) {
+                navMenu.classList.toggle('w--open');
+                navButton.classList.toggle('w--open');
+                
+                // Blocca lo scroll quando il menu è aperto
+                if (navMenu.classList.contains('w--open')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
         }
+        
+        // Chiudi il menu quando si clicca su un link
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link--final');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const navMenu = document.querySelector('.nav-menu-3');
+                    const navButton = document.querySelector('.w-nav-button');
+                    if (navMenu && navButton && window.innerWidth <= 767) {
+                        navMenu.classList.remove('w--open');
+                        navButton.classList.remove('w--open');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+        });
     </script>
     <script src="https://cdn.prod.website-files.com/gsap/3.13.0/gsap.min.js" type="text/javascript"></script>
     <script src="https://cdn.prod.website-files.com/gsap/3.13.0/ScrollTrigger.min.js" type="text/javascript"></script>
-    <style>
-        /* Stili per la navbar fissa in alto */
-        .navbar-5 {
-            position: fixed;
             top: 0;
             left: 0;
             right: 0;
