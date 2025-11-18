@@ -39,18 +39,296 @@
         .navbar-5 .nav-menu-3 .nav-link--final { font-size: 20px !important; padding: 32px 0 !important; line-height: 1.2 !important; }
         .navbar-5 .div-block-630 { padding-left: .5rem !important; padding-right: .5rem !important; }
         .navbar-5 .nav-menu-3 { margin: 0 !important; padding: 0 !important; }
-        /* Contact form colors and focus */
-        .input.w-input, .text-area.w-input, .w-select { border: 2px solid #60667A !important; color: #3B3E49 !important; }
-        .input.w-input:focus, .text-area.w-input:focus, .w-select:focus { outline: none !important; border-color: #60667A !important; box-shadow: 0 0 0 2px rgba(96,102,122,0.15) !important; }
-        .field-label-2, .field-label-3, .field-label-4, .field-label-5, .field-label-6, .field-label-7 { color: #60667A !important; font-family: var(--font-subtitle) !important; }
+        
+        /* Stili per i campi del form di contatto */
+        .contact-form-row .input,
+        .contact-form-row .w-select,
+        .contact-message-section .text-area,
+        .input.w-input, 
+        .text-area.w-input, 
+        .w-select {
+            width: 100% !important;
+            padding: 12px 16px !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            background-color: #fff !important;
+            transition: all 0.3s ease !important;
+            font-family: var(--font-subtitle) !important;
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            color: #333 !important;
+            box-shadow: none !important;
+            margin-bottom: 8px !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+        }
+        
+        .contact-form-row .input:focus,
+        .contact-form-row .w-select:focus,
+        .contact-message-section .text-area:focus,
+        .input.w-input:focus, 
+        .text-area.w-input:focus, 
+        .w-select:focus {
+            border-color: #FFA500 !important;
+            box-shadow: 0 0 0 1px rgba(255, 165, 0, 0.3) !important;
+            outline: none !important;
+        }
+        
+        .contact-form-row .input:hover,
+        .contact-form-row .w-select:hover,
+        .contact-message-section .text-area:hover,
+        .input.w-input:hover, 
+        .text-area.w-input:hover, 
+        .w-select:hover {
+            border-color: #d0d0d0 !important;
+        }
+        
+        /* Stili per le etichette */
+        .field-label-2, .field-label-3, .field-label-4, 
+        .field-label-5, .field-label-6, .field-label-7 {
+            color: #60667A !important; 
+            font-family: var(--font-subtitle) !important;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
         /* Services checkboxes */
         .contact-services-grid { color: #60667A !important; }
+        /* Stili per i riquadri dei servizi */
         .checkbox-text { color: #60667A !important; }
-        .w-checkbox-input.checkbox { width: 18px; height: 18px; border: 2px solid #60667A; border-radius: 4px; background: #fff; transition: all .2s ease; }
+        /* Stile per i checkbox personalizzati */
+        .checkbox-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-wrapper:hover {
+            border-color: #d0d0d0;
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        .checkmark {
+            position: relative;
+            height: 18px;
+            width: 18px;
+            min-width: 18px;
+            background-color: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-wrapper:hover .checkmark {
+            border-color: #d0d0d0;
+        }
+        
+        .checkbox-wrapper input:checked ~ .checkmark {
+            background-color: #60667A;
+            border-color: #60667A;
+        }
+        
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        
+        .checkbox-wrapper input:checked ~ .checkmark:after {
+            display: block;
+        }
+        .input-wrapper { margin-bottom: 16px; }
         .w-checkbox-input.checkbox.checked { background: #60667A; border-color: #60667A; box-shadow: inset 0 0 0 3px #fff; }
-        .checkbox-wrapper { user-select: none; cursor: pointer; }
+        .checkbox-wrapper { 
+            user-select: none; 
+            cursor: pointer; 
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-wrapper:hover {
+            border-color: #d0d0d0;
+        }
+        
+        .checkbox-wrapper.w--redirected-checked {
+            border-color: #60667A;
+            background-color: rgba(96, 102, 122, 0.05);
+        }
+        
+        /* Stili personalizzati per i campi del form */
+        .custom-form-field {
+            width: 100% !important;
+            padding: 12px 16px !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            background-color: #fff !important;
+            transition: all 0.3s ease !important;
+            font-family: var(--font-subtitle) !important;
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            color: #333 !important;
+            box-shadow: none !important;
+            margin-bottom: 8px !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+        }
+        
+        .custom-form-field:focus {
+            border-color: #FFA500 !important;
+            box-shadow: 0 0 0 1px rgba(255, 165, 0, 0.3) !important;
+            outline: none !important;
+        }
+        
+        .custom-form-field:hover {
+            border-color: #d0d0d0 !important;
+        }
+        
+        /* Stile per il menu a tendina */
+        .custom-select {
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path fill="%2360667A" d="M6 7L0 0h12L6 7z"/></svg>') !important;
+            background-repeat: no-repeat !important;
+            background-position: right 16px center !important;
+            padding-right: 40px !important;
+        }
+        
+        /* Stili per i campi del form */
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            font-family: var(--font-subtitle);
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            box-shadow: none;
+            margin-bottom: 8px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        .form-input:focus {
+            border-color: #60667A !important;
+            box-shadow: 0 0 0 1px rgba(96, 102, 122, 0.3) !important;
+            outline: none;
+        }
+        
+        .form-input:hover {
+            border-color: #d0d0d0;
+        }
+        
+        /* Stile per il textarea */
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Stile per il menu a tendina */
+        .form-select {
+            background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="12" height="7" viewBox="0 0 12 7" xmlns="http://www.w3.org/2000/svg"><path fill="%2360667A" d="M6 7L0 0h12L6 7z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+        
+        /* Stili specifici per i campi del form */
+        .contact-form-row .input,
+        .contact-form-row .w-select,
+        .contact-message-section .text-area,
+        .custom-select {
+            width: 100% !important;
+            padding: 12px 16px !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            background-color: #fff !important;
+            transition: all 0.3s ease !important;
+            font-family: var(--font-subtitle) !important;
+            font-size: 16px !important;
+            line-height: 1.5 !important;
+            color: #333 !important;
+            box-shadow: none !important;
+            margin-bottom: 8px !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+        }
+        
+        .contact-form-row .input:focus,
+        .contact-form-row .w-select:focus,
+        .contact-message-section .text-area:focus,
+        .input:focus,
+        .w-select:focus,
+        .text-area:focus,
+        .custom-select:focus {
+            border-color: #60667A !important;
+            box-shadow: 0 0 0 1px rgba(96, 102, 122, 0.3) !important;
+            outline: none !important;
+        }
+        
+        .contact-form-row .input:hover,
+        .contact-form-row .w-select:hover,
+        .contact-message-section .text-area:hover,
+        .input:hover,
+        .w-select:hover,
+        .text-area:hover,
+        .custom-select:hover {
+            border-color: #d0d0d0 !important;
+        }
+        
+        /* Stili per le etichette */
+        .field-label-2, .field-label-3, .field-label-4, 
+        .field-label-5, .field-label-6, .field-label-7 {
+            color: #60667A !important; 
+            font-family: var(--font-subtitle) !important;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
         /* FAQ background uniform */
         .section-14.faqs { background: #ffffff !important; }
+        
+        /* Stile per il pulsante Send Message */
+        .button-primary-2.large {
+            background-color: #572C57 !important;
+            opacity: 1 !important;
+            box-shadow: 0 0 0 2px #60667A !important;
+        }
+        
+        .button-primary-2.large:hover {
+            background-color: #4a264a !important;
+            border-color: #d0d0d0 !important;
+        }
     </style>
 </head>
 
@@ -106,7 +384,7 @@
                     <div data-w-id="f2add429-da9e-1219-1a42-7736ad26f4ee" class="split-content contact-left">
                         <div class="subtitle-3">Contact Us</div>
                         <h1 class="heading-95">Let's work together</h1>
-                        <p class="paragraph-59 contact">Have a Web3 growth goal? Drop us a note—our strategists reply within 24 hours with quick, actionable next steps.</p>
+                        <p class="paragraph-59 contact">Drop us a note—our strategists reply within 24 hours with quick, actionable next steps.</p>
                         <div class="contact-information-title">Contact Information</div>
                         <div class="contact-information">
                             <a href="mailto:info@gretaiovene.com" class="contact-information-wrapper w-inline-block">
@@ -124,11 +402,11 @@
                                         <div class="contact-form-row">
                                             <div class="input-wrapper">
                                                 <label for="Name" class="field-label-2">Name</label>
-                                                <input class="input w-input" maxlength="256" name="Name" data-name="Name" placeholder="What's your name?" type="text" id="Name" required="">
+                                                <input class="form-input" maxlength="256" name="Name" data-name="Name" placeholder="What's your name?" type="text" id="Name" required="">
                                             </div>
                                             <div class="input-wrapper">
                                                 <label for="Email-3" class="field-label-3">Email Address</label>
-                                                <input class="input w-input" maxlength="256" name="Email" data-name="Email" placeholder="What's your email?" type="email" id="Email" required="">
+                                                <input class="form-input" maxlength="256" name="Email" data-name="Email" placeholder="What's your email?" type="email" id="Email" required="">
                                             </div>
                                         </div>
                                         
@@ -136,11 +414,11 @@
                                         <div class="contact-form-row">
                                             <div class="input-wrapper">
                                                 <label for="Company" class="field-label-4">Company Name</label>
-                                                <input class="input w-input" maxlength="256" name="Company" data-name="Company" placeholder="What's your company name?" type="text" id="Company" required="">
+                                                <input class="form-input" maxlength="256" name="Company" data-name="Company" placeholder="What's your company name?" type="text" id="Company" required="">
                                             </div>
                                             <div class="input-wrapper">
                                                 <label for="Budget" class="field-label-5">Budget</label>
-                                                <select id="Budget-Selection" name="Budget-Selection" data-name="Budget Selection" required="" class="input arrow w-select">
+                                                <select id="Budget-Selection" name="Budget-Selection" data-name="Budget Selection" required="" class="form-input form-select">
                                                     <option value="">Select one...</option>
                                                     <option value="Less than €500">Less than €500</option>
                                                     <option value="€500 – €1.000">€500 – €1.000</option>
@@ -157,37 +435,27 @@
                                             <div class="input-wrapper">
                                                 <label for="Company-2" class="field-label-6">Services you are interested in:</label>
                 <div class="w-layout-grid contact-services-grid" style="color:inherit;">
-                                                    <label class="w-checkbox checkbox-wrapper">
-                                                        <div class="checkbox-content">
-                                                        <div class="checkbox-text" style="color:inherit;">Strategic & Digital Marketing</div>
-                                                        </div>
-                                                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
-                                                        <input type="checkbox" name="checkbox" id="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:0">
-                                                        <span class="checkbox-label w-form-label" for="checkbox"></span>
+                                                    <label class="checkbox-wrapper">
+                                                        <input type="checkbox" name="services[]" value="Strategic & Digital Marketing">
+                                                        <span class="checkmark"></span>
+                                                        <span class="checkbox-text">Strategic & Digital Marketing</span>
                                                     </label>
-                                                    <label class="w-checkbox checkbox-wrapper">
-                                                        <div class="checkbox-content">
-                                                        <div class="checkbox-text" style="color:inherit;">Innovation & Digitalization Leadership</div>
-                                                        </div>
-                                                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
-                                                        <input type="checkbox" name="checkbox-2" id="checkbox-2" data-name="Checkbox 2" style="opacity:0;position:absolute;z-index:0">
-                                                        <span class="checkbox-label w-form-label" for="checkbox-2"></span>
+                                                    <label class="checkbox-wrapper">
+                                                        <input type="checkbox" name="services[]" value="Innovation & Digitalization Leadership">
+                                                        <span class="checkmark"></span>
+                                                        <span class="checkbox-text">Innovation & Digitalization Leadership</span>
                                                     </label>
-                                                    <label class="w-checkbox checkbox-wrapper">
-                                                        <div class="checkbox-content">
-                                                        <div class="checkbox-text" style="color:inherit;">Project Management</div>
-                                                        </div>
-                                                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
-                                                        <input type="checkbox" name="Checkbox-3" id="Checkbox 3" data-name="Checkbox 3" style="opacity:0;position:absolute;z-index:0">
-                                                        <span for="Checkbox-3" class="checkbox-label w-form-label"></span>
-                                                    </label>
-                                                    <label class="w-checkbox checkbox-wrapper">
-                                                        <div class="checkbox-content">
-                                                        <div class="checkbox-text" style="color:inherit;">Event & Campaign Production</div>
-                                                        </div>
-                                                        <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div>
-                                                        <input type="checkbox" name="Checkbox-4" id="Checkbox 4" data-name="Checkbox 4" style="opacity:0;position:absolute;z-index:0">
-                                                        <span for="Checkbox-4" class="checkbox-label w-form-label"></span>
+                                                    <div class="checkbox-wrapper" style="display: flex; align-items: center;">
+                                                        <label style="display: flex; align-items: center; margin: 0; padding: 0; width: 100%;">
+                                                            <input type="checkbox" name="services[]" value="Project Management" style="position: absolute; opacity: 0;">
+                                                            <span class="checkmark" style="flex-shrink: 0;"></span>
+                                                            <span class="checkbox-text" style="margin-left: 12px; line-height: 1.2;">Project<br>Management</span>
+                                                        </label>
+                                                    </div>
+                                                    <label class="checkbox-wrapper">
+                                                        <input type="checkbox" name="services[]" value="Event & Campaign Production">
+                                                        <span class="checkmark"></span>
+                                                        <span class="checkbox-text">Event & Campaign Production</span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -197,7 +465,7 @@
                                         <div class="contact-message-section">
                                             <div class="input-wrapper">
                                                 <label for="Message" class="field-label-7">Message</label>
-                                                <textarea id="Message" name="Message" maxlength="5000" data-name="Message" placeholder="What can we help you with?" class="text-area w-input"></textarea>
+                                                <textarea id="Message" name="Message" maxlength="5000" data-name="Message" placeholder="What can we help you with?" class="form-input form-textarea"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -268,46 +536,28 @@
                     </div>
                     <div class="card-10 faq">
                         <div class="faq-title-wrapper">
-                            <h3 class="title faq">4. How do you source and vet influencers for campaigns?</h3>
+                            <h3 class="title faq">4. How do you build teams, partnerships, or talent selections for a project?</h3>
                             <div class="dropdown-button">
                                 <img src="images/Icon.svg" loading="lazy" alt="" class="up">
                             </div>
                         </div>
                         <div class="faq-content">
                             <div class="space faq"></div>
-                            <p class="paragraph-62">We have an extensive network of vetted influencers and KOLs across various industries. Our selection process focuses on authenticity, engagement quality, and alignment with your brand values and target audience.</p>
+                            <p class="paragraph-62">Through a process based on alignment, identity, and relevance. <br>I don’t use databases or automated tools: I select creators, speakers, partners, and suppliers manually, based on aesthetics, values, reliability, and strategic fit. <br>The goal is not to “fill roles”, but to build the right ecosystem around each project.</p>
                         </div>
                     </div>
                     <div class="card-10 faq">
                         <div class="faq-title-wrapper">
-                            <h3 class="title faq">5. How quickly can we kick off a campaign and what does onboarding look like?</h3>
+                            <h3 class="title faq">5. What does onboarding look like and how fast can we start?</h3>
                             <div class="dropdown-button">
                                 <img src="images/Icon.svg" loading="lazy" alt="" class="up">
                             </div>
                         </div>
                         <div class="faq-content">
                             <div class="space faq"></div>
-                            <p class="paragraph-62">We can typically start a campaign within 1-2 weeks after initial consultation. Our onboarding process includes strategy development, timeline planning, and team alignment to ensure smooth execution from day one.</p>
+                            <p class="paragraph-62">Onboarding begins with a short alignment session to understand goals, timelines and critical points. <br>From there, I define the structure, the workflow and the resources needed. <br>Depending on the complexity, I can start within a few days for operational support, or within a couple of weeks for structured, multi-layer projects involving several teams or partners.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Follow Section -->
-        <section class="section-15 follow">
-            <div class="container-small-540px text-center w-container">
-                <div class="subtitle-5">Follow Us</div>
-                <h2 class="heading-97">Follow us for great content on growth marketing</h2>
-                <div class="w-layout-grid follow-grid">
-                    <a href="https://www.instagram.com/gretacantjudgeyou/" target="_blank" class="follow-social-media-wrapper instagram w-inline-block">
-                        <img alt="Instagram" src="images/icon-social-media-full-color-03-growth-template.svg" class="image-233 follow-social-media">
-                    </a>
-                    <a href="https://www.linkedin.com/in/greta-iovene" target="_blank" class="follow-social-media-wrapper linkedin w-inline-block">
-                        <img alt="LinkedIn" src="images/icon-social-media-full-color-04-growth-template.svg" class="image-233 follow-social-media">
-                    </a>
-                </div>
-            </div>
         </section>
 
         <!-- Footer -->
